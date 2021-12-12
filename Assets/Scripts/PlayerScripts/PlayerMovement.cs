@@ -73,7 +73,8 @@ public class PlayerMovement : MonoBehaviour
     public void MoveCharachter(float input)
     {
         animator.SetBool("isWalk",true);
-        rb.AddForce(new Vector2(input*moveSpeed*Time.deltaTime,0));
+        //rb.AddForce(new Vector2(input*moveSpeed*Time.deltaTime,0));
+        transform.position+=new Vector3(input*moveSpeed*Time.deltaTime,0,0);
     }
     IEnumerator Shoot()
     {
