@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class Bubble : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
-    [SerializeField] private float limitSpeed;
+    [SerializeField] private float limitSpeedX;
+    [SerializeField] private float limitSpeedY;
     [SerializeField] private float startForce;
 
     [SerializeField] private GameObject bubble = null;
@@ -14,17 +15,19 @@ public class Bubble : MonoBehaviour
     private Vector2 startDirection = Vector2.one;
     [SerializeField] private float angle;
     [SerializeField] private bool calculateStartAngle;
-
+    [SerializeField] private bool applyForce;
+    
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        ApplyStartForce(startDirection.normalized);
+        if(applyForce)
+            ApplyStartForce(startDirection.normalized);
     }
 
     void Update()
     {
-        rigidbody.velocity = new Vector2(rigidbody.velocity.x > limitSpeed ? limitSpeed : rigidbody.velocity.x,
-            rigidbody.velocity.y > limitSpeed ? limitSpeed : rigidbody.velocity.y);
+        rigidbody.velocity = new Vector2(rigidbody.velocity.x > limitSpeedX ? limitSpeedX : rigidbody.velocity.x,
+            rigidbody.velocity.y > limitSpeedY ? limitSpeedY : rigidbody.velocity.y);
         if (Input.GetKeyDown(KeyCode.Space) && bubble != null)
         {
             DestroyBubble();
