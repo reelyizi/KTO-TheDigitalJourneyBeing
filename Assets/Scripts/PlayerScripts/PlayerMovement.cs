@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator=GetComponent<animator>();
+        animator=GetComponent<Animator>();
         canWalk=true;canShoot=true;
         ScreenWidth=Screen.width;
         rb=GetComponent<Rigidbody2D>();
@@ -44,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
             }
             ++i;
         }
+        if(Input.touchCount==0)
+        {
+            animator.SetBool("isWalk",false);
+        }
         if(Input.touchCount>=2)
         {
             if(canShoot)
@@ -60,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
         }
         #if UNITY_EDITOR
         MoveCharachter(Input.GetAxis("Horizontal"));
+        if(Input.GetAxis("Horizontal")==0)
+        {
+            animator.SetBool("isWalk",false);
+        }
         #endif
     }
     public void MoveCharachter(float input)
