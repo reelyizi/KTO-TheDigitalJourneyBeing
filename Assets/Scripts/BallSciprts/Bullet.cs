@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float speed = 5f;
 
-    // Start is called before the first frame update
+    public GameObject scoreText;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,7 +36,9 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Bubble"))
         {
             Destroy(this.gameObject);
-            GameManager.score += 10;
+            GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("UI").transform);
+            obj.GetComponent<BubbleScoreText>().SetText(other.gameObject.GetComponent<Bubble>().score);
+            GameManager.score += other.gameObject.GetComponent<Bubble>().score;
             other.gameObject.GetComponent<Bubble>().DestroyBubble();
         }
     }

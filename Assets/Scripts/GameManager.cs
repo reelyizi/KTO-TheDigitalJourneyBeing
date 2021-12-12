@@ -7,13 +7,20 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static int score=0;
-    public float levelTime = 180;
+    public float levelTime = float.MaxValue;
     private float startTime;
     public TextMeshProUGUI text,scoreText;
     public GameObject totalBubble;
+    [Range(1, 999)] public float maxSpawnRate;
+    [Range(1, 999)] public float minSpawnRate;
+
+    public Transform A, B;
+    public GameObject bigBubble;
+    float timer;
     void Start()
     {
         startTime = Time.time;
+        timer = Random.Range(minSpawnRate, maxSpawnRate);
     }
 
     // Update is called once per frame
@@ -21,11 +28,18 @@ public class GameManager : MonoBehaviour
     {
         float timerControl = Time.time - startTime;
         //levelTime = (int)Time.time / 60;
-        text.text = (levelTime - (int)timerControl % levelTime).ToString();
-        scoreText.text=score.ToString();
+        text.text = ((int)timerControl).ToString();
+        scoreText.text = score.ToString();
         if(totalBubble.transform.childCount == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            timer = Random.Range(minSpawnRate, maxSpawnRate);
+            GameObject obj = Instantiate(bigBubble, new Vector2(Random.Range(A.position.x, B.position.x), A.position.y), Quaternion.identity, GameObject.Find("Bubble").transform);
+            obj.GetComponent<Bubble>().applyForce = true;
         }
     }
 }

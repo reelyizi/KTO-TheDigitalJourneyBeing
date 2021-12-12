@@ -15,8 +15,9 @@ public class Bubble : MonoBehaviour
     private Vector2 startDirection = Vector2.one;
     [SerializeField] private float angle;
     [SerializeField] private bool calculateStartAngle;
-    [SerializeField] private bool applyForce;
-    
+    public int score = 10;
+    public bool applyForce;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -42,7 +43,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
-            bubbleObject.GetComponent<Rigidbody2D>().velocity =  rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity;
+            bubbleObject.GetComponent<Rigidbody2D>().velocity = (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
@@ -64,7 +65,10 @@ public class Bubble : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag == "Ground")
+        {
+            rigidbody.velocity = Vector2.up * limitSpeedY;
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.score = 0;
