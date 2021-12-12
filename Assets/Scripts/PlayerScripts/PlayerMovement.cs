@@ -47,14 +47,18 @@ public class PlayerMovement : MonoBehaviour
         if(Input.touchCount==0)
         {
             animator.SetBool("isWalk",false);
+            isWalk=false;
         }
         if(Input.touchCount>=2)
         {
+            canWalk=false;
             if(canShoot)
-            {
-                //StartCoroutine(Shoot());
-            }
+                StartCoroutine(Shoot_());
         }
+        
+        
+
+        #if UNITY_EDITOR
         if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {   
             canWalk=false;
@@ -62,12 +66,10 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Shoot_());
             //StartCoroutine(Shoot());
         }
-        #if UNITY_EDITOR
         if(canWalk)
         {
             MoveCharachter(Input.GetAxis("Horizontal"));
         }
-        
         if(!Input.anyKey)
         {
             animator.SetBool("isWalk",false);
@@ -79,29 +81,8 @@ public class PlayerMovement : MonoBehaviour
     {
         isWalk=true;
         animator.SetBool("isWalk",true);
-        //rb.AddForce(new Vector2(input*moveSpeed*Time.deltaTime,0));
         transform.position+=new Vector3(input*moveSpeed*Time.deltaTime,0,0);
     }
-    /*IEnumerator Shoot()
-    {
-        animator.SetBool("isShoot",true);
-        canWalk=false;
-        canShoot=false;
-        Vector2 temp=transform.position;
-        temp.y+=1;
-    
-        //mekanik instantiate vs 
-        Instantiate(bullet,temp,Quaternion.identity);
-        yield return new WaitForSeconds(0.05f);
-        temp.x+=0.3f;
-        Instantiate(bullet,temp,Quaternion.identity);
-        yield return new WaitForSeconds(0.05f);
-        canShoot=true;
-        yield return new WaitForSeconds(0.2f);
-        canWalk=true;
-        animator.SetBool("isShoot",false); 
-        
-    }*/
     IEnumerator Shoot_()
     {
         animator.SetBool("isShoot",true);
