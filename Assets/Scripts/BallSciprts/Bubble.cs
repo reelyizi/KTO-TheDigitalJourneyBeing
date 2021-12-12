@@ -22,6 +22,8 @@ public class Bubble : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         if(applyForce)
             ApplyStartForce(startDirection.normalized);
+
+        //rigidbody.velocity = new Vector2(limitSpeedX, limitSpeedY) * startDirection.normalized;
     }
 
     void Update()
@@ -40,7 +42,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
-            bubbleObject.GetComponent<Rigidbody2D>().velocity = rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity;
+            bubbleObject.GetComponent<Rigidbody2D>().velocity =  rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity;
             bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
