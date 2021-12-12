@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject bullet;
     private float ScreenWidth;
-    private bool canWalk;
+    private bool canWalk,isWalk=false;
     private bool canShoot;
     Animator animator;
     // Start is called before the first frame update
@@ -52,17 +52,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if(canShoot)
             {
-                StartCoroutine(Shoot());
-            }
-        }
-        if(Input.GetMouseButtonDown(0))
-        {   
-            
-            if(canShoot)
-            {
-                Shoot_();
                 //StartCoroutine(Shoot());
             }
+        }
+        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {   
+            canWalk=false;
+            if(canShoot)
+                StartCoroutine(Shoot_());
+            //StartCoroutine(Shoot());
         }
         #if UNITY_EDITOR
         if(canWalk)
@@ -73,16 +71,18 @@ public class PlayerMovement : MonoBehaviour
         if(!Input.anyKey)
         {
             animator.SetBool("isWalk",false);
+            isWalk=false;
         }
         #endif
     }
     public void MoveCharachter(float input)
     {
+        isWalk=true;
         animator.SetBool("isWalk",true);
         //rb.AddForce(new Vector2(input*moveSpeed*Time.deltaTime,0));
         transform.position+=new Vector3(input*moveSpeed*Time.deltaTime,0,0);
     }
-    IEnumerator Shoot()
+    /*IEnumerator Shoot()
     {
         animator.SetBool("isShoot",true);
         canWalk=false;
@@ -101,8 +101,8 @@ public class PlayerMovement : MonoBehaviour
         canWalk=true;
         animator.SetBool("isShoot",false); 
         
-    }
-    void Shoot_()
+    }*/
+    IEnumerator Shoot_()
     {
         animator.SetBool("isShoot",true);
         canWalk=false;
@@ -111,13 +111,13 @@ public class PlayerMovement : MonoBehaviour
         temp.y+=1;
         //mekanik instantiate vs 
         Instantiate(bullet,temp,Quaternion.identity);
-        Invoke(nameof(AnimControl),0.1f);
-    }
-    void AnimControl()
-    {
+        yield return new WaitForSeconds(0.05f);
+        Instantiate(bullet,temp,Quaternion.identity);
+        yield return new WaitForSeconds(0.05f);
+        Instantiate(bullet,temp,Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
         canShoot=true;
         canWalk=true;
-        
         animator.SetBool("isShoot",false); 
     }
 }
