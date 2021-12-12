@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator Shoot()
     {
+        animator.SetBool("isShoot",true);
         canWalk=false;
         canShoot=false;
         Vector2 temp=transform.position;
@@ -89,8 +90,10 @@ public class PlayerMovement : MonoBehaviour
         Instantiate(bullet,temp,Quaternion.identity);
         yield return new WaitForSeconds(0.1f);
         canShoot=true;
+        
         yield return new WaitForSeconds(0.3f);
         canWalk=true;
+        animator.SetBool("isShoot",false); 
         
     }
 }
