@@ -40,11 +40,11 @@ public class Bubble : MonoBehaviour
         {
             GameObject bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
-            bubbleObject.GetComponent<Rigidbody2D>().velocity = rigidbody.velocity;
+            bubbleObject.GetComponent<Rigidbody2D>().velocity = rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity;
             bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
-            Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.right) * -rigidbody.velocity;
-            findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;
+            Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
+            //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
 
             Destroy(this.gameObject);
@@ -75,9 +75,10 @@ public class Bubble : MonoBehaviour
         if (rigidbody != null)
         {
             Gizmos.color = Color.magenta;
-            Vector3 t = Quaternion.AngleAxis(180, Vector3.right) * -rigidbody.velocity.normalized * 1;
-            t = Quaternion.AngleAxis(0, Vector3.up) * t;
-            Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + (rigidbody.velocity.normalized * 1));
+            
+            Vector3 t = rigidbody.velocity.y > 0 ? rigidbody.velocity.normalized : -rigidbody.velocity.normalized;
+            t = Quaternion.AngleAxis(180, Vector3.up) * t;
+            Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + (rigidbody.velocity.y > 0 ? rigidbody.velocity.normalized : -rigidbody.velocity.normalized));
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + (new Vector2(t.x, t.y)));
         }
