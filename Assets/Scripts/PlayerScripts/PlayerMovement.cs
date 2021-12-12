@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed=10;
+    public float moveSpeed=10,mobilemoveSpeed=150;
     private Rigidbody2D rb;
     public GameObject bullet;
     private float ScreenWidth;
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
                 //move right
                 if(canWalk)
                 {
-                    MoveCharachter(1);
+                    MoveCharachter(1,mobilemoveSpeed);
                 }
 
             }
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
                 //move left
                 if(canWalk)
                 {
-                    MoveCharachter(-1);
+                    MoveCharachter(-1,mobilemoveSpeed);
                 }
             }
             ++i;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(canWalk)
         {
-            MoveCharachter(Input.GetAxis("Horizontal"));
+            MoveCharachter(Input.GetAxis("Horizontal"),moveSpeed);
         }
         if(!Input.anyKey)
         {
@@ -77,11 +77,11 @@ public class PlayerMovement : MonoBehaviour
         }
         #endif
     }
-    public void MoveCharachter(float input)
+    public void MoveCharachter(float input,float speed)
     {
         isWalk=true;
         animator.SetBool("isWalk",true);
-        transform.position+=new Vector3(input*moveSpeed*Time.deltaTime,0,0);
+        transform.position+=new Vector3(input*speed*Time.deltaTime,0,0);
     }
     IEnumerator Shoot_()
     {
