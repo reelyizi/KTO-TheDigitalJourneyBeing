@@ -56,10 +56,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         if(Input.GetMouseButtonDown(0))
-        {
+        {   
+            
             if(canShoot)
             {
-                StartCoroutine(Shoot());
+                Shoot_();
+                //StartCoroutine(Shoot());
             }
         }
         #if UNITY_EDITOR
@@ -99,5 +101,23 @@ public class PlayerMovement : MonoBehaviour
         canWalk=true;
         animator.SetBool("isShoot",false); 
         
+    }
+    void Shoot_()
+    {
+        animator.SetBool("isShoot",true);
+        canWalk=false;
+        canShoot=false;
+        Vector2 temp=transform.position;
+        temp.y+=1;
+        //mekanik instantiate vs 
+        Instantiate(bullet,temp,Quaternion.identity);
+        Invoke(nameof(AnimControl),0.1f);
+    }
+    void AnimControl()
+    {
+        canShoot=true;
+        canWalk=true;
+        
+        animator.SetBool("isShoot",false); 
     }
 }
