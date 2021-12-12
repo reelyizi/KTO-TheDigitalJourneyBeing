@@ -10,9 +10,11 @@ public class PlayerMovement : MonoBehaviour
     private float ScreenWidth;
     private bool canWalk;
     private bool canShoot;
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator=GetComponent<animator>();
         canWalk=true;canShoot=true;
         ScreenWidth=Screen.width;
         rb=GetComponent<Rigidbody2D>();
@@ -62,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void MoveCharachter(float input)
     {
+        animator.SetBool("isWalk",true);
         rb.AddForce(new Vector2(input*moveSpeed*Time.deltaTime,0));
     }
     IEnumerator Shoot()
