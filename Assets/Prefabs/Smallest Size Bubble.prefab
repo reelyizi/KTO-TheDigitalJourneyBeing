@@ -134,8 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551ae686e59ee2c4b8e988bd8ab1d039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitSpeed: 9
+  limitSpeedX: 7.5
+  limitSpeedY: 12
   startForce: 200
   bubble: {fileID: 0}
   angle: 0
   calculateStartAngle: 0
+  applyForce: 0
