@@ -35,6 +35,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Bubble"))
         {
             Destroy(this.gameObject);
+            GameManager.score += 10;
             other.gameObject.GetComponent<Bubble>().DestroyBubble();
         }
     }

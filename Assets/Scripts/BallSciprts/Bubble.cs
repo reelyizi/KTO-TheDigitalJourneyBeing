@@ -62,6 +62,7 @@ public class Bubble : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameManager.score = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
@@ -70,10 +71,11 @@ public class Bubble : MonoBehaviour
     {
         if (rigidbody != null)
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.magenta;
             Vector3 t = Quaternion.AngleAxis(180, Vector3.right) * -rigidbody.velocity.normalized * 1;
             t = Quaternion.AngleAxis(0, Vector3.up) * t;
             Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + (rigidbody.velocity.normalized * 1));
+            Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + (new Vector2(t.x, t.y)));
         }
 
