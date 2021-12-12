@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         }
         #if UNITY_EDITOR
         MoveCharachter(Input.GetAxis("Horizontal"));
-        if(Input.GetAxis("Horizontal")==0)
+        if(!Input.anyKey)
         {
             animator.SetBool("isWalk",false);
         }
