@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -316,6 +317,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      tile_1hour__1: 9087461643315113997
+      tile_1hour__5: 4264892342237410294
+      tile_1hour__2: 1309310490731870141
+      tile_1hour__3: -700888386398206021
+      tile_1hour__4: 8206129216932758858
+      tile_1hour__6: 3261290710376462147
+      tile_1hour__0: 2631119673973030936
+      tile_1hour__7: 5439718247903930716
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
