@@ -12,7 +12,7 @@ public class Bubble : MonoBehaviour
 
     [SerializeField] private GameObject bubble = null;
 
-    private Vector2 startDirection = Vector2.one;
+    [SerializeField] private Vector2 startDirection = Vector2.one;
     [SerializeField] private float angle;
     [SerializeField] private bool calculateStartAngle;
     public int score = 10;

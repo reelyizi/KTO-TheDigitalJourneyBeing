@@ -1,13 +1,5 @@
 {
   "dependencies": {
-    "com.lootlocker.lootlockersdk": {
-      "version": "file:C:/Users/dnbse/Downloads/Compressed/unity-sdk-master/unity-sdk-master",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.0"
-      }
-    },
     "com.unity.2d.animation": {
       "version": "7.0.1",
       "depth": 0,

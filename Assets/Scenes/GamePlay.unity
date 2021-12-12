@@ -1019,11 +1019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06000018
+      value: 0.18999958
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8351195
+      value: 3.0851195
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1065,6 +1065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Size Bubble (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: angle
       value: -10
@@ -1088,6 +1092,10 @@ PrefabInstance:
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: limitSpeedY
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: startDirection.x
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: calculateStartAngle
@@ -2386,7 +2394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.940001
+      value: 8.440001
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2432,6 +2440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Size Bubble (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: angle
       value: -10
@@ -2475,7 +2487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.69
+      value: 5.19
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2520,6 +2532,10 @@ PrefabInstance:
     - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_Name
       value: Big Size Bubble (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: angle
@@ -7277,11 +7293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.56
+      value: -3.06
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8351195
+      value: 3.0851195
       objectReference: {fileID: 0}
     - target: {fileID: 674045327648163507, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7323,6 +7339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Size Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: angle
       value: -10
@@ -7346,6 +7366,14 @@ PrefabInstance:
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: limitSpeedY
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: startDirection.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: startDirection.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: calculateStartAngle
