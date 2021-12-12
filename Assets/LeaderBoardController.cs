@@ -14,7 +14,7 @@ public class LeaderBoardController : MonoBehaviour
     
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         entryTemplate.gameObject.SetActive(false);
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
@@ -27,9 +27,9 @@ public class LeaderBoardController : MonoBehaviour
             AddHighscoreEntry(10, "Batuhan");
             AddHighscoreEntry(10, "Bora");
             AddHighscoreEntry(10, "Can");
-            AddHighscoreEntry(10, "Çağatay");
-            AddHighscoreEntry(10, "Oğuz");
-            AddHighscoreEntry(10, "Şahin");
+            AddHighscoreEntry(10, "Cagatay");
+            AddHighscoreEntry(10, "Oguz");
+            AddHighscoreEntry(10, "Sahin");
             AddHighscoreEntry(10, "Ahmet");
             AddHighscoreEntry(10, "Veli");
             // Reload
