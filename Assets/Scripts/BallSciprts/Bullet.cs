@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
         {
             AudioManager.instance.AudioPlay("Hit");
             Destroy(this.gameObject);
-            GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("UI").transform);
+            GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Holder").transform);
             obj.GetComponent<BubbleScoreText>().SetText(other.gameObject.GetComponent<Bubble>().score);
             GameManager.score += other.gameObject.GetComponent<Bubble>().score;
             other.gameObject.GetComponent<Bubble>().DestroyBubble();

@@ -10,6 +10,7 @@ public class PlayerChildTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Bubble"))
         {
             group.SetActive(true);
+            GameObject.Find("Holder").SetActive(false);
             GameManager._instance.enabled = false;
         }        
     }
