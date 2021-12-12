@@ -69,11 +69,6 @@ public class Bubble : MonoBehaviour
         {
             rigidbody.velocity = Vector2.up * limitSpeedY;
         }
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            GameManager.score = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 
     private void OnDrawGizmos()

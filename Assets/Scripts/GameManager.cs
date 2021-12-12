@@ -6,7 +6,16 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager _instance;
+    private void Awake()
+    {
+        if(_instance == null)
+        {
+            _instance = this;
+        }
+    }
     public static int score=0;
+    public static float timerControl = 0;
     public float levelTime = float.MaxValue;
     private float startTime;
     public TextMeshProUGUI text,scoreText;
@@ -26,7 +35,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float timerControl = Time.time - startTime;
+        timerControl = Time.time - startTime;
         //levelTime = (int)Time.time / 60;
         text.text = ((int)timerControl).ToString();
         scoreText.text = score.ToString();
