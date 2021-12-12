@@ -9,17 +9,17 @@ public class GameManager : MonoBehaviour
     public static GameManager _instance;
     private void Awake()
     {
-        if(_instance == null)
+        /*if(_instance == null)
         {
             _instance = this;
-        }
+        }*/
     }
     public static int score=0;
     public static float timerControl = 0;
     public float levelTime = float.MaxValue;
     private float startTime;
     public TextMeshProUGUI text,scoreText;
-    public GameObject totalBubble;
+    public GameObject totalBubble,group;
     [Range(1, 999)] public float maxSpawnRate;
     [Range(1, 999)] public float minSpawnRate;
 
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     float timer;
     void Start()
     {
+        group.SetActive(false);
         startTime = Time.time;
         timer = Random.Range(minSpawnRate, maxSpawnRate);
     }
