@@ -63,7 +63,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         #if UNITY_EDITOR
-        MoveCharachter(Input.GetAxis("Horizontal"));
+        if(canWalk)
+        {
+            MoveCharachter(Input.GetAxis("Horizontal"));
+        }
+        
         if(!Input.anyKey)
         {
             animator.SetBool("isWalk",false);
@@ -91,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
         Instantiate(bullet,temp,Quaternion.identity);
         yield return new WaitForSeconds(0.1f);
         canShoot=true;
-        
         yield return new WaitForSeconds(0.3f);
         canWalk=true;
         animator.SetBool("isShoot",false); 
