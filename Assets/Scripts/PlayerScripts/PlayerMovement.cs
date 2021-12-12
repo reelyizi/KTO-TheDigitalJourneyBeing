@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_EDITOR
         if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         { 
-        AudioManager.instance.AudioPlay("Fire");
+
             canWalk=false;
             if(canShoot)
                 StartCoroutine(Shoot_());
@@ -86,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator Shoot_()
     {
+        AudioManager.instance.AudioPlay("Fire");
         animator.SetBool("isShoot",true);
         canWalk=false;
         canShoot=false;

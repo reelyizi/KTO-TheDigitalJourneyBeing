@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager _instance;
     private void Awake()
     {
-        /*if(_instance == null)
+        if(_instance == null)
         {
             _instance = this;
-        }*/
+        }
     }
     public static int score=0;
     public static float timerControl = 0;
