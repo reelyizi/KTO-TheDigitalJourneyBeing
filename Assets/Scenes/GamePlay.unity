@@ -148,12 +148,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39879384}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 7.2660007, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 7
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &39879386
 BoxCollider2D:
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 49777466}
   m_Layer: 0
   m_Name: tile_1hour__1 (19)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 89700945}
   m_Layer: 0
   m_Name: tile_1hour__1 (16)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 95540372}
   m_Layer: 0
   m_Name: tile_1hour__1 (29)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -584,12 +584,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180485900}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -8.66, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 13
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &180485902
 BoxCollider2D:
@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 196888263}
   m_Layer: 0
   m_Name: tile_1hour__1 (18)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 219133141}
   m_Layer: 0
   m_Name: tile_1hour__1 (20)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -911,12 +911,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221678020}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -11.848, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 11
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &221678022
 BoxCollider2D:
@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 226944932}
   m_Layer: 0
   m_Name: tile_1hour__1 (31)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1142,7 +1142,7 @@ Transform:
   - {fileID: 842040996}
   - {fileID: 1503096898}
   m_Father: {fileID: 804046045}
-  m_RootOrder: 22
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &254988908
 GameObject:
@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 254988910}
   m_Layer: 0
   m_Name: tile_1hour__1 (17)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1278,12 +1278,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318167691}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 4.09, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 5
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &318167693
 BoxCollider2D:
@@ -1375,13 +1375,13 @@ GameObject:
   - component: {fileID: 339933418}
   m_Layer: 0
   m_Name: tile_1hour__0
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &339933418
-PolygonCollider2D:
+--- !u!61 &339933418
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1393,7 +1393,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.4017135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1403,14 +1403,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.79999995, y: 0.79999995}
-      - {x: -0.79999995, y: -0.79999995}
-      - {x: 0.02, y: -0.79999995}
-      - {x: 0.012663364, y: -0.012126923}
-      - {x: 0.79999995, y: -0.02}
-      - {x: 0.79999995, y: 0.79999995}
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 0.7965729}
+  m_EdgeRadius: 0
 --- !u!212 &339933419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1469,12 +1464,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339933417}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.14, y: 4.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
+  m_LocalPosition: {x: 8.77, y: -4.3199997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 1
+  m_Father: {fileID: 954955818}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &343299168
 GameObject:
@@ -1486,9 +1481,10 @@ GameObject:
   m_Component:
   - component: {fileID: 343299169}
   - component: {fileID: 343299170}
+  - component: {fileID: 343299171}
   m_Layer: 0
   m_Name: tile_1hour__2
-  m_TagString: Untagged
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1500,12 +1496,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343299168}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.09, y: 4.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
+  m_LocalPosition: {x: -7.46, y: -4.3199997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 0
+  m_Father: {fileID: 954955818}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &343299170
 SpriteRenderer:
@@ -1558,6 +1554,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &343299171
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343299168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4017135}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.6, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 0.7965729}
+  m_EdgeRadius: 0
 --- !u!1 &409282736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1593,7 @@ GameObject:
   - component: {fileID: 409282738}
   m_Layer: 0
   m_Name: tile_1hour__1 (19)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1763,7 +1785,7 @@ GameObject:
   - component: {fileID: 617753046}
   m_Layer: 0
   m_Name: tile_1hour__1 (18)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1872,7 +1894,7 @@ GameObject:
   - component: {fileID: 617929600}
   m_Layer: 0
   m_Name: tile_1hour__1 (20)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1981,7 +2003,7 @@ GameObject:
   - component: {fileID: 641314003}
   m_Layer: 0
   m_Name: tile_1hour__1 (19)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2102,12 +2124,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672029094}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 0.9020002, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 3
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &672029096
 BoxCollider2D:
@@ -2199,7 +2221,7 @@ GameObject:
   - component: {fileID: 743718672}
   m_Layer: 0
   m_Name: tile_1hour__1 (28)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2295,6 +2317,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &789279728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789279729}
+  m_Layer: 0
+  m_Name: Ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &789279729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789279728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1076452896}
+  - {fileID: 672029095}
+  - {fileID: 793377715}
+  - {fileID: 318167692}
+  - {fileID: 1549329828}
+  - {fileID: 39879385}
+  - {fileID: 1498682027}
+  - {fileID: 1653763726}
+  - {fileID: 1673196327}
+  - {fileID: 221678021}
+  - {fileID: 2061303829}
+  - {fileID: 180485901}
+  - {fileID: 1882890462}
+  - {fileID: 875364215}
+  - {fileID: 2100307384}
+  - {fileID: 1874741221}
+  - {fileID: 953539543}
+  - {fileID: 1799754612}
+  m_Father: {fileID: 804046045}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &793377714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,12 +2390,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793377714}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 2.4960003, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 4
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &793377716
 BoxCollider2D:
@@ -2431,29 +2501,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 343299169}
-  - {fileID: 339933420}
-  - {fileID: 1076452896}
-  - {fileID: 672029095}
-  - {fileID: 793377715}
-  - {fileID: 318167692}
-  - {fileID: 1549329828}
-  - {fileID: 39879385}
-  - {fileID: 1498682027}
-  - {fileID: 1653763726}
-  - {fileID: 1673196327}
-  - {fileID: 221678021}
-  - {fileID: 2061303829}
-  - {fileID: 180485901}
-  - {fileID: 1882890462}
-  - {fileID: 875364215}
-  - {fileID: 2100307384}
-  - {fileID: 1874741221}
-  - {fileID: 953539543}
-  - {fileID: 1799754612}
   - {fileID: 1495003078}
   - {fileID: 954955818}
   - {fileID: 242983394}
+  - {fileID: 789279729}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2470,7 +2521,7 @@ GameObject:
   - component: {fileID: 810109809}
   m_Layer: 0
   m_Name: tile_1hour__1 (31)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2579,7 +2630,7 @@ GameObject:
   - component: {fileID: 842040997}
   m_Layer: 0
   m_Name: tile_1hour__1 (30)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2700,12 +2751,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875364214}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -5.4839993, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 15
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &875364216
 BoxCollider2D:
@@ -2794,9 +2845,10 @@ GameObject:
   m_Component:
   - component: {fileID: 953539543}
   - component: {fileID: 953539544}
+  - component: {fileID: 953539545}
   m_Layer: 0
   m_Name: tile_1hour__7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2812,8 +2864,8 @@ Transform:
   m_LocalPosition: {x: 8.08, y: -4.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 18
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &953539544
 SpriteRenderer:
@@ -2866,6 +2918,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &953539545
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953539542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.41}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.6, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 0.7965729}
+  m_EdgeRadius: 0
 --- !u!1 &954955817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,8 +2981,10 @@ Transform:
   - {fileID: 1913669939}
   - {fileID: 1708719120}
   - {fileID: 810109808}
+  - {fileID: 343299169}
+  - {fileID: 339933420}
   m_Father: {fileID: 804046045}
-  m_RootOrder: 21
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &963383947
 GameObject:
@@ -2919,7 +2999,7 @@ GameObject:
   - component: {fileID: 963383949}
   m_Layer: 0
   m_Name: tile_1hour__1 (30)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3040,12 +3120,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076452895}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -0.6999998, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 2
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &1076452897
 BoxCollider2D:
@@ -3137,7 +3217,7 @@ GameObject:
   - component: {fileID: 1178401638}
   m_Layer: 0
   m_Name: tile_1hour__1 (16)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3246,7 +3326,7 @@ GameObject:
   - component: {fileID: 1201138309}
   m_Layer: 0
   m_Name: tile_1hour__1 (18)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3355,7 +3435,7 @@ GameObject:
   - component: {fileID: 1402425318}
   m_Layer: 0
   m_Name: tile_1hour__1 (21)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3489,7 +3569,7 @@ Transform:
   - {fileID: 963383948}
   - {fileID: 226944931}
   m_Father: {fileID: 804046045}
-  m_RootOrder: 20
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1498682026
 GameObject:
@@ -3516,12 +3596,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498682026}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 8.860001, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 8
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &1498682028
 BoxCollider2D:
@@ -3613,7 +3693,7 @@ GameObject:
   - component: {fileID: 1499262670}
   m_Layer: 0
   m_Name: tile_1hour__1 (21)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3722,7 +3802,7 @@ GameObject:
   - component: {fileID: 1503096899}
   m_Layer: 0
   m_Name: tile_1hour__1 (31)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3843,12 +3923,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549329827}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 5.6800003, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 6
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &1549329829
 BoxCollider2D:
@@ -3940,7 +4020,7 @@ GameObject:
   - component: {fileID: 1552299952}
   m_Layer: 0
   m_Name: tile_1hour__1 (17)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4049,7 +4129,7 @@ GameObject:
   - component: {fileID: 1596867073}
   m_Layer: 0
   m_Name: tile_1hour__1 (20)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4158,7 +4238,7 @@ GameObject:
   - component: {fileID: 1627114757}
   m_Layer: 0
   m_Name: tile_1hour__1 (16)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4279,12 +4359,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653763725}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 10.454, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 9
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &1653763727
 BoxCollider2D:
@@ -4376,7 +4456,7 @@ GameObject:
   - component: {fileID: 1661895506}
   m_Layer: 0
   m_Name: tile_1hour__1 (29)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4497,12 +4577,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673196326}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -13.45, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 10
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &1673196328
 BoxCollider2D:
@@ -4594,7 +4674,7 @@ GameObject:
   - component: {fileID: 1708719121}
   m_Layer: 0
   m_Name: tile_1hour__1 (30)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4703,7 +4783,7 @@ GameObject:
   - component: {fileID: 1757840498}
   m_Layer: 0
   m_Name: tile_1hour__1 (28)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4812,7 +4892,7 @@ GameObject:
   - component: {fileID: 1767290672}
   m_Layer: 0
   m_Name: tile_1hour__1 (28)
-  m_TagString: Ground
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4918,9 +4998,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1799754612}
   - component: {fileID: 1799754613}
+  - component: {fileID: 1799754614}
   m_Layer: 0
   m_Name: tile_1hour__5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4936,8 +5017,8 @@ Transform:
   m_LocalPosition: {x: -8.144, y: -4.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 19
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1799754613
 SpriteRenderer:
@@ -4990,6 +5071,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1799754614
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799754611}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.4072684}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.6, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 0.7854631}
+  m_EdgeRadius: 0
 --- !u!1 &1855271236
 GameObject:
   m_ObjectHideFlags: 0
@@ -5003,7 +5110,7 @@ GameObject:
   - component: {fileID: 1855271238}
   m_Layer: 0
   m_Name: tile_1hour__1 (17)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5124,12 +5231,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874741220}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -2.2959995, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 17
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &1874741222
 BoxCollider2D:
@@ -5233,12 +5340,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882890461}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -7.0699997, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 14
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &1882890463
 BoxCollider2D:
@@ -5330,7 +5437,7 @@ GameObject:
   - component: {fileID: 1913669940}
   m_Layer: 0
   m_Name: tile_1hour__1 (29)
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5439,7 +5546,7 @@ GameObject:
   - component: {fileID: 1978934755}
   m_Layer: 0
   m_Name: tile_1hour__1 (21)
-  m_TagString: Ground
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5560,12 +5667,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061303828}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -10.254, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 12
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &2061303830
 BoxCollider2D:
@@ -5669,12 +5776,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100307383}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -3.8899994, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 804046045}
-  m_RootOrder: 16
+  m_Father: {fileID: 789279729}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &2100307385
 BoxCollider2D:

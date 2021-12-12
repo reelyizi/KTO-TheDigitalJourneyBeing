@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Left Wall
+  - Right Wall
+  - Top
   layers:
   - Default
   - TransparentFX
