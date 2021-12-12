@@ -93,9 +93,9 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         temp.x+=0.3f;
         Instantiate(bullet,temp,Quaternion.identity);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         canShoot=true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         canWalk=true;
         animator.SetBool("isShoot",false); 
         
