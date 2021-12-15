@@ -8,21 +8,29 @@ using TMPro;
 using System;
 public class MenuPlayFabManager : MonoBehaviour
 {
-    public InputField nameInputDesktop;
-    public WebGLNativeInputField nameInputAndroid;
+    public InputField nameInput;
+    public Text nameInputText;
     public TextMeshProUGUI welcomeText;
     public static string currentName;
-    public GameObject nameWindow, uiWindow;
-    public bool isAndroid;
+    public GameObject nameWindow, uiWindow, startButton;
     void Awake()
     {
-        isAndroid = false;
         nameWindow.SetActive(false);
         uiWindow.SetActive(false);
         Login();
 
     }
-
+    void Update()
+    {
+        if (nameInputText.text == "")
+        {
+            startButton.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            startButton.GetComponent<Button>().interactable = true;
+        }
+    }
     void Login()
     {
         var request = new LoginWithCustomIDRequest
@@ -63,33 +71,16 @@ public class MenuPlayFabManager : MonoBehaviour
     }
     public void SubmitNameButton()
     {
-        if (!isAndroid)
+        var request = new UpdateUserTitleDisplayNameRequest
         {
-            var request = new UpdateUserTitleDisplayNameRequest
-            {
-                DisplayName = nameInputDesktop.text
-            };
-            PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
-            currentName = nameInputDesktop.text;
-            welcomeText.text = "Welcome " + currentName;
-            nameWindow.SetActive(false);
-            uiWindow.SetActive(true);
-            GameManager.isGameStart = true;
-        }
-        else
-        {
-            var request = new UpdateUserTitleDisplayNameRequest
-            {
-                DisplayName = nameInputAndroid.text
-            };
-            PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
-            currentName = nameInputAndroid.text;
-            welcomeText.text = "Welcome " + currentName;
-            nameWindow.SetActive(false);
-            uiWindow.SetActive(true);
-            GameManager.isGameStart = true;
-        }
-
+            DisplayName = nameInputText.text
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
+        currentName = nameInputText.text;
+        welcomeText.text = "Welcome " + currentName;
+        nameWindow.SetActive(false);
+        uiWindow.SetActive(true);
+        GameManager.isGameStart = true;
     }
     void OnDisplayNameUpdate(UpdateUserTitleDisplayNameResult result)
     {
@@ -104,21 +95,6 @@ public class MenuPlayFabManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
     }
-
-    public void forAndroid()
-    {
-        isAndroid = true;
-        nameInputAndroid.gameObject.SetActive(true);
-        nameInputDesktop.gameObject.SetActive(false);
-    }
-    public void forDesktop()
-    {
-        isAndroid = false;
-        nameInputAndroid.gameObject.SetActive(false);
-        nameInputDesktop.gameObject.SetActive(true);
-    }
-
-
     public static string DeviceUniqueIdentifier
     {
         get
