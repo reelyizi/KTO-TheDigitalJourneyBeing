@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameInput: {fileID: 1602406114}
-  nameInputText: {fileID: 0}
+  nameInputText: {fileID: 455732749}
   welcomeText: {fileID: 247020243}
   nameWindow: {fileID: 456334802}
   uiWindow: {fileID: 552203829}
