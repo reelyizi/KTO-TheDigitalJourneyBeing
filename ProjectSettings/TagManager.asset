@@ -10,6 +10,7 @@ TagManager:
   - Top
   - Bullet
   - Bubble
+  - Container
   layers:
   - Default
   - TransparentFX

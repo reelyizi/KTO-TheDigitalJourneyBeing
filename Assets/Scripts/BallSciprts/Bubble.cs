@@ -31,10 +31,6 @@ public class Bubble : MonoBehaviour
     {
         rigidbody.velocity = new Vector2(rigidbody.velocity.x > limitSpeedX ? limitSpeedX : rigidbody.velocity.x,
             rigidbody.velocity.y > limitSpeedY ? limitSpeedY : rigidbody.velocity.y);
-        if (Input.GetKeyDown(KeyCode.Space) && bubble != null)
-        {
-            DestroyBubble();
-        }
     }
 
     public void DestroyBubble()

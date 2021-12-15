@@ -57,9 +57,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-
-#if UNITY_EDITOR
-        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(1))
         { 
 
             canWalk=false;
@@ -67,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Shoot_());
             //StartCoroutine(Shoot());
         }
+
         if(canWalk)
         {
             MoveCharachter(Input.GetAxis("Horizontal"),moveSpeed);
@@ -76,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isWalk",false);
             isWalk=false;
         }
-#endif
     }
     public void MoveCharachter(float input,float speed)
     {
