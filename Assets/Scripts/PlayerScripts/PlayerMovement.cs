@@ -11,13 +11,24 @@ public class PlayerMovement : MonoBehaviour
     private bool canWalk,isWalk=false;
     private bool canShoot;
     Animator animator;
-    // Start is called before the first frame update
+
+    [HideInInspector] public bool armor;
+    [HideInInspector] public float invinsible;
+
     void Start()
     {
         animator=GetComponent<Animator>();
         canWalk=true;canShoot=true;
         ScreenWidth=Screen.width;
         rb=GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if(invinsible > 0)
+        {
+            invinsible -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()

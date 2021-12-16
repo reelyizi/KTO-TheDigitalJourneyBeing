@@ -626,6 +626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Size Bubble (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_AngularDrag
       value: 0
@@ -1252,7 +1256,7 @@ Transform:
   - {fileID: 1811272747}
   - {fileID: 1373955068}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &242983393
 GameObject:
@@ -1454,7 +1458,7 @@ PrefabInstance:
       objectReference: {fileID: 2096271392}
     - target: {fileID: 2504537691925626335, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2504537691925626335, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1502,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504537691925626337, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2504537691925626338, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: moveSpeed
@@ -1511,6 +1515,10 @@ PrefabInstance:
     - target: {fileID: 2504537691925626338, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: mobilemoveSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848577966226570806, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_Name
+      value: TriggerCollider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
@@ -2017,6 +2025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Size Bubble (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_AngularDrag
       value: 0
@@ -2109,6 +2121,10 @@ PrefabInstance:
     - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_Name
       value: Big Size Bubble (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_AngularDrag
@@ -3003,7 +3019,7 @@ Transform:
   - {fileID: 242983394}
   - {fileID: 789279729}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &810109807
 GameObject:
@@ -3728,7 +3744,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7683864198392249977, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7683864198392249977, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6672,7 +6688,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061303828
 GameObject:
@@ -6841,24 +6857,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2899719583517353148}
     - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
+      propertyPath: timescale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: totalBubble
       value: 
       objectReference: {fileID: 235018273}
+    - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
+      propertyPath: items.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 8072940552072602380, guid: 80f9b2c74f93c00408278441fc80b3c4, type: 3}
+    - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 8072940552072602380, guid: 2d5a2a549fcbf7c4bb223dcf62177a4d, type: 3}
+    - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
+      propertyPath: numberOfChanceToGetItem
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5807141676420893031, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5807141676420893031, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 966.9887
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5807141676420893031, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 535.0781
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5807141676420893031, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.834152
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5807141676420893031, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7070,6 +7106,10 @@ PrefabInstance:
     - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_Name
       value: Big Size Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8323648374351766907, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: m_AngularDrag
@@ -7523,7 +7563,7 @@ RectTransform:
   - {fileID: 5678603957804716434}
   - {fileID: 8554794779731603242}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

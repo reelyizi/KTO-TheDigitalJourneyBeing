@@ -10,18 +10,49 @@ public class PlayerChildTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bubble"))
         {
-            AudioManager.instance.AudioPlay("Dead");
-            Time.timeScale=0f;
-            if(GameManager.score>GameManager.highScore)
+            PlayerMovement playerMovement = transform.parent.GetComponent<PlayerMovement>();
+            if (!playerMovement.armor && playerMovement.invinsible <= 0)
             {
-                PlayerPrefs.SetInt("HighScore",GameManager.score);
-                playFabManager.SendLeaderboard(GameManager.score);
+                AudioManager.instance.AudioPlay("Dead");
+                Time.timeScale = 0f;
+                if (GameManager.score > GameManager.highScore)
+                {
+                    PlayerPrefs.SetInt("HighScore", GameManager.score);
+                    playFabManager.SendLeaderboard(GameManager.score);
+                }
+                playFabManager.GetLeaderBoard();
+                holder.SetActive(false);
+                group.SetActive(true);
+                GameManager._instance.enabled = false;
             }
-            playFabManager.GetLeaderBoard();
-            holder.SetActive(false);
-            group.SetActive(true);
-            GameManager._instance.enabled = false;
-            
-        }        
+            else
+                playerMovement.armor = false;
+        }
+        else
+        {
+            CheckItems(collision);
+        }
+    }
+
+    private void CheckItems(Collider2D collision)
+    {
+        if(collision.name == "Grenade")
+        {
+            Destroy(collision.gameObject);
+            for (int i = 0; i < GameObject.Find("Bubble").transform.childCount; i++)
+            {
+                GameObject.Find("Bubble").transform.GetChild(i).GetComponent<Bubble>().DestroyBubble(true);
+            }            
+        }
+        else if(collision.name == "Armor")
+        {
+            Destroy(collision.gameObject);
+            transform.parent.GetComponent<PlayerMovement>().armor = true;
+        }
+        else if (collision.name == "Invinsible")
+        {
+            Destroy(collision.gameObject);
+            transform.parent.GetComponent<PlayerMovement>().invinsible = 3f;
+        }
     }
 }

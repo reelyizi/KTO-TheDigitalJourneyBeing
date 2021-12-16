@@ -18,6 +18,8 @@ public class Bubble : MonoBehaviour
     public int score = 10;
     public bool applyForce;
 
+    [SerializeField] private float percintile = 5f;
+    public Vector2 velocity;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -29,11 +31,24 @@ public class Bubble : MonoBehaviour
 
     void Update()
     {
-        rigidbody.velocity = new Vector2(rigidbody.velocity.x > limitSpeedX ? limitSpeedX : rigidbody.velocity.x,
-            rigidbody.velocity.y > limitSpeedY ? limitSpeedY : rigidbody.velocity.y);
+        rigidbody.velocity = new Vector2((rigidbody.velocity.x > limitSpeedX ? limitSpeedX : rigidbody.velocity.x) * GameManager._instance.timescale,
+            (rigidbody.velocity.y > limitSpeedY ? limitSpeedY : rigidbody.velocity.y) * GameManager._instance.timescale);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            velocity = rigidbody.velocity;
+            rigidbody.gravityScale = 0;
+            rigidbody.velocity = Vector2.zero;
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            rigidbody.gravityScale = 1;
+            rigidbody.velocity = velocity;
+        }
+        
+
     }
 
-    public void DestroyBubble()
+    public void DestroyBubble(bool destroyByItem)
     {
         if(bubble != null)
         {
@@ -45,7 +60,8 @@ public class Bubble : MonoBehaviour
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
-
+            if(!destroyByItem)
+                GameManager._instance.TryToGetItems(percintile, transform.position);
             Destroy(this.gameObject);
         }
         else

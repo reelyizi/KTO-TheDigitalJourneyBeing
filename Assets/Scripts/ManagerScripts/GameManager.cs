@@ -25,9 +25,13 @@ public class GameManager : MonoBehaviour
 
     public Transform A, B;
     public GameObject bigBubble;
-    float timer;
+    [SerializeField] float timer;
     public static bool isGameStart=false;
     public static int highScore;
+    public float timescale;
+
+    [SerializeField] float numberOfChanceToGetItem;
+    [SerializeField] List<GameObject> items;
 
     void Start()
     {
@@ -64,5 +68,19 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void TryToGetItems(float percentile, Vector3 bubblePos)
+    {
+        if(Random.Range(0,100) <= percentile)
+        {
+            SpawnItem(Random.Range(0, items.Count), bubblePos);
+        }
+    }
+
+    private void SpawnItem(int itemNumber, Vector3 bubblePos)
+    {
+        GameObject obj = Instantiate(items[itemNumber], bubblePos, Quaternion.identity);
+        obj.name = items[itemNumber].name;
     }
 }
