@@ -33,17 +33,17 @@ public class Bubble : MonoBehaviour
     {
         rigidbody.velocity = new Vector2((rigidbody.velocity.x > limitSpeedX ? limitSpeedX : rigidbody.velocity.x) * GameManager._instance.timescale,
             (rigidbody.velocity.y > limitSpeedY ? limitSpeedY : rigidbody.velocity.y) * GameManager._instance.timescale);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            velocity = rigidbody.velocity;
-            rigidbody.gravityScale = 0;
-            rigidbody.velocity = Vector2.zero;
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            rigidbody.gravityScale = 1;
-            rigidbody.velocity = velocity;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    velocity = rigidbody.velocity;
+        //    rigidbody.gravityScale = 0;
+        //    rigidbody.velocity = Vector2.zero;
+        //}
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    rigidbody.gravityScale = 1;
+        //    rigidbody.velocity = velocity;
+        //}
         
 
     }

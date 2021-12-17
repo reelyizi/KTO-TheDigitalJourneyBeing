@@ -6,9 +6,12 @@ public class PlayerChildTrigger : MonoBehaviour
 {
     public GameObject group,holder;
     public PlayFabManager playFabManager;
+
+    public GameObject energyShield;
+    public GameObject laserWeapon;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bubble"))
+        if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy)
         {
             PlayerMovement playerMovement = transform.parent.GetComponent<PlayerMovement>();
             if (!playerMovement.armor && playerMovement.invinsible <= 0)
@@ -53,6 +56,16 @@ public class PlayerChildTrigger : MonoBehaviour
         {
             Destroy(collision.gameObject);
             transform.parent.GetComponent<PlayerMovement>().invinsible = 3f;
+        }
+        else if (collision.name == "Energy Shield")
+        {
+            Destroy(collision.gameObject);
+            energyShield.SetActive(true);
+        }
+        else if (collision.name == "Laser Weapon")
+        {
+            Destroy(collision.gameObject);
+            laserWeapon.SetActive(true);
         }
     }
 }

@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(0, speed);
+        rb.velocity = transform.up * speed;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
