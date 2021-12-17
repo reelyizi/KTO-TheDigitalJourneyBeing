@@ -9,6 +9,8 @@ public class PlayerChildTrigger : MonoBehaviour
 
     public GameObject energyShield;
     public GameObject laserWeapon;
+
+    public float invinsibleDuration = 3f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy)
@@ -55,7 +57,7 @@ public class PlayerChildTrigger : MonoBehaviour
         else if (collision.name == "Invinsible")
         {
             Destroy(collision.gameObject);
-            transform.parent.GetComponent<PlayerMovement>().invinsible = 3f;
+            transform.parent.GetComponent<PlayerMovement>().invinsible = invinsibleDuration;
         }
         else if (collision.name == "Energy Shield")
         {
