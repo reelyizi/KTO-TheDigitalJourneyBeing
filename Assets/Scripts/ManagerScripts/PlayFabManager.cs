@@ -10,10 +10,12 @@ public class PlayFabManager : MonoBehaviour
     
     public GameObject containerTemplate, Table;
     private string currentName;
+    private string playFabuserID;
     public Color32 yellow, blue;
     void Start()
     {
         currentName=MenuPlayFabManager.currentName;
+        playFabuserID=MenuPlayFabManager.playFabUserID;
     }
     void OnError(PlayFabError error)
     {
@@ -33,6 +35,7 @@ public class PlayFabManager : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnUpdate, OnError);
+        
     }
     void OnUpdate(UpdatePlayerStatisticsResult result)
     {
@@ -67,17 +70,37 @@ public class PlayFabManager : MonoBehaviour
                     newGo.tag = "Container";
                     newGo.SetActive(true);
                     TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
-                    if (currentName == result.Leaderboard[i].DisplayName)
+                    if (playFabuserID == result.Leaderboard[i].PlayFabId)
                     {
-                        texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
-                        Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue);
-                        texts.color = yellow;
+                        if (result.Leaderboard[i].DisplayName.Equals(null))
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
+                            texts.color = yellow;
+                        }
+                        else
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue);
+                            texts.color = yellow;
+                        }
+
                     }
                     else
                     {
-                        texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
-                        Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
-                        texts.color = blue;
+                        if (result.Leaderboard[i].DisplayName.Equals(null))
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
+                            texts.color = blue;
+                        }
+                        else
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
+                            texts.color = blue;
+                        }
+
                     }
                 }
                 else
