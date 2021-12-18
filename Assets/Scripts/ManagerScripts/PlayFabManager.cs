@@ -43,7 +43,6 @@ public class PlayFabManager : MonoBehaviour
     }
     public void GetLeaderBoardAroundPlayer()
     {
-
         var request = new GetLeaderboardAroundPlayerRequest
         {
             StatisticName = "Score",
