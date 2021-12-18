@@ -60,6 +60,7 @@ public class Bubble : MonoBehaviour
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;
             GameManager.score += score;
+            GameManager._instance.TryToGetItems(percintile, transform.position);
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
 
             Destroy(this.gameObject);

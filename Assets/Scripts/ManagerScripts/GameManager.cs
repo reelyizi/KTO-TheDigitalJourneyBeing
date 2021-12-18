@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     public static int highScore;
     public float timescale;
 
-    [SerializeField] float numberOfChanceToGetItem;
     [SerializeField] List<GameObject> items;
 
     void Start()
