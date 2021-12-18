@@ -22,7 +22,7 @@ public class EnergyShield : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bubble"))
         {
-            collision.GetComponent<Bubble>().DestroyBubble(true);
+            collision.GetComponent<Bubble>().DestroyBubble();
         }
     }
 }

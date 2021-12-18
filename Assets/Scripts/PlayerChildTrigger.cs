@@ -46,7 +46,7 @@ public class PlayerChildTrigger : MonoBehaviour
             Destroy(collision.gameObject);
             for (int i = 0; i < GameObject.Find("Bubble").transform.childCount; i++)
             {
-                GameObject.Find("Bubble").transform.GetChild(i).GetComponent<Bubble>().DestroyBubble(true);
+                GameObject.Find("Bubble").transform.GetChild(i).GetComponent<Bubble>().DestroyBubble();
             }            
         }
         else if(collision.name == "Armor")

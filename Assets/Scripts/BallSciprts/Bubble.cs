@@ -48,7 +48,7 @@ public class Bubble : MonoBehaviour
 
     }
 
-    public void DestroyBubble(bool destroyByItem)
+    public void DestroyBubble()
     {
         if(bubble != null)
         {
@@ -59,9 +59,9 @@ public class Bubble : MonoBehaviour
 
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;
+            GameManager.score += score;
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
-            if(!destroyByItem)
-                GameManager._instance.TryToGetItems(percintile, transform.position);
+
             Destroy(this.gameObject);
         }
         else

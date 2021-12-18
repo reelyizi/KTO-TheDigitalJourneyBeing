@@ -140,7 +140,10 @@ MonoBehaviour:
   limitSpeedY: 8
   startForce: 200
   bubble: {fileID: 4473726701200453902, guid: 598d29f95a771294faf136a345592200, type: 3}
+  startDirection: {x: 1, y: 1}
   angle: 0
   calculateStartAngle: 0
   score: 200
   applyForce: 0
+  percintile: 40
+  velocity: {x: 0, y: 0}

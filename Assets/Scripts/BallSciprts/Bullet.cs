@@ -39,8 +39,8 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
             GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Holder").transform);
             obj.GetComponent<BubbleScoreText>().SetText(other.gameObject.GetComponent<Bubble>().score);
-            GameManager.score += other.gameObject.GetComponent<Bubble>().score;
-            other.gameObject.GetComponent<Bubble>().DestroyBubble(false);
+            
+            other.gameObject.GetComponent<Bubble>().DestroyBubble();
         }
     }
 }
