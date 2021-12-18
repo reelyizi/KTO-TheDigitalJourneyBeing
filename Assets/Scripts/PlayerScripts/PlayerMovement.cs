@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     MoveCharachter(1,mobilemoveSpeed);
                 }*/
+                //canWalk=false;
                 if(canShoot)
                 StartCoroutine(Shoot_());
 
