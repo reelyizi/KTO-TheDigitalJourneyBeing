@@ -8,10 +8,13 @@ using TMPro;
 using System;
 public class MenuPlayFabManager : MonoBehaviour
 {
+    public GameObject containerTemplate, Table;
+    public Color32 yellow, blue;
     public InputField nameInput;
     public Text nameInputText;
     public TextMeshProUGUI welcomeText;
     public static string currentName;
+    public static string playFabUserID;
     public GameObject nameWindow, uiWindow, startButton;
     void Awake()
     {
@@ -46,6 +49,7 @@ public class MenuPlayFabManager : MonoBehaviour
     }
     void OnSuccess(LoginResult result)
     {
+        playFabUserID = result.PlayFabId;
         Debug.Log("Successful login/account create!");
         string name = null;
         if (result.InfoResultPayload.PlayerProfile != null)
@@ -94,6 +98,103 @@ public class MenuPlayFabManager : MonoBehaviour
     public void LoadScene(int index)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
+    }
+    public void GetLeaderBoardAroundPlayer()
+    {
+        var request = new GetLeaderboardAroundPlayerRequest
+        {
+            StatisticName = "Score",
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnLeaderBoardGet, OnError);
+    }
+    void OnLeaderBoardGet(GetLeaderboardAroundPlayerResult result)
+    {
+        GameObject[] containerTemplates = GameObject.FindGameObjectsWithTag("Container");
+        foreach (GameObject go in containerTemplates)
+        {
+            Destroy(go);
+        }
+        containerTemplate.SetActive(false);
+        if (result.Leaderboard.Count < 10)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                if (result.Leaderboard.Count > i)
+                {
+                    GameObject newGo = Instantiate(containerTemplate, Table.transform);
+                    newGo.transform.SetParent(Table.transform);
+                    newGo.tag = "Container";
+                    newGo.SetActive(true);
+                    TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
+                    if (playFabUserID == result.Leaderboard[i].PlayFabId)
+                    {
+                        if (result.Leaderboard[i].DisplayName.Equals(null))
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
+                            texts.color = yellow;
+                        }
+                        else
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue);
+                            texts.color = yellow;
+                        }
+
+                    }
+                    else
+                    {
+                        if (result.Leaderboard[i].DisplayName.Equals(null))
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
+                            texts.color = blue;
+                        }
+                        else
+                        {
+                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
+                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
+                            texts.color = blue;
+                        }
+
+                    }
+                }
+                else
+                {
+                    GameObject newGo = Instantiate(containerTemplate, Table.transform);
+                    newGo.transform.SetParent(Table.transform);
+                    newGo.tag = "Container";
+                    newGo.SetActive(true);
+                    TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
+                    texts.text = (i + 1) + ".";
+                }
+            }
+        }
+        else
+        {
+            foreach (var item in result.Leaderboard)
+            {
+                GameObject newGo = Instantiate(containerTemplate, Table.transform);
+                newGo.transform.SetParent(Table.transform);
+                newGo.tag = "Container";
+                newGo.SetActive(true);
+                TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
+                if (currentName == item.DisplayName)
+                {
+                    texts.text = (item.Position + 1) + ". " + item.DisplayName + " " + item.StatValue;
+                    Debug.Log((item.Position + 1) + " " + item.DisplayName + " " + item.StatValue);
+                    texts.color = yellow;
+                }
+                else
+                {
+                    texts.text = (item.Position + 1) + ". " + item.DisplayName + " " + item.StatValue;
+                    Debug.Log((item.Position + 1) + " " + item.PlayFabId + " " + item.StatValue);
+                    texts.color = blue;
+                }
+
+            }
+        }
     }
     public static string DeviceUniqueIdentifier
     {
