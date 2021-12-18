@@ -38,13 +38,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if(Input.GetTouch(i).position.x>ScreenWidth/2)
             {
-                //move right
-                if(canWalk)
+                //move right and shoot
+                /*if(canWalk)
                 {
                     MoveCharachter(1,mobilemoveSpeed);
-                }
+                }*/
+                if(canShoot)
+                StartCoroutine(Shoot_());
 
-            }
+            }/*
             if(Input.GetTouch(i).position.x<ScreenWidth/2)
             {
                 //move left
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     MoveCharachter(-1,mobilemoveSpeed);
                 }
-            }
+            }*/
             ++i;
         }
         if(Input.touchCount==0)
@@ -60,12 +62,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isWalk",false);
             isWalk=false;
         }
-        if(Input.touchCount>=2)
+        /*if(Input.touchCount>=2)
         {
             canWalk=false;
             if(canShoot)
                 StartCoroutine(Shoot_());
-        }
+        }*/
 
 
         if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(1))
