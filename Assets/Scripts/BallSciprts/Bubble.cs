@@ -20,6 +20,8 @@ public class Bubble : MonoBehaviour
 
     [SerializeField] private float percintile = 5f;
     public Vector2 velocity;
+
+    public GameObject scoreText;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -48,7 +50,7 @@ public class Bubble : MonoBehaviour
 
     }
 
-    public void DestroyBubble(bool destroyByItem)
+    public void DestroyBubble()
     {
         if(bubble != null)
         {
@@ -59,9 +61,12 @@ public class Bubble : MonoBehaviour
 
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;
+            GameManager.score += score;
+            GameManager._instance.TryToGetItems(percintile, transform.position);
+            GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Holder").transform);
+            obj.GetComponent<BubbleScoreText>().SetText(score);
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
-            if(!destroyByItem)
-                GameManager._instance.TryToGetItems(percintile, transform.position);
+
             Destroy(this.gameObject);
         }
         else

@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
     public static int highScore;
     public float timescale;
 
-    [SerializeField] float numberOfChanceToGetItem;
+    public float itemCooldownTimer = 3f;
+    private float CDtimer = 0f;
     [SerializeField] List<GameObject> items;
 
     void Start()
@@ -67,14 +68,18 @@ public class GameManager : MonoBehaviour
                 obj.GetComponent<Bubble>().applyForce = true;
             }
         }
-
+        if(itemCooldownTimer > 0)
+        {
+            itemCooldownTimer -= Time.deltaTime;
+        }
     }
 
     public void TryToGetItems(float percentile, Vector3 bubblePos)
     {
-        if(Random.Range(0,100) <= percentile)
+        if(Random.Range(0,100) <= percentile && itemCooldownTimer <= 0)
         {
             SpawnItem(Random.Range(0, items.Count), bubblePos);
+            itemCooldownTimer = 3f;
         }
     }
 

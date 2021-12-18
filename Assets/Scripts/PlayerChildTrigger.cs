@@ -44,10 +44,15 @@ public class PlayerChildTrigger : MonoBehaviour
         if(collision.name == "Grenade")
         {
             Destroy(collision.gameObject);
+            List<GameObject> bubbles = new List<GameObject>();
             for (int i = 0; i < GameObject.Find("Bubble").transform.childCount; i++)
             {
-                GameObject.Find("Bubble").transform.GetChild(i).GetComponent<Bubble>().DestroyBubble(true);
-            }            
+                bubbles.Add(GameObject.Find("Bubble").transform.GetChild(i).gameObject);
+            }
+            foreach (GameObject bubble in bubbles)
+            {
+                bubble.GetComponent<Bubble>().DestroyBubble();
+            }                      
         }
         else if(collision.name == "Armor")
         {
