@@ -147,3 +147,4 @@ MonoBehaviour:
   applyForce: 0
   percintile: 40
   velocity: {x: 0, y: 0}
+  scoreText: {fileID: 2910866459196863517, guid: e01fd32a7a012fd498a6c2d88814bb23, type: 3}
