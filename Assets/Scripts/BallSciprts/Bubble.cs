@@ -60,11 +60,7 @@ public class Bubble : MonoBehaviour
             bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
-            //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;
-            GameManager.score += score;
-            GameManager._instance.TryToGetItems(percintile, transform.position);
-            GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Holder").transform);
-            obj.GetComponent<BubbleScoreText>().SetText(score);
+            //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;            
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
 
             Destroy(this.gameObject);
@@ -73,6 +69,10 @@ public class Bubble : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        GameManager.score += score;
+        GameManager._instance.TryToGetItems(percintile, transform.position);
+        GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Holder").transform);
+        obj.GetComponent<BubbleScoreText>().SetText(score);
     }
 
     private void ApplyStartForce(Vector2 direction)
