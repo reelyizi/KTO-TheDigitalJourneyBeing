@@ -31,7 +31,11 @@ public class PlayerChildTrigger : MonoBehaviour
                 GameManager._instance.enabled = false;
             }
             else
+            {
                 playerMovement.armor = false;
+                collision.gameObject.GetComponent<Bubble>().DestroyBubble();
+            }
+                
         }
         else
         {

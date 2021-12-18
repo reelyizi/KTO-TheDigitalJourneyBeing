@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
 
     [HideInInspector] public bool armor;
-    [HideInInspector] public float invinsible;
+    public float invinsible;
     bool alphaState;
-    float alpha = 1;
+    [SerializeField] float alpha = 1;
     void Start()
     {
         animator=GetComponent<Animator>();
@@ -29,17 +29,17 @@ public class PlayerMovement : MonoBehaviour
         if(invinsible > 0)
         {
             invinsible -= Time.deltaTime;
-            if(GetComponent<SpriteRenderer>().color.a > .2f && alphaState)
+            if(GetComponent<SpriteRenderer>().color.a > .2f && !alphaState)
             {
                 alpha -= Time.deltaTime;
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
-                if (alpha < 2)
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alpha);
+                if (alpha < .2)
                     alphaState = true;
             }
             else if (alphaState)
             {
                 alpha += Time.deltaTime;
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alpha);
                 if (alpha > 1)
                     alphaState = false;
             }
