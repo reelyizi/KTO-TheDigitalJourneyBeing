@@ -15,7 +15,7 @@ public class MenuPlayFabManager : MonoBehaviour
     public TextMeshProUGUI welcomeText;
     public static string currentName;
     public static string playFabUserID;
-    public GameObject nameWindow, uiWindow, startButton;
+    public GameObject nameWindow, uiWindow, startButton, leaderboardPanel;
     void Awake()
     {
         nameWindow.SetActive(false);
@@ -50,7 +50,7 @@ public class MenuPlayFabManager : MonoBehaviour
     void OnSuccess(LoginResult result)
     {
         playFabUserID = result.PlayFabId;
-        Debug.Log("Successful login/account create!");
+        Debug.Log("Successful login/account create! "+playFabUserID+"  "+result.InfoResultPayload.PlayerProfile.PlayerId+result.InfoResultPayload.PlayerProfile.DisplayName);
         string name = null;
         if (result.InfoResultPayload.PlayerProfile != null)
         {
@@ -101,6 +101,7 @@ public class MenuPlayFabManager : MonoBehaviour
     }
     public void GetLeaderBoardAroundPlayer()
     {
+
         var request = new GetLeaderboardAroundPlayerRequest
         {
             StatisticName = "Score",
@@ -208,6 +209,7 @@ public class MenuPlayFabManager : MonoBehaviour
     }
     void OnLeaderBoardGet(GetLeaderboardResult result)
     {
+        leaderboardPanel.SetActive(true);
         GameObject[] containerTemplates = GameObject.FindGameObjectsWithTag("Container");
         foreach (GameObject go in containerTemplates)
         {
@@ -224,8 +226,8 @@ public class MenuPlayFabManager : MonoBehaviour
                     newGo.transform.SetParent(Table.transform);
                     newGo.tag = "Container";
                     newGo.SetActive(true);
-                    TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
-                    if (playFabUserID == result.Leaderboard[i].PlayFabId)
+                    TextMeshProUGUI[] texts = newGo.GetComponentsInChildren<TextMeshProUGUI>();
+                    /*if (playFabUserID == result.Leaderboard[i].PlayFabId)
                     {
                         if (result.Leaderboard[i].DisplayName.Equals(null))
                         {
@@ -256,7 +258,7 @@ public class MenuPlayFabManager : MonoBehaviour
                             texts.color = blue;
                         }
 
-                    }
+                    }*/
                 }
                 else
                 {
@@ -277,23 +279,46 @@ public class MenuPlayFabManager : MonoBehaviour
                 newGo.transform.SetParent(Table.transform);
                 newGo.tag = "Container";
                 newGo.SetActive(true);
-                TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI[] texts = newGo.GetComponentsInChildren<TextMeshProUGUI>();
                 if (currentName == item.DisplayName)
                 {
-                    texts.text = (item.Position + 1) + ". " + item.DisplayName + " " + item.StatValue;
+                    texts[0].text = (item.Position + 1).ToString();
+                    texts[1].text = item.DisplayName;
+                    texts[2].text = item.StatValue.ToString();
+                    /*texts.text = (item.Position + 1) + ". " + item.DisplayName + " " + item.StatValue;
                     Debug.Log((item.Position + 1) + " " + item.DisplayName + " " + item.StatValue);
-                    texts.color = yellow;
+                    texts.color = yellow;*/
+                    texts[0].color = yellow;
+                    texts[1].color = yellow;
+                    texts[2].color = yellow;
+
                 }
                 else
                 {
+                    texts[0].text = (item.Position + 1).ToString();
+                    texts[1].text = item.DisplayName;
+                    texts[2].text = item.StatValue.ToString();
+                    /*
                     texts.text = (item.Position + 1) + ". " + item.DisplayName + " " + item.StatValue;
                     Debug.Log((item.Position + 1) + " " + item.PlayFabId + " " + item.StatValue);
-                    texts.color = blue;
+                    texts.color = blue;*/
+                    texts[0].color = blue;
+                    texts[1].color = blue;
+                    texts[2].color = blue;
                 }
 
             }
         }
     }
+    public void GameObjectActivate(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+    public void GameObjectDeActivate(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
     public static string DeviceUniqueIdentifier
     {
         get

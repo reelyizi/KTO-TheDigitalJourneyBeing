@@ -25,7 +25,7 @@ public class PlayerChildTrigger : MonoBehaviour
                     PlayerPrefs.SetInt("HighScore", GameManager.score);
                     playFabManager.SendLeaderboard(GameManager.score);
                 }
-                playFabManager.GetLeaderBoard();
+                playFabManager.GetLeaderBoardAroundPlayer();
                 holder.SetActive(false);
                 group.SetActive(true);
                 GameManager._instance.enabled = false;
