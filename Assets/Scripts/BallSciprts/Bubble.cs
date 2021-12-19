@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Bubble : MonoBehaviour
 {
+    [SerializeField] private GameObject[] expEffects;
     private Rigidbody2D rigidbody;
     [SerializeField] private float limitSpeedX;
     [SerializeField] private float limitSpeedY;
@@ -62,8 +63,12 @@ public class Bubble : MonoBehaviour
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;            
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
-
+            if(this.gameObject.name=="Big Size Bubble")
+            {
+                GameObject obj=Instantiate(expEffects[0],transform.position,Quaternion.identity);
+            }
             Destroy(this.gameObject);
+            
         }
         else
         {
