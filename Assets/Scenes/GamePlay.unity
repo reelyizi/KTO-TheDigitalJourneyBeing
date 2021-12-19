@@ -1450,6 +1450,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 746365106, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 746365106, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: variableJoystick
       value: 
       objectReference: {fileID: 1105096121}
