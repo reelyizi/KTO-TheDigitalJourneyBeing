@@ -26,7 +26,7 @@ public class Bubble : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        if(applyForce)
+        if (applyForce)
             ApplyStartForce(startDirection.normalized);
 
         //rigidbody.velocity = new Vector2(limitSpeedX, limitSpeedY) * startDirection.normalized;
@@ -47,13 +47,13 @@ public class Bubble : MonoBehaviour
         //    rigidbody.gravityScale = 1;
         //    rigidbody.velocity = velocity;
         //}
-        
+
 
     }
 
     public void DestroyBubble()
     {
-        if(bubble != null)
+        if (bubble != null)
         {
             GameObject bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
 
@@ -63,12 +63,28 @@ public class Bubble : MonoBehaviour
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;            
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
-            if(this.gameObject.name=="Big Size Bubble")
+            if (this.gameObject.name == "Big Size Bubble(Clone)")
             {
-                GameObject obj=Instantiate(expEffects[0],transform.position,Quaternion.identity);
+                GameObject expEffect = Instantiate(expEffects[0], transform.position, Quaternion.identity);
+                Destroy(expEffect, 0.2f);
+            }
+            else if (this.gameObject.name == "Mid Size Bubble(Clone)")
+            {
+                GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
+                Destroy(expEffect, 0.2f);
+            }
+            else if (this.gameObject.name == "Small Size Bubble 1(Clone)")
+            {
+                GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
+                Destroy(expEffect, 0.2f);
+            }
+            else
+            {
+                GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
+                Destroy(expEffect, 0.2f);
             }
             Destroy(this.gameObject);
-            
+
         }
         else
         {
@@ -98,7 +114,7 @@ public class Bubble : MonoBehaviour
         if (rigidbody != null)
         {
             Gizmos.color = Color.magenta;
-            
+
             Vector3 t = rigidbody.velocity.y > 0 ? rigidbody.velocity.normalized : -rigidbody.velocity.normalized;
             t = Quaternion.AngleAxis(180, Vector3.up) * t;
             Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + (rigidbody.velocity.y > 0 ? rigidbody.velocity.normalized : -rigidbody.velocity.normalized));

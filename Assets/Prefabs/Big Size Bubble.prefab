@@ -101,7 +101,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: f6fb121870ebe54499cd3805595ff003, type: 2}
   m_Interpolate: 0
@@ -136,15 +136,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551ae686e59ee2c4b8e988bd8ab1d039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expEffects:
+  - {fileID: 6424510600848015919, guid: 6c6a677b0c50e784bb5e944bb97d8f32, type: 3}
+  - {fileID: 1653210989330207591, guid: 1467dac581d4ec340919ad4c13fabbd1, type: 3}
+  - {fileID: 7681309199087937127, guid: 6b53b4194f134b3429d8beb3ef235482, type: 3}
+  - {fileID: 5898909881190461066, guid: 8cd79bb220a527248a0deda17a596edf, type: 3}
   limitSpeedX: 3
-  limitSpeedY: 8
-  startForce: 200
+  limitSpeedY: 9
+  startForce: 300
   bubble: {fileID: 4473726701200453902, guid: cadfe1176a377c14ba7f310b2bd6a94a, type: 3}
-  startDirection: {x: 1, y: 1}
-  angle: 30
+  startDirection: {x: -1, y: 1}
+  angle: -10
   calculateStartAngle: 0
   score: 400
-  applyForce: 0
+  applyForce: 1
   percintile: 40
   velocity: {x: 0, y: 0}
   scoreText: {fileID: 2910866459196863517, guid: e01fd32a7a012fd498a6c2d88814bb23, type: 3}
