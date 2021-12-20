@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject invisibleTimer;
     public float moveSpeed=10,mobilemoveSpeed=150;
     private Rigidbody2D rb;
     public GameObject bullet;
@@ -29,7 +31,9 @@ public class PlayerMovement : MonoBehaviour
         if(invinsible > 0)
         {
             invinsible -= Time.deltaTime;
-            if(GetComponent<SpriteRenderer>().color.a > .2f && !alphaState)
+            invisibleTimer.SetActive(true);
+            invisibleTimer.GetComponent<TextMeshProUGUI>().text = (invinsible % 10).ToString();
+            if (GetComponent<SpriteRenderer>().color.a > .2f && !alphaState)
             {
                 alpha -= Time.deltaTime;
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alpha);
@@ -45,7 +49,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         else
+        {
+            invisibleTimer.GetComponent<TextMeshProUGUI>().text = "0";
+            invisibleTimer.SetActive(false);
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+            
     }
 
     void FixedUpdate()

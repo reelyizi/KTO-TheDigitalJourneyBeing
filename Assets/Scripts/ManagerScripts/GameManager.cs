@@ -58,20 +58,28 @@ public class GameManager : MonoBehaviour
             scoreText.text = score.ToString();
             if(totalBubble.transform.childCount == 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                for (int i = 0; i < 4; i++)
+                {
+                    SpawnBubble();
+                }
             }
             timer -= Time.deltaTime;
             if(timer <= 0)
             {
-                timer = Random.Range(minSpawnRate, maxSpawnRate);
-                GameObject obj = Instantiate(bigBubble, new Vector2(Random.Range(A.position.x, B.position.x), A.position.y), Quaternion.identity, GameObject.Find("Bubble").transform);
-                obj.GetComponent<Bubble>().applyForce = true;
+                SpawnBubble();
             }
         }
         if(itemCooldownTimer > 0)
         {
             itemCooldownTimer -= Time.deltaTime;
         }
+    }
+
+    private void SpawnBubble()
+    {
+        timer = Random.Range(minSpawnRate, maxSpawnRate);
+        GameObject obj = Instantiate(bigBubble, new Vector2(Random.Range(A.position.x, B.position.x), A.position.y), Quaternion.identity, GameObject.Find("Bubble").transform);
+        obj.GetComponent<Bubble>().applyForce = true;
     }
 
     public void TryToGetItems(float percentile, Vector3 bubblePos)

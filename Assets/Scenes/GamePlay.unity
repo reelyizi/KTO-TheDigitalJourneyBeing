@@ -1450,10 +1450,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 746365106, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 746365106, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: variableJoystick
       value: 
       objectReference: {fileID: 1105096121}
@@ -1469,10 +1465,6 @@ PrefabInstance:
       propertyPath: playFabManager
       value: 
       objectReference: {fileID: 2096271392}
-    - target: {fileID: 2504537691925626334, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2504537691925626335, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1521,6 +1513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3336189643275269753, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
 --- !u!1 &318167691
