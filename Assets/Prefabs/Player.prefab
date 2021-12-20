@@ -184,7 +184,7 @@ MonoBehaviour:
   muzzles:
   - {fileID: 6087426998603384132}
   - {fileID: 1772349966827116721}
-  rateOfFire: 0.4
+  rateOfFire: 0.8
   numberOfFire: 3
 --- !u!1 &1772349966827116721
 GameObject:
@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3487075717159077692
 Transform:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &972523462940676563
 Transform:
   m_ObjectHideFlags: 0

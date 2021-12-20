@@ -1441,10 +1441,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 673581672, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: rateOfFire
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 356929956626173756, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: group
       value: 
@@ -1457,10 +1453,6 @@ PrefabInstance:
       propertyPath: playFabManager
       value: 
       objectReference: {fileID: 2096271392}
-    - target: {fileID: 1772349966827116721, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2504537691925626335, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1508,14 +1500,6 @@ PrefabInstance:
     - target: {fileID: 2504537691925626337, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6087426998603384132, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8698685491033693221, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
