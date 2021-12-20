@@ -16,26 +16,28 @@ public class PlayerChildTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy)
         {
             PlayerMovement playerMovement = transform.parent.GetComponent<PlayerMovement>();
-            if (!playerMovement.armor && playerMovement.invinsible <= 0)
+            if(playerMovement.invinsible <= 0)
             {
-                AudioManager.instance.AudioPlay("Dead");
-                Time.timeScale = 0f;
-                if (GameManager.score > GameManager.highScore)
+                if (!playerMovement.armor)
                 {
-                    PlayerPrefs.SetInt("HighScore", GameManager.score);
-                    playFabManager.SendLeaderboard(GameManager.score);
+                    AudioManager.instance.AudioPlay("Dead");
+                    Time.timeScale = 0f;
+                    if (GameManager.score > GameManager.highScore)
+                    {
+                        PlayerPrefs.SetInt("HighScore", GameManager.score);
+                        playFabManager.SendLeaderboard(GameManager.score);
+                    }
+                    playFabManager.GetLeaderBoardAroundPlayer();
+                    holder.SetActive(false);
+                    group.SetActive(true);
+                    GameManager._instance.enabled = false;
                 }
-                playFabManager.GetLeaderBoardAroundPlayer();
-                holder.SetActive(false);
-                group.SetActive(true);
-                GameManager._instance.enabled = false;
-            }
-            else
-            {
-                playerMovement.armor = false;
-                collision.gameObject.GetComponent<Bubble>().DestroyBubble();
-            }
-
+                else
+                {
+                    playerMovement.armor = false;
+                    collision.gameObject.GetComponent<Bubble>().DestroyBubble();
+                }
+            }  
         }
         else
         {

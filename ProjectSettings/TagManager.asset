@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - Bubble
   - Container
+  - Laser
   layers:
   - Default
   - TransparentFX

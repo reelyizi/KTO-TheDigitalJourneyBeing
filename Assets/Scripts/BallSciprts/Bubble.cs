@@ -107,6 +107,10 @@ public class Bubble : MonoBehaviour
         {
             rigidbody.velocity = Vector2.up * limitSpeedY;
         }
+        if (collision.gameObject.CompareTag("Laser"))
+        {
+            DestroyBubble();
+        }
     }
 
     private void OnDrawGizmos()

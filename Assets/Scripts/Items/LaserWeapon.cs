@@ -19,16 +19,31 @@ public class LaserWeapon : MonoBehaviour
             duration = 0;
             foreach (GameObject muzzle in muzzles)
             {
-                Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation, null);
+                muzzle.SetActive(false);
             }
             counter++;
             if (counter == numberOfFire)
                 this.gameObject.SetActive(false);
+        }
+        else if(duration >= .11f)
+        {
+            foreach (GameObject muzzle in muzzles)
+            {
+                muzzle.SetActive(true);
+            }
         }
     }
 
     private void OnEnable()
     {
         counter = 0;
+    }
+
+    private void OnDisable()
+    {
+        foreach (GameObject muzzle in muzzles)
+        {
+            muzzle.SetActive(false);
+        }
     }
 }
