@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject invisibleTimer;
+    public Transform baseWeaponMuzzle;
     public float moveSpeed=10,mobilemoveSpeed=150;
     private Rigidbody2D rb;
     public GameObject bullet;
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             invinsible -= Time.deltaTime;
             invisibleTimer.SetActive(true);
-            invisibleTimer.GetComponent<TextMeshProUGUI>().text = (invinsible % 10).ToString();
+            invisibleTimer.GetComponent<TextMeshProUGUI>().text = ((Mathf.Round(invinsible * 100)) / 100.0).ToString();
             if (GetComponent<SpriteRenderer>().color.a > .2f && !alphaState)
             {
                 alpha -= Time.deltaTime;
@@ -128,14 +129,14 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isShoot",true);
         canWalk=false;
         canShoot=false;
-        Vector2 temp=transform.position;
-        temp.y+=1;
+        //Vector2 temp=transform.position;
+        //temp.y+=1;
         //mekanik instantiate vs 
-        Instantiate(bullet,temp,Quaternion.identity);
+        Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);
         yield return new WaitForSeconds(0.05f);
-        Instantiate(bullet,temp,Quaternion.identity);
+        Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);
         yield return new WaitForSeconds(0.05f);
-        Instantiate(bullet,temp,Quaternion.identity);
+        Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);
         canShoot=true;
         canWalk=true;
         animator.SetBool("isShoot",false); 

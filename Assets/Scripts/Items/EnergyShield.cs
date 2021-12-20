@@ -10,7 +10,7 @@ public class EnergyShield : MonoBehaviour
     [HideInInspector] public float duration;
     void Update()
     {
-        enemyTimer.GetComponent<TextMeshProUGUI>().text = (timer % 1000).ToString();
+        enemyTimer.GetComponent<TextMeshProUGUI>().text = ((Mathf.Round(timer * 100)) / 100.0).ToString();
         timer -= Time.deltaTime;        
         if (timer <= 0)
             this.gameObject.SetActive(false);
