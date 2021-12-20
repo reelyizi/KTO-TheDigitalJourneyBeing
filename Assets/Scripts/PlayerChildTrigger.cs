@@ -57,6 +57,8 @@ public class PlayerChildTrigger : MonoBehaviour
             {
                 bubble.GetComponent<Bubble>().DestroyBubble();
                 //Screen Shake Vibration
+                Shake.start=true;
+                Vibrator.Vibrate(250);
             }
         }
         else if (collision.name == "Armor")

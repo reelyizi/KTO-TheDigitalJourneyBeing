@@ -356,6 +356,9 @@ MonoBehaviour:
   moveSpeed: 400
   mobilemoveSpeed: 150
   bullet: {fileID: 537112214059444989, guid: a23eded971b46e240a7ca5a5651bea95, type: 3}
+  armor: 0
+  invinsible: 0
+  alpha: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +370,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -440,6 +444,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13001fe0152f820409bc68d0b26fcf59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.17343642
+      outSlope: 0.17343642
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.29916894
+      value: 0.05188679
+      inSlope: 0.060259044
+      outSlope: 0.060259044
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.64786816
+      value: 0.03343421
+      inSlope: 0.0025389325
+      outSlope: 0.0025389325
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.86381143
+      value: 0.045958098
+      inSlope: -0.13973156
+      outSlope: -0.13973156
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.3374593
+      outSlope: -0.3374593
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 1
 --- !u!114 &1036393917 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4398864702693798012, guid: 4c02b2817d2f0ce40bdc5542fc735d3a, type: 3}
