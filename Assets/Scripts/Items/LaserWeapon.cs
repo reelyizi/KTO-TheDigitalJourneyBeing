@@ -19,7 +19,7 @@ public class LaserWeapon : MonoBehaviour
             duration = 0;
             foreach (GameObject muzzle in muzzles)
             {
-                muzzle.SetActive(false);
+                //muzzle.SetActive(false);
             }
             counter++;
             if (counter == numberOfFire)

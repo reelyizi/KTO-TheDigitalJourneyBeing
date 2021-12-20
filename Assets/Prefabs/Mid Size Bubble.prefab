@@ -136,11 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551ae686e59ee2c4b8e988bd8ab1d039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expEffects:
-  - {fileID: 6424510600848015919, guid: 6c6a677b0c50e784bb5e944bb97d8f32, type: 3}
-  - {fileID: 1653210989330207591, guid: 1467dac581d4ec340919ad4c13fabbd1, type: 3}
-  - {fileID: 7681309199087937127, guid: 6b53b4194f134b3429d8beb3ef235482, type: 3}
-  - {fileID: 5898909881190461066, guid: 8cd79bb220a527248a0deda17a596edf, type: 3}
+  expEffects: {fileID: 6424510600848015919, guid: 6c6a677b0c50e784bb5e944bb97d8f32, type: 3}
   limitSpeedX: 5
   limitSpeedY: 8
   startForce: 200

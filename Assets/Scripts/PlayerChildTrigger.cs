@@ -76,6 +76,8 @@ public class PlayerChildTrigger : MonoBehaviour
         else if (collision.name == "Energy Shield")
         {
             Destroy(collision.gameObject);
+            if (energyShield.activeInHierarchy)
+                energyShield.GetComponent<EnergyShield>().timer = energyShield.GetComponent<EnergyShield>().duration;
             energyShield.SetActive(true);
         }
         else if (collision.name == "Laser Weapon")

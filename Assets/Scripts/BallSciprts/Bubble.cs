@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Bubble : MonoBehaviour
 {
-    [SerializeField] private GameObject[] expEffects;
+    [SerializeField] private GameObject expEffects;
     private Rigidbody2D rigidbody;
     [SerializeField] private float limitSpeedX;
     [SerializeField] private float limitSpeedY;
@@ -63,37 +63,46 @@ public class Bubble : MonoBehaviour
             Vector3 findReverseOfVelocity = Quaternion.AngleAxis(180, Vector3.up) * (rigidbody.velocity.y > 0 ? rigidbody.velocity : -rigidbody.velocity);
             //findReverseOfVelocity = Quaternion.AngleAxis(0, Vector3.up) * findReverseOfVelocity;            
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
-            if (this.gameObject.name == "Big Size Bubble(Clone)")
-            {
-                GameObject expEffect = Instantiate(expEffects[0], transform.position, Quaternion.identity);
-                Destroy(expEffect, 0.2f);
-            }
-            else if (this.gameObject.name == "Mid Size Bubble(Clone)")
-            {
-                GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
-                Destroy(expEffect, 0.2f);
-            }
-            else if (this.gameObject.name == "Small Size Bubble 1(Clone)")
-            {
-                GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
-                Destroy(expEffect, 0.2f);
-            }
-            else
-            {
-                GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
-                Destroy(expEffect, 0.2f);
-            }
+
+            CreateEffect();
+            //if (this.gameObject.name == "Big Size Bubble(Clone)")
+            //{
+            //    GameObject expEffect = Instantiate(expEffects[0], transform.position, Quaternion.identity);
+            //    Destroy(expEffect, 0.2f);
+            //}
+            //else if (this.gameObject.name == "Mid Size Bubble(Clone)")
+            //{
+            //    GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
+            //    Destroy(expEffect, 0.2f);
+            //}
+            //else if (this.gameObject.name == "Small Size Bubble 1(Clone)")
+            //{
+            //    GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
+            //    Destroy(expEffect, 0.2f);
+            //}
+            //else
+            //{
+            //    GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
+            //    Destroy(expEffect, 0.2f);
+            //}
             Destroy(this.gameObject);
 
         }
         else
         {
+            CreateEffect();
             Destroy(this.gameObject);
         }
         GameManager.score += score;
         GameManager._instance.TryToGetItems(percintile, transform.position);
         GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Holder").transform);
         obj.GetComponent<BubbleScoreText>().SetText(score);
+    }
+
+    private void CreateEffect()
+    {
+        GameObject expEffect = Instantiate(expEffects, transform.position, Quaternion.identity);
+        Destroy(expEffect, 0.2f);
     }
 
     private void ApplyStartForce(Vector2 direction)

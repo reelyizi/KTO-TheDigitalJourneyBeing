@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnergyShield : MonoBehaviour
 {
-    private float timer;
-    [SerializeField] private float duration;
+    [HideInInspector] public float timer;
+    [HideInInspector] public float duration;
     void Update()
     {
+        Debug.Log(timer);
         timer -= Time.deltaTime;
         if (timer <= 0)
             this.gameObject.SetActive(false);
