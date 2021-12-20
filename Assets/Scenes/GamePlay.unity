@@ -1449,6 +1449,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 633137287, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 746365106, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: variableJoystick
       value: 
@@ -1465,6 +1469,18 @@ PrefabInstance:
       propertyPath: playFabManager
       value: 
       objectReference: {fileID: 2096271392}
+    - target: {fileID: 1969632302764331190, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120977974447316843, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120977974447316843, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -21.79
+      objectReference: {fileID: 0}
     - target: {fileID: 2504537691925626335, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1513,10 +1529,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3294912427380196557, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294912427380196557, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -21.79
+      objectReference: {fileID: 0}
     - target: {fileID: 3336189643275269753, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6049074227879700247, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
 --- !u!1 &318167691
@@ -4112,7 +4140,7 @@ PrefabInstance:
     - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
       propertyPath: sounds.Array.data[3].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 3172ef7d35752904f817f12e9bd42977, type: 3}
+      objectReference: {fileID: 8300000, guid: 758b09072aaba6a40bc4a6ee48a17883, type: 3}
     - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
       propertyPath: sounds.Array.data[3].name
       value: Fire
