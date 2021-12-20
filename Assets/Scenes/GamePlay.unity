@@ -2059,8 +2059,16 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: startDirection.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: startDirection.y
+      value: 1.158456
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: calculateStartAngle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
@@ -2156,8 +2164,16 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: startDirection.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: startDirection.y
+      value: 1.158456
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978564311986215701, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
       propertyPath: calculateStartAngle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
@@ -2363,7 +2379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13001fe0152f820409bc68d0b26fcf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: 0
   animationCurve:
     serializedVersion: 2
     m_Curve:
