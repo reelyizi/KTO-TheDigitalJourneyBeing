@@ -50,11 +50,20 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   totalBubble: {fileID: 0}
   group: {fileID: 0}
-  maxSpawnRate: 7
-  minSpawnRate: 5
+  maxSpawnRate: 4
+  minSpawnRate: 2
   A: {fileID: 0}
   B: {fileID: 0}
   bigBubble: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+  timer: 0
+  timescale: 1
+  itemCooldownTimer: 3
+  items:
+  - {fileID: 8072940552072602380, guid: 80f9b2c74f93c00408278441fc80b3c4, type: 3}
+  - {fileID: 8072940552072602380, guid: b585efb311cdb7743a15ef4361b128ce, type: 3}
+  - {fileID: 8072940552072602380, guid: 1fd65d1d23c8d8f43ae39f0677437545, type: 3}
+  - {fileID: 8072940552072602380, guid: 6d54c2ceaf78ebe4888f20b88f6d3f4b, type: 3}
+  - {fileID: 8072940552072602380, guid: 2d5a2a549fcbf7c4bb223dcf62177a4d, type: 3}
 --- !u!114 &2096271392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,11 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81f0db5390c2a848affa473d8e5e773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameInput: {fileID: 0}
   containerTemplate: {fileID: 0}
   Table: {fileID: 0}
-  nameWindow: {fileID: 0}
-  uiWindow: {fileID: 0}
   yellow:
     serializedVersion: 2
     rgba: 4285254655

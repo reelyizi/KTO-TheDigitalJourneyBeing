@@ -121,7 +121,7 @@ public class MenuPlayFabManager : MonoBehaviour
         containerTemplate.SetActive(false);
         if (result.Leaderboard.Count < 10)
         {
-            for (int i = 0; i < 10; i++)
+            /*for (int i = 0; i < 10; i++)
             {
                 if (result.Leaderboard.Count > i)
                 {
@@ -130,7 +130,7 @@ public class MenuPlayFabManager : MonoBehaviour
                     newGo.tag = "Container";
                     newGo.SetActive(true);
                     TextMeshProUGUI[] texts = newGo.GetComponentsInChildren<TextMeshProUGUI>();
-                    /*if (playFabUserID == result.Leaderboard[i].PlayFabId)
+                    if (playFabUserID == result.Leaderboard[i].PlayFabId)
                     {
                         if (result.Leaderboard[i].DisplayName.Equals(null))
                         {
@@ -161,7 +161,7 @@ public class MenuPlayFabManager : MonoBehaviour
                             texts.color = blue;
                         }
 
-                    }*/
+                    }
                 }
                 else
                 {
@@ -172,7 +172,7 @@ public class MenuPlayFabManager : MonoBehaviour
                     TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
                     texts.text = (i + 1) + ".";
                 }
-            }
+            }*/
         }
         else
         {

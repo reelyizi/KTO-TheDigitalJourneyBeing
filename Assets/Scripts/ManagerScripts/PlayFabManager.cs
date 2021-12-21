@@ -68,20 +68,26 @@ public class PlayFabManager : MonoBehaviour
                     newGo.transform.SetParent(Table.transform);
                     newGo.tag = "Container";
                     newGo.SetActive(true);
-                    TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
+                    TextMeshProUGUI[] texts = newGo.GetComponentsInChildren<TextMeshProUGUI>();
                     if (currentName == result.Leaderboard[i].DisplayName)
                     {
                         if (result.Leaderboard[i].DisplayName.Equals(null))
                         {
-                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue;
-                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
-                            texts.color = yellow;
+                            texts[0].text = (result.Leaderboard[i].Position + 1) + ".";
+                            texts[1].text = result.Leaderboard[i].PlayFabId;
+                            texts[2].text = result.Leaderboard[i].StatValue.ToString();
+                            texts[0].color = yellow;
+                            texts[1].color = yellow;
+                            texts[2].color = yellow;
                         }
                         else
                         {
-                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
-                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue);
-                            texts.color = yellow;
+                            texts[0].text = (result.Leaderboard[i].Position + 1) + ".";
+                            texts[1].text = result.Leaderboard[i].DisplayName;
+                            texts[2].text = result.Leaderboard[i].StatValue.ToString();
+                            texts[0].color = yellow;
+                            texts[1].color = yellow;
+                            texts[2].color = yellow;
                         }
 
                     }
@@ -89,15 +95,21 @@ public class PlayFabManager : MonoBehaviour
                     {
                         if (result.Leaderboard[i].DisplayName.Equals(null))
                         {
-                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue;
-                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
-                            texts.color = blue;
+                            texts[0].text = (result.Leaderboard[i].Position + 1) + ".";
+                            texts[1].text = result.Leaderboard[i].PlayFabId;
+                            texts[2].text = result.Leaderboard[i].StatValue.ToString();
+                            texts[0].color = blue;
+                            texts[1].color = blue;
+                            texts[2].color = blue;
                         }
                         else
                         {
-                            texts.text = (result.Leaderboard[i].Position + 1) + ". " + result.Leaderboard[i].DisplayName + " " + result.Leaderboard[i].StatValue;
-                            Debug.Log((result.Leaderboard[i].Position + 1) + " " + result.Leaderboard[i].PlayFabId + " " + result.Leaderboard[i].StatValue);
-                            texts.color = blue;
+                            texts[0].text = (result.Leaderboard[i].Position + 1) + ".";
+                            texts[1].text = result.Leaderboard[i].DisplayName;
+                            texts[2].text = result.Leaderboard[i].StatValue.ToString();
+                            texts[0].color = blue;
+                            texts[1].color = blue;
+                            texts[2].color = blue;
                         }
 
                     }
@@ -108,8 +120,10 @@ public class PlayFabManager : MonoBehaviour
                     newGo.transform.SetParent(Table.transform);
                     newGo.tag = "Container";
                     newGo.SetActive(true);
-                    TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
-                    texts.text = (i + 1) + ".";
+                    TextMeshProUGUI[] texts = newGo.GetComponentsInChildren<TextMeshProUGUI>();
+                    texts[0].text = (i + 1) + ".";
+                    texts[1].text = "--------------";
+                    texts[2].text = "-------";
                 }
             }
         }
@@ -121,18 +135,26 @@ public class PlayFabManager : MonoBehaviour
                 newGo.transform.SetParent(Table.transform);
                 newGo.tag = "Container";
                 newGo.SetActive(true);
-                TextMeshProUGUI texts = newGo.GetComponentInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI[] texts = newGo.GetComponentsInChildren<TextMeshProUGUI>();
                 if (currentName == item.DisplayName)
                 {
-                    texts.text = (item.Position + 1) + ". " + item.DisplayName + " " + item.StatValue;
+                    texts[0].text = (item.Position + 1) + ".";
+                    texts[1].text = item.DisplayName;
+                    texts[2].text = item.StatValue.ToString();
+                    texts[0].color = yellow;
+                    texts[1].color = yellow;
+                    texts[2].color = yellow;
                     Debug.Log((item.Position + 1) + " " + item.DisplayName + " " + item.StatValue);
-                    texts.color = yellow;
                 }
                 else
                 {
-                    texts.text = (item.Position + 1) + ". " + item.DisplayName + " " + item.StatValue;
+                     texts[0].text = (item.Position + 1) + ".";
+                    texts[1].text = item.DisplayName;
+                    texts[2].text = item.StatValue.ToString();
+                    texts[0].color = blue;
+                    texts[1].color = blue;
+                    texts[2].color = blue;
                     Debug.Log((item.Position + 1) + " " + item.PlayFabId + " " + item.StatValue);
-                    texts.color = blue;
                 }
 
             }
