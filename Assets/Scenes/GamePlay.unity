@@ -1541,10 +1541,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4767043263361652991, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
+    - target: {fileID: 4767043263361652991, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 441919118156014723, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
     - target: {fileID: 6049074227879700247, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9038098796179736500, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
+    - target: {fileID: 9038098796179736500, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 441919118156014723, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
 --- !u!1 &318167691
@@ -4040,6 +4056,26 @@ PrefabInstance:
     - target: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_Name
       value: Variable Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087803815115470, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_Color.b
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087803815115470, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087804030458057, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4669811
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087804030458057, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_Color.g
+      value: 0.936834
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087804030458057, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec536a7718376554185e4a856d5ae230, type: 3}
@@ -7479,6 +7515,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Size Bubble(Clone)
       objectReference: {fileID: 0}
+    - target: {fileID: 7781644329943812954, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692214198557018007, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e3dfacab5b78b46aa21ef8ccc27c91, type: 3}
 --- !u!222 &47078723698354261
@@ -7573,15 +7617,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5d6fee05f3ff754c99791f16b7f9a5d, type: 2}
-  m_sharedMaterial: {fileID: -8937662383417554493, guid: c5d6fee05f3ff754c99791f16b7f9a5d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
+  m_sharedMaterial: {fileID: 441919118156014723, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279992546
-  m_fontColor: {r: 0.8867924, g: 0.50250715, b: 0.10457456, a: 1}
+    rgba: 4287627222
+  m_fontColor: {r: 0.8392157, g: 1, b: 0.56078434, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7606,7 +7650,7 @@ MonoBehaviour:
   m_fontSizeMax: 100
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7657,8 +7701,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -111.19946, y: -71.6272}
-  m_SizeDelta: {x: 385.6007, y: 105.7457}
+  m_AnchoredPosition: {x: -84.599976, y: -44.86}
+  m_SizeDelta: {x: 400, y: 160}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &2899719583517353150
 GameObject:
@@ -7695,8 +7739,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -90.84985}
-  m_SizeDelta: {x: 385.6007, y: 177.3003}
+  m_AnchoredPosition: {x: 0, y: -44.86}
+  m_SizeDelta: {x: 400, y: 160}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2899719583778424216
 CanvasRenderer:
@@ -7728,8 +7772,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5d6fee05f3ff754c99791f16b7f9a5d, type: 2}
-  m_sharedMaterial: {fileID: -8937662383417554493, guid: c5d6fee05f3ff754c99791f16b7f9a5d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
+  m_sharedMaterial: {fileID: 441919118156014723, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

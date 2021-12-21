@@ -1442,11 +1442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81f0db5390c2a848affa473d8e5e773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 4398864703562262694}
-  nameInput: {fileID: 4398864704207375345}
   containerTemplate: {fileID: 4398864702374464451}
   Table: {fileID: 4398864702384400030}
-  nameWindow: {fileID: 4398864704068550145}
   yellow:
     serializedVersion: 2
     rgba: 0
