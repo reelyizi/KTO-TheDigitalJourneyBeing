@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
 
     [HideInInspector] public bool armor;
+    [SerializeField] private GameObject armorImage;
     public float invinsible;
     bool alphaState;
     [SerializeField] float alpha = 1;
@@ -55,7 +56,12 @@ public class PlayerMovement : MonoBehaviour
             invisibleTimer.SetActive(false);
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
-            
+        if (armor)
+        {
+            armorImage.SetActive(true);
+        }
+        else
+            armorImage.SetActive(false);
     }
 
     void FixedUpdate()

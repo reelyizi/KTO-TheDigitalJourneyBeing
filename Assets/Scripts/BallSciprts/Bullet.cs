@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Bubble"))
         {
-            AudioManager.instance.AudioPlay("Hit");
             Destroy(this.gameObject);                        
             other.gameObject.GetComponent<Bubble>().DestroyBubble();
         }

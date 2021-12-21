@@ -53,6 +53,7 @@ public class Bubble : MonoBehaviour
 
     public void DestroyBubble()
     {
+        AudioManager.instance.AudioPlay("Hit");
         if (bubble != null)
         {
             GameObject bubbleObject = Instantiate(bubble, transform.position, Quaternion.identity, transform.parent);
