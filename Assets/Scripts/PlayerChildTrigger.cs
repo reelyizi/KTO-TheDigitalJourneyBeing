@@ -20,7 +20,6 @@ public class PlayerChildTrigger : MonoBehaviour
             {
                 if (!playerMovement.armor)
                 {
-                    PlayerPrefs.DeleteAll();
                     AudioManager.instance.AudioPlay("Dead");
                     Time.timeScale = 0f;
                     if (GameManager.score > GameManager.highScore)
