@@ -75,7 +75,7 @@ public class PlayFabManager : MonoBehaviour
                         {
                             texts[0].text = (result.Leaderboard[i].Position + 1) + ".";
                             texts[1].text = result.Leaderboard[i].PlayFabId;
-                            texts[2].text = PlayerPrefs.GetInt("HighScore").ToString();
+                            texts[2].text = result.Leaderboard[i].StatValue.ToString();
                             texts[0].color = yellow;
                             texts[1].color = yellow;
                             texts[2].color = yellow;
@@ -84,7 +84,7 @@ public class PlayFabManager : MonoBehaviour
                         {
                             texts[0].text = (result.Leaderboard[i].Position + 1) + ".";
                             texts[1].text = result.Leaderboard[i].DisplayName;
-                            texts[2].text = PlayerPrefs.GetInt("HighScore").ToString();
+                            texts[2].text = result.Leaderboard[i].StatValue.ToString();
                             texts[0].color = yellow;
                             texts[1].color = yellow;
                             texts[2].color = yellow;
