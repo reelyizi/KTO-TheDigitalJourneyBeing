@@ -2108,6 +2108,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2899719583778424217}
     - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
+      propertyPath: chest
+      value: 
+      objectReference: {fileID: 8072940552072602380, guid: 90d8ee33be790344ca80929549974279, type: 3}
+    - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: group
       value: 
       objectReference: {fileID: 2318348334894352886}
@@ -2115,6 +2119,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 2899719583517353148}
+    - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
+      propertyPath: spawnChest
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5807141676420893030, guid: ddc863c5b2f81e9439c92fd16918df19, type: 3}
       propertyPath: totalBubble
       value: 

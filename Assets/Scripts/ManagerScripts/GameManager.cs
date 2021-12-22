@@ -51,6 +51,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            score += 50000;
+        }
         if (!isGameStart)
         {
             //Time.timeScale=0f;
