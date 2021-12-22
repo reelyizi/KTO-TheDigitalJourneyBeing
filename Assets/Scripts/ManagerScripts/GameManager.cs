@@ -47,9 +47,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Instantiate(boss, Vector3.zero, Quaternion.identity);
+            score += 10000;
         }
         if (!isGameStart)
         {
