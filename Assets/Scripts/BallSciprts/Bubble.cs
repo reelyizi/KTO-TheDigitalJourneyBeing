@@ -66,28 +66,7 @@ public class Bubble : MonoBehaviour
             bubbleObject.GetComponent<Rigidbody2D>().velocity = findReverseOfVelocity;
 
             CreateEffect();
-            //if (this.gameObject.name == "Big Size Bubble(Clone)")
-            //{
-            //    GameObject expEffect = Instantiate(expEffects[0], transform.position, Quaternion.identity);
-            //    Destroy(expEffect, 0.2f);
-            //}
-            //else if (this.gameObject.name == "Mid Size Bubble(Clone)")
-            //{
-            //    GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
-            //    Destroy(expEffect, 0.2f);
-            //}
-            //else if (this.gameObject.name == "Small Size Bubble 1(Clone)")
-            //{
-            //    GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
-            //    Destroy(expEffect, 0.2f);
-            //}
-            //else
-            //{
-            //    GameObject expEffect = Instantiate(expEffects[1], transform.position, Quaternion.identity);
-            //    Destroy(expEffect, 0.2f);
-            //}
             Destroy(this.gameObject);
-
         }
         else
         {

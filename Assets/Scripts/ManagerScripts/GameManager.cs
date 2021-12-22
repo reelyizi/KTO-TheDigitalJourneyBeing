@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public float itemCooldownTimer = 3f;
     private float CDtimer = 0f;
     [SerializeField] List<GameObject> items;
-
+    public GameObject boss;
     void Start()
     {
         highScore=PlayerPrefs.GetInt("HighScore",0);
@@ -44,7 +44,12 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if(!isGameStart)
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Instantiate(boss, Vector3.zero, Quaternion.identity);
+        }
+        if(!isGameStart)
         {
             //Time.timeScale=0f;
             startTime = Time.time;

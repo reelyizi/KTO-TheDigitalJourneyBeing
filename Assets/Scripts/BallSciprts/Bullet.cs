@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float speed = 5f;
+    public int damage = 10;
     
     void Awake()
     {
@@ -36,6 +37,29 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);                        
             other.gameObject.GetComponent<Bubble>().DestroyBubble();
+        }
+        CheckBossCollider(other);
+    }
+
+    private void CheckBossCollider(Collider2D other)
+    {
+        if(other.gameObject.name == "Boss Left Hand")
+        {
+            Debug.Log("HIT!");
+            Destroy(this.gameObject);
+            other.transform.parent.GetComponent<BossManager>().BossLeftHandHealth = damage;
+        }
+        else if (other.gameObject.name == "Boss Right Hand")
+        {
+            Debug.Log("HIT!");
+            Destroy(this.gameObject);
+            other.transform.parent.GetComponent<BossManager>().BossLeftHandHealth = damage;
+        }
+        else if (other.gameObject.name == "Boss Head")
+        {
+            Debug.Log("HIT!");
+            Destroy(this.gameObject);
+            other.transform.parent.GetComponent<BossManager>().BossHeadHealth = damage;
         }
     }
 }
