@@ -85,6 +85,7 @@ public class BossManager : MonoBehaviour
             {
                 if (timer >= spawnRate[i])
                 {
+                    // döngüden sonra tüm indexlere removeat uygulanabilir
                     spawnRate.RemoveAt(i);
                     GameObject obj = Instantiate(bossBubble, bubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
                     obj.GetComponent<SpriteRenderer>().sprite = bossBubbleSprites[Random.Range(0, bossBubbleSprites.Count)];
@@ -171,11 +172,11 @@ public class BossManager : MonoBehaviour
     private void ColorStatus()
     {
         if (bossHead.GetComponent<SpriteRenderer>().color != Color.white)
-            bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
         if (bossLeftHand.GetComponent<SpriteRenderer>().color != Color.white)
-            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
         if (bossRightHand.GetComponent<SpriteRenderer>().color != Color.white)
-            bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
     }
 
     private void SetSpawnRate(float additionalTime)
