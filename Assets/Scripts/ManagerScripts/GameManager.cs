@@ -9,24 +9,24 @@ public class GameManager : MonoBehaviour
     public static GameManager _instance;
     private void Awake()
     {
-        if(_instance == null)
+        if (_instance == null)
         {
             _instance = this;
         }
     }
-    public static int score=0;
+    public static int score = 0;
     public static float timerControl = 0;
     public float levelTime = float.MaxValue;
     private float startTime;
-    public TextMeshProUGUI text,scoreText;
-    public GameObject totalBubble,group;
+    public TextMeshProUGUI text, scoreText;
+    public GameObject totalBubble, group;
     [Range(1, 999)] public float maxSpawnRate;
     [Range(1, 999)] public float minSpawnRate;
 
     public Transform A, B;
     public GameObject bigBubble;
     [SerializeField] float timer;
-    public static bool isGameStart=false;
+    public static bool isGameStart = false;
     public static int highScore;
     public float timescale;
 
@@ -34,9 +34,11 @@ public class GameManager : MonoBehaviour
     private float CDtimer = 0f;
     [SerializeField] List<GameObject> items;
     public GameObject boss;
+    [HideInInspector] public int bossCounter = 0;
+    [HideInInspector] public bool isBossActive;
     void Start()
     {
-        highScore=PlayerPrefs.GetInt("HighScore",0);
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
         group.SetActive(false);
         startTime = Time.time;
         timer = Random.Range(minSpawnRate, maxSpawnRate);
@@ -49,19 +51,19 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(boss, Vector3.zero, Quaternion.identity);
         }
-        if(!isGameStart)
+        if (!isGameStart)
         {
             //Time.timeScale=0f;
             startTime = Time.time;
         }
         else
         {
-            Time.timeScale=1f;
+            Time.timeScale = 1f;
             timerControl = Time.time - startTime;
             //levelTime = (int)Time.time / 60;
             text.text = ((int)timerControl).ToString();
             scoreText.text = score.ToString();
-            if(totalBubble.transform.childCount == 0)
+            if (totalBubble.transform.childCount == 0)
             {
                 for (int i = 0; i < 4; i++)
                 {
@@ -69,14 +71,24 @@ public class GameManager : MonoBehaviour
                 }
             }
             timer -= Time.deltaTime;
-            if(timer <= 0)
+            if (timer <= 0)
             {
                 SpawnBubble();
             }
+            BossCheck();
         }
-        if(itemCooldownTimer > 0)
+        if (itemCooldownTimer > 0)
         {
             itemCooldownTimer -= Time.deltaTime;
+        }
+    }
+
+    private void BossCheck()
+    {
+        if (score >= 50000 + (bossCounter * 200000) && !isBossActive)
+        {
+            isBossActive = true;
+            Instantiate(boss, Vector3.zero, Quaternion.identity);
         }
     }
 
@@ -89,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void TryToGetItems(float percentile, Vector3 bubblePos)
     {
-        if(Random.Range(0,100) <= percentile && itemCooldownTimer <= 0)
+        if (Random.Range(0, 100) <= percentile && itemCooldownTimer <= 0)
         {
             SpawnItem(Random.Range(0, items.Count), bubblePos);
             itemCooldownTimer = 3f;

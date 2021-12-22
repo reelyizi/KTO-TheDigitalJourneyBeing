@@ -96,9 +96,15 @@ public class BossManager : MonoBehaviour
         }
         if (bossHeadHealth == 0 && bossHead.GetComponent<BoxCollider2D>().enabled)
         {
-            Debug.Log("A");
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
             SetScore(bossHeadScore);
+            GameManager._instance.bossCounter++;
+            GameManager._instance.isBossActive = false;
+            for (int i = GameObject.Find("Holder").transform.childCount; i >= 0; i--)
+            {
+                Destroy(GameObject.Find("Holder").transform.GetChild(i));
+            }
+            Destroy(this.gameObject);
         }
     }
 
