@@ -78,7 +78,7 @@ public class PlayerChildTrigger : MonoBehaviour
         else if (collision.name == "Chest")
         {
             Destroy(collision.gameObject);
-            GameManager._instance.SetScoreText(250, collision.transform);
+            GameManager._instance.SetScoreText(1000, collision.transform);
         }
     }
 }

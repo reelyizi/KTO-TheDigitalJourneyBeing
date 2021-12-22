@@ -17,7 +17,9 @@ public class BossManager : MonoBehaviour
     [SerializeField] private int bossHeadScore, bossHandScore;
 
     public float colorChangingSpeed = 10f;
-    private bool isBossDead;
+    public float bossMovementSpeed = 10f;
+    private Vector3 headStartPos, leftHandStartPos, rightHandStartPos;
+    private bool isBossDead, leftHandDestroyed, rightHandDestroyed;
 
     #region Properties
 
@@ -65,6 +67,9 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
+        headStartPos = bossHead.transform.position;
+        leftHandStartPos = bossLeftHand.transform.position;
+        rightHandStartPos = bossRightHand.transform.position;
         SetSpawnRate(1.5f);
     }
 
@@ -72,6 +77,7 @@ public class BossManager : MonoBehaviour
     {
         CheckHealthStatus();
         ColorStatus();
+        //MoveBoss();
         timer += Time.deltaTime;
         if (!isBossDead)
         {
@@ -91,7 +97,28 @@ public class BossManager : MonoBehaviour
                 SetSpawnRate(0);
                 timer = 0f;
             }
-        }        
+        }
+    }
+
+    private void MoveBoss()
+    {
+        if (!isBossDead)
+        {
+            bossHead.transform.position = Vector3.Lerp(bossHead.transform.position, Vector3.up * (Camera.main.pixelHeight / 100 - (bossHead.GetComponent<BoxCollider2D>().bounds.size.y* 2)), bossMovementSpeed * Time.deltaTime);
+            bossRightHand.transform.position = Vector3.Lerp(bossRightHand.transform.position, Vector3.right * (Camera.main.pixelWidth / 100 - (bossRightHand.GetComponent<BoxCollider2D>().bounds.size.x* 2)), bossMovementSpeed * Time.deltaTime);
+            bossLeftHand.transform.position = Vector3.Lerp(bossLeftHand.transform.position, Vector3.right * (0 - (bossLeftHand.GetComponent<BoxCollider2D>().bounds.size.x / 2)), bossMovementSpeed * Time.deltaTime);
+        }
+        else
+        {
+            bossHead.transform.position = Vector3.Lerp(bossHead.transform.position, headStartPos, bossMovementSpeed * Time.deltaTime);
+            bossRightHand.transform.position = Vector3.Lerp(bossRightHand.transform.position, rightHandStartPos, bossMovementSpeed * Time.deltaTime);
+            bossLeftHand.transform.position = Vector3.Lerp(bossLeftHand.transform.position, leftHandStartPos, bossMovementSpeed * Time.deltaTime);
+        }
+
+        if (leftHandDestroyed)
+            bossLeftHand.transform.position = Vector3.Lerp(bossLeftHand.transform.position, leftHandStartPos, bossMovementSpeed * Time.deltaTime);
+        if (rightHandDestroyed)
+            bossRightHand.transform.position = Vector3.Lerp(bossRightHand.transform.position, rightHandStartPos, bossMovementSpeed * Time.deltaTime);
     }
 
     private void CheckHealthStatus()
@@ -99,12 +126,14 @@ public class BossManager : MonoBehaviour
         if (bossLeftHandHealth == 0 && bossLeftHand.GetComponent<BoxCollider2D>().enabled)
         {
             bossLeftHand.GetComponent<BoxCollider2D>().enabled = false;
+            //leftHandDestroyed = true;
             bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
             SetScore(bossHandScore, bossLeftHand.transform);
         }
         if (bossRightHandHealth == 0 && bossRightHand.GetComponent<BoxCollider2D>().enabled)
         {
             bossRightHand.GetComponent<BoxCollider2D>().enabled = false;
+            //rightHandDestroyed = true;
             bossRightHand.GetComponent<Animator>().SetTrigger("Back");
             SetScore(bossHandScore, bossRightHand.transform);
         }
@@ -112,16 +141,17 @@ public class BossManager : MonoBehaviour
         {
             isBossDead = true;
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
-            SetScore(bossHeadScore, bossHead.transform);
+            //SetScore(bossHeadScore, bossHead.transform);
 
             bossHead.GetComponent<Animator>().SetTrigger("Back");
-            if(bossRightHand.GetComponent<BoxCollider2D>().enabled)
+            if (bossRightHand.GetComponent<BoxCollider2D>().enabled)
                 bossRightHand.GetComponent<Animator>().SetTrigger("Back");
             if (bossLeftHand.GetComponent<BoxCollider2D>().enabled)
                 bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
 
             GameManager._instance.bossCounter++;
             GameManager._instance.isBossActive = false;
+            GameManager._instance.bossDead = true;
             for (int i = 0; i < 4; i++)
             {
                 StartCoroutine(WaitAndExplode());

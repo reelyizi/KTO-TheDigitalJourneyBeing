@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     public GameObject boss;
     [HideInInspector] public int bossCounter = 0;
     [HideInInspector] public bool isBossActive;
+    public int spawnChest;
+    [HideInInspector] public bool bossDead;
+    public GameObject chest;
     void Start()
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);
@@ -72,14 +75,28 @@ public class GameManager : MonoBehaviour
             {
                 SpawnBubble();
             }
+            if (bossDead)
+            {
+                for (int i = 0; i < spawnChest; i++)
+                {
+                    StartCoroutine(ChestSpawner());
+                }
+                bossDead = false;
+            }
             BossCheck();
         }
         if (itemCooldownTimer > 0)
         {
             itemCooldownTimer -= Time.deltaTime;
-        }
+        }        
     }
-
+    IEnumerator ChestSpawner()
+    {
+        yield return new WaitForSeconds(Random.Range(0f, 1f)); // araliginda rastgele bir ondalikli sayi kadar bekler semih
+        //  Random.Range(1f, 3f) olan kýsým ekliyeceði fazladan yükselik
+        GameObject obj = Instantiate(chest, new Vector2(Random.Range(A.position.x, B.position.x), (A.position.y + Random.Range(1f, 3f))), Quaternion.identity, null);
+        obj.name = "Chest";
+    }
     private void BossCheck()
     {
         if (score >= 50000 + (bossCounter * 200000) && !isBossActive)
