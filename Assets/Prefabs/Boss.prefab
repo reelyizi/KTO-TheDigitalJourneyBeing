@@ -244,7 +244,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2fcd37c749984324a9e7b82f73f64eb6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29c01dfc7b52cde499b8a6fbf79f3f9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -288,18 +288,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.9454017}
+  m_Offset: {x: -0.18092918, y: 1.2800002}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.48, y: 11.32}
+    oldSize: {x: 15.75, y: 12.72}
     newSize: {x: 9.48, y: 11.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.48, y: 7.4291964}
+  m_Size: {x: 15.221859, y: 7.4291964}
   m_EdgeRadius: 0
 --- !u!1 &1215273684118809456
 GameObject:
@@ -362,10 +362,12 @@ MonoBehaviour:
   - {fileID: 2258774916874324964}
   bossBubble: {fileID: 4473726701200453902, guid: 012b680eb28dca84488d8e94b47b8b95, type: 3}
   bossBubbleSprites:
-  - {fileID: 21300000, guid: d4465fa7e91cce543b2c0d168315a550, type: 3}
-  - {fileID: 21300000, guid: d152725966cfdd144b607b2eb2df5f08, type: 3}
-  - {fileID: 21300000, guid: bad336ee38db3a54d9ae16e95fdd4519, type: 3}
-  - {fileID: 21300000, guid: d0ff4c8115653ec4aa50e258cf73ae24, type: 3}
+  - {fileID: 21300000, guid: 0cce606c12516854181c523a2f4ebf26, type: 3}
+  - {fileID: 21300000, guid: 3253f2aaad52e3e48bac5764fe86d1c4, type: 3}
+  - {fileID: 21300000, guid: 531f7257814df5240b2153506f1990df, type: 3}
+  - {fileID: 21300000, guid: ba6fef73f432a1347960cbe185614a15, type: 3}
+  - {fileID: 21300000, guid: 88e8bd434af15a24a8659c104ab778a3, type: 3}
+  - {fileID: 21300000, guid: ab0f0a534515f014ba35569b47a6bd22, type: 3}
   minBubbleSpawnRate: 2
   maxBubbleSpawnRate: 10
   bossHeadHealth: 1500
@@ -453,7 +455,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7cf70c8681493b14ea4c97b4d4fe678d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c58ce237caef48a4db15b0e3d22d12e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -497,18 +499,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.7432041}
+  m_Offset: {x: 0.5550308, y: 1.7432041}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.88, y: 10.53}
+    oldSize: {x: 15.15, y: 10.55}
     newSize: {x: 8.88, y: 10.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.88, y: 7.0435905}
+  m_Size: {x: 14.112892, y: 7.0435905}
   m_EdgeRadius: 0
 --- !u!1 &1371367014429179448
 GameObject:

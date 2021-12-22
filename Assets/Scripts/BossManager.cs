@@ -154,6 +154,8 @@ public class BossManager : MonoBehaviour
             GameManager._instance.bossDead = true;
             for (int i = 0; i < 4; i++)
             {
+                Vibrator.Vibrate(250);
+                Shake.start = true;
                 StartCoroutine(WaitAndExplode());
             }
 
@@ -162,7 +164,7 @@ public class BossManager : MonoBehaviour
     }
     IEnumerator WaitAndExplode()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         GameManager._instance.ExplodeGrenade();
     }
 
