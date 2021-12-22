@@ -75,5 +75,10 @@ public class PlayerChildTrigger : MonoBehaviour
             Destroy(collision.gameObject);
             laserWeapon.SetActive(true);
         }
+        else if (collision.name == "Chest")
+        {
+            Destroy(collision.gameObject);
+            GameManager._instance.SetScoreText(250, collision.transform);
+        }
     }
 }

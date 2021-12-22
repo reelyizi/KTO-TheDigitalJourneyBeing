@@ -7,6 +7,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] private GameObject bossHead, bossLeftHand, bossRightHand;
     [SerializeField] private List<Transform> bubbleHoles = new List<Transform>();
     [SerializeField] private GameObject bossBubble;
+    [SerializeField] private List<Sprite> bossBubbleSprites;
     [Range(1, 30)] [SerializeField] float minBubbleSpawnRate, maxBubbleSpawnRate;
     private List<float> spawnRate;
     private float timer = 0;
@@ -25,7 +26,7 @@ public class BossManager : MonoBehaviour
         get { return bossHeadHealth; }
         set
         {
-            bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossHead.GetComponent<SpriteRenderer>().color = Color.red;
             bossHeadHealth -= value;
             if (bossHeadHealth <= 0)
             {
@@ -38,7 +39,7 @@ public class BossManager : MonoBehaviour
         get { return bossLeftHandHealth; }
         set
         {
-            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.red;
             bossLeftHandHealth -= value;
             if (bossLeftHandHealth <= 0)
             {
@@ -51,7 +52,7 @@ public class BossManager : MonoBehaviour
         get { return bossRightHandHealth; }
         set
         {
-            bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossRightHand.GetComponent<SpriteRenderer>().color = Color.red;
             bossRightHandHealth -= value;
             if (bossRightHandHealth <= 0)
             {
@@ -70,6 +71,7 @@ public class BossManager : MonoBehaviour
     void Update()
     {
         CheckHealthStatus();
+        ColorStatus();
         timer += Time.deltaTime;
         if (!isBossDead)
         {
@@ -79,6 +81,7 @@ public class BossManager : MonoBehaviour
                 {
                     spawnRate.RemoveAt(i);
                     GameObject obj = Instantiate(bossBubble, bubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
+                    obj.GetComponent<SpriteRenderer>().sprite = bossBubbleSprites[Random.Range(0, bossBubbleSprites.Count)];
                     obj.GetComponent<Bubble>().applyForce = true;
                     //spawnRate[i] = Random.Range(minBubbleSpawnRate, maxBubbleSpawnRate);
                 }
@@ -97,19 +100,19 @@ public class BossManager : MonoBehaviour
         {
             bossLeftHand.GetComponent<BoxCollider2D>().enabled = false;
             bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
-            SetScore(bossHandScore);
+            SetScore(bossHandScore, bossLeftHand.transform);
         }
         if (bossRightHandHealth == 0 && bossRightHand.GetComponent<BoxCollider2D>().enabled)
         {
             bossRightHand.GetComponent<BoxCollider2D>().enabled = false;
             bossRightHand.GetComponent<Animator>().SetTrigger("Back");
-            SetScore(bossHandScore);
+            SetScore(bossHandScore, bossRightHand.transform);
         }
         if (bossHeadHealth == 0 && bossHead.GetComponent<BoxCollider2D>().enabled)
         {
             isBossDead = true;
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
-            SetScore(bossHeadScore);
+            SetScore(bossHeadScore, bossHead.transform);
 
             bossHead.GetComponent<Animator>().SetTrigger("Back");
             if(bossRightHand.GetComponent<BoxCollider2D>().enabled)
@@ -132,6 +135,17 @@ public class BossManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameManager._instance.ExplodeGrenade();
     }
+
+    private void ColorStatus()
+    {
+        if (bossHead.GetComponent<SpriteRenderer>().color != Color.white)
+            bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+        if (bossLeftHand.GetComponent<SpriteRenderer>().color != Color.white)
+            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+        if (bossRightHand.GetComponent<SpriteRenderer>().color != Color.white)
+            bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+    }
+
     private void SetSpawnRate(float additionalTime)
     {
         spawnRate = new List<float>();
@@ -141,10 +155,10 @@ public class BossManager : MonoBehaviour
         }
     }
 
-    private void SetScore(int score)
+    private void SetScore(int score, Transform limbPos)
     {
         GameManager.score += score;
-        GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(Vector3.zero), Quaternion.identity, GameObject.Find("Holder").transform);
+        GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(limbPos.position), Quaternion.identity, GameObject.Find("Holder").transform);
         obj.GetComponent<BubbleScoreText>().SetText(score);
     }
 }

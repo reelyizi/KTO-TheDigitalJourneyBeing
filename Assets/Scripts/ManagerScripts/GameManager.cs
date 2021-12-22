@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float levelTime = float.MaxValue;
     private float startTime;
     public TextMeshProUGUI text, scoreText;
+    public GameObject scoreTextGameobject;
     public GameObject totalBubble, group;
     [Range(1, 999)] public float maxSpawnRate;
     [Range(1, 999)] public float minSpawnRate;
@@ -105,6 +106,13 @@ public class GameManager : MonoBehaviour
             //Screen Shake Vibration
             Shake.start = true;
         }
+    }
+
+    public void SetScoreText(int _score, Transform objectPos)
+    {
+        score += _score;
+        GameObject obj = Instantiate(scoreTextGameobject, Camera.main.WorldToScreenPoint(objectPos.position), Quaternion.identity, GameObject.Find("Holder").transform);
+        obj.GetComponent<BubbleScoreText>().SetText(_score);
     }
 
     private void SpawnBubble()
