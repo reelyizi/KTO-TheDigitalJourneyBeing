@@ -45,19 +45,16 @@ public class Bullet : MonoBehaviour
     {
         if(other.gameObject.name == "Boss Left Hand")
         {
-            Debug.Log("HIT!");
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossLeftHandHealth = damage;
         }
         else if (other.gameObject.name == "Boss Right Hand")
         {
-            Debug.Log("HIT!");
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossLeftHandHealth = damage;
         }
         else if (other.gameObject.name == "Boss Head")
         {
-            Debug.Log("HIT!");
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossHeadHealth = damage;
         }

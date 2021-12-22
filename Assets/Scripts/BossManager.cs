@@ -15,6 +15,8 @@ public class BossManager : MonoBehaviour
     [SerializeField] private GameObject scoreText;
     [SerializeField] private int bossHeadScore, bossHandScore;
 
+    private bool isBossDead;
+
     #region Properties
 
     public float BossHeadHealth
@@ -65,21 +67,24 @@ public class BossManager : MonoBehaviour
     {
         CheckHealthStatus();
         timer += Time.deltaTime;
-        for (int i = 0; i < spawnRate.Count; i++)
+        if (!isBossDead)
         {
-            if (timer >= spawnRate[i])
+            for (int i = 0; i < spawnRate.Count; i++)
             {
-                spawnRate.RemoveAt(i);
-                GameObject obj = Instantiate(bossBubble, bubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
-                obj.GetComponent<Bubble>().applyForce = true;
-                //spawnRate[i] = Random.Range(minBubbleSpawnRate, maxBubbleSpawnRate);
+                if (timer >= spawnRate[i])
+                {
+                    spawnRate.RemoveAt(i);
+                    GameObject obj = Instantiate(bossBubble, bubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
+                    obj.GetComponent<Bubble>().applyForce = true;
+                    //spawnRate[i] = Random.Range(minBubbleSpawnRate, maxBubbleSpawnRate);
+                }
             }
-        }
-        if (timer >= maxBubbleSpawnRate)
-        {
-            SetSpawnRate(0);
-            timer = 0f;
-        }
+            if (timer >= maxBubbleSpawnRate)
+            {
+                SetSpawnRate(0);
+                timer = 0f;
+            }
+        }        
     }
 
     private void CheckHealthStatus()
@@ -87,27 +92,48 @@ public class BossManager : MonoBehaviour
         if (bossLeftHandHealth == 0 && bossLeftHand.GetComponent<BoxCollider2D>().enabled)
         {
             bossLeftHand.GetComponent<BoxCollider2D>().enabled = false;
+            bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
             SetScore(bossHandScore);
         }
         if (bossRightHandHealth == 0 && bossRightHand.GetComponent<BoxCollider2D>().enabled)
         {
             bossRightHand.GetComponent<BoxCollider2D>().enabled = false;
+            bossRightHand.GetComponent<Animator>().SetTrigger("Back");
             SetScore(bossHandScore);
         }
         if (bossHeadHealth == 0 && bossHead.GetComponent<BoxCollider2D>().enabled)
         {
+            isBossDead = true;
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
             SetScore(bossHeadScore);
+
+            bossHead.GetComponent<Animator>().SetTrigger("Back");
+            if(bossRightHand.GetComponent<BoxCollider2D>().enabled)
+                bossRightHand.GetComponent<Animator>().SetTrigger("Back");
+            if (bossLeftHand.GetComponent<BoxCollider2D>().enabled)
+                bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
+
             GameManager._instance.bossCounter++;
             GameManager._instance.isBossActive = false;
-            for (int i = GameObject.Find("Holder").transform.childCount; i >= 0; i--)
-            {
-                Destroy(GameObject.Find("Holder").transform.GetChild(i));
-            }
-            Destroy(this.gameObject);
+
+            StartCoroutine(WaitAndDestroy());
+
+            Destroy(gameObject, 1.25f);
         }
     }
 
+    IEnumerator WaitAndDestroy()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("explosion");
+        GameManager._instance.ExplodeGrenade();
+        yield return new WaitForSeconds(0.5f); Debug.Log("explosion");
+        GameManager._instance.ExplodeGrenade();
+        yield return new WaitForSeconds(0.5f); Debug.Log("explosion");
+        GameManager._instance.ExplodeGrenade();
+        yield return new WaitForSeconds(0.5f); Debug.Log("explosion");
+        GameManager._instance.ExplodeGrenade();
+    }
     private void SetSpawnRate(float additionalTime)
     {
         spawnRate = new List<float>();

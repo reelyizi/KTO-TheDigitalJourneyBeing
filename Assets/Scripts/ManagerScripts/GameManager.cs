@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            score += 10000;
+            GameManager._instance.ExplodeGrenade();
         }
         if (!isGameStart)
         {
@@ -89,6 +89,25 @@ public class GameManager : MonoBehaviour
         {
             isBossActive = true;
             Instantiate(boss, Vector3.zero, Quaternion.identity);
+        }
+    }
+
+    public void ExplodeGrenade()
+    {
+        List<GameObject> bubbles = new List<GameObject>();
+        if(GameObject.Find("Bubble").transform.childCount > 0)
+        {
+            for (int i = 0; i < GameObject.Find("Bubble").transform.childCount; i++)
+            {
+                bubbles.Add(GameObject.Find("Bubble").transform.GetChild(i).gameObject);
+            }
+        }        
+        Vibrator.Vibrate(250);
+        foreach (GameObject bubble in bubbles)
+        {
+            bubble.GetComponent<Bubble>().DestroyBubble();
+            //Screen Shake Vibration
+            Shake.start = true;
         }
     }
 

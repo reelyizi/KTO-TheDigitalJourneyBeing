@@ -50,19 +50,7 @@ public class PlayerChildTrigger : MonoBehaviour
         if (collision.name == "Grenade")
         {
             Destroy(collision.gameObject);
-            List<GameObject> bubbles = new List<GameObject>();
-            for (int i = 0; i < GameObject.Find("Bubble").transform.childCount; i++)
-            {
-                bubbles.Add(GameObject.Find("Bubble").transform.GetChild(i).gameObject);
-            }
-            Vibrator.Vibrate(250);
-            foreach (GameObject bubble in bubbles)
-            {
-                bubble.GetComponent<Bubble>().DestroyBubble();
-                //Screen Shake Vibration
-                Shake.start=true;
-                
-            }
+            GameManager._instance.ExplodeGrenade();
             
         }
         else if (collision.name == "Armor")
