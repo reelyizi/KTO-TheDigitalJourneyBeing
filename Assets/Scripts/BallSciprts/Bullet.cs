@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
         else if (other.gameObject.name == "Boss Right Hand")
         {
             Destroy(this.gameObject);
-            other.transform.parent.GetComponent<BossManager>().BossLeftHandHealth = damage;
+            other.transform.parent.GetComponent<BossManager>().BossRightHandHealth = damage;
         }
         else if (other.gameObject.name == "Boss Head")
         {

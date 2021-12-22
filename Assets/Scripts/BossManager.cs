@@ -15,6 +15,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] private GameObject scoreText;
     [SerializeField] private int bossHeadScore, bossHandScore;
 
+    public float colorChangingSpeed = 10f;
     private bool isBossDead;
 
     #region Properties
@@ -24,6 +25,7 @@ public class BossManager : MonoBehaviour
         get { return bossHeadHealth; }
         set
         {
+            bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
             bossHeadHealth -= value;
             if (bossHeadHealth <= 0)
             {
@@ -36,6 +38,7 @@ public class BossManager : MonoBehaviour
         get { return bossLeftHandHealth; }
         set
         {
+            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
             bossLeftHandHealth -= value;
             if (bossLeftHandHealth <= 0)
             {
@@ -48,6 +51,7 @@ public class BossManager : MonoBehaviour
         get { return bossRightHandHealth; }
         set
         {
+            bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
             bossRightHandHealth -= value;
             if (bossRightHandHealth <= 0)
             {
@@ -115,23 +119,17 @@ public class BossManager : MonoBehaviour
 
             GameManager._instance.bossCounter++;
             GameManager._instance.isBossActive = false;
+            for (int i = 0; i < 4; i++)
+            {
+                StartCoroutine(WaitAndExplode());
+            }
 
-            StartCoroutine(WaitAndDestroy());
-
-            Destroy(gameObject, 1.25f);
+            Destroy(gameObject, 2f);
         }
     }
-
-    IEnumerator WaitAndDestroy()
+    IEnumerator WaitAndExplode()
     {
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("explosion");
-        GameManager._instance.ExplodeGrenade();
-        yield return new WaitForSeconds(0.5f); Debug.Log("explosion");
-        GameManager._instance.ExplodeGrenade();
-        yield return new WaitForSeconds(0.5f); Debug.Log("explosion");
-        GameManager._instance.ExplodeGrenade();
-        yield return new WaitForSeconds(0.5f); Debug.Log("explosion");
+        yield return new WaitForSeconds(0.2f);
         GameManager._instance.ExplodeGrenade();
     }
     private void SetSpawnRate(float additionalTime)
