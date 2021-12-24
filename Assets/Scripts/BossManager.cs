@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -20,6 +21,7 @@ public class BossManager : MonoBehaviour
     public float bossMovementSpeed = 10f;
     private Vector3 headStartPos, leftHandStartPos, rightHandStartPos;
     private bool isBossDead, leftHandDestroyed, rightHandDestroyed;
+    [SerializeField] private List<Transform> cloneBubbleHoles;
 
     #region Properties
 
@@ -70,6 +72,7 @@ public class BossManager : MonoBehaviour
         headStartPos = bossHead.transform.position;
         leftHandStartPos = bossLeftHand.transform.position;
         rightHandStartPos = bossRightHand.transform.position;
+        cloneBubbleHoles = new List<Transform>(bubbleHoles);
         SetSpawnRate(1.5f);
     }
 
@@ -79,6 +82,7 @@ public class BossManager : MonoBehaviour
         ColorStatus();
         //MoveBoss();
         timer += Time.deltaTime;
+        Debug.Log(!cloneBubbleHoles.Any());
         if (!isBossDead)
         {
             for (int i = 0; i < spawnRate.Count; i++)
@@ -86,16 +90,19 @@ public class BossManager : MonoBehaviour
                 if (timer >= spawnRate[i])
                 {
                     // döngüden sonra tüm indexlere removeat uygulanabilir
-                    spawnRate.RemoveAt(i);
-                    GameObject obj = Instantiate(bossBubble, bubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
+                    
+                    GameObject obj = Instantiate(bossBubble, cloneBubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
                     obj.GetComponent<SpriteRenderer>().sprite = bossBubbleSprites[Random.Range(0, bossBubbleSprites.Count)];
                     obj.GetComponent<Bubble>().applyForce = true;
                     //spawnRate[i] = Random.Range(minBubbleSpawnRate, maxBubbleSpawnRate);
+                    spawnRate.RemoveAt(i);
+                    cloneBubbleHoles.RemoveAt(i);
                 }
             }
-            if (timer >= maxBubbleSpawnRate)
+            if (!cloneBubbleHoles.Any())
             {
                 SetSpawnRate(0);
+                cloneBubbleHoles = new List<Transform>(bubbleHoles);
                 timer = 0f;
             }
         }
@@ -172,11 +179,11 @@ public class BossManager : MonoBehaviour
     private void ColorStatus()
     {
         if (bossHead.GetComponent<SpriteRenderer>().color != Color.white)
-            bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
         if (bossLeftHand.GetComponent<SpriteRenderer>().color != Color.white)
-            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
         if (bossRightHand.GetComponent<SpriteRenderer>().color != Color.white)
-            bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
     }
 
     private void SetSpawnRate(float additionalTime)
