@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
-    [SerializeField] private GameObject bossHead, bossLeftHand, bossRightHand;
+    [SerializeField] public GameObject bossHead, bossLeftHand, bossRightHand;
     [SerializeField] private List<Transform> bubbleHoles = new List<Transform>();
     [SerializeField] private GameObject bossBubble;
     [SerializeField] private List<Sprite> bossBubbleSprites;
@@ -149,7 +149,7 @@ public class BossManager : MonoBehaviour
             bossLeftHand.GetComponent<BoxCollider2D>().enabled = false;
             //leftHandDestroyed = true;
             bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
-            SetScore(bossHandScore, bossLeftHand.transform);
+            //SetScore(bossHandScore, bossLeftHand.transform);
         }
         if (bossRightHandHealth == 0 && bossRightHand.GetComponent<BoxCollider2D>().enabled)
         {
@@ -208,7 +208,7 @@ public class BossManager : MonoBehaviour
         }
     }
 
-    private void SetScore(int score, Transform limbPos)
+    public void SetScore(int score, Transform limbPos)
     {
         GameManager.score += score;
         GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(limbPos.position), Quaternion.identity, GameObject.Find("Holder").transform);
