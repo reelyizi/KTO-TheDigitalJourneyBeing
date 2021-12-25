@@ -178,7 +178,6 @@ public class BossManager : MonoBehaviour
             for (int i = 0; i < 4; i++)
             {
                 Vibrator.Vibrate(250);
-                Shake.start = true;
                 StartCoroutine(WaitAndExplode());
             }
 
