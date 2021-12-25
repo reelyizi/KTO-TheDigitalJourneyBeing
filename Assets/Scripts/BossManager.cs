@@ -177,7 +177,6 @@ public class BossManager : MonoBehaviour
             GameManager._instance.bossDead = true;
             for (int i = 0; i < 4; i++)
             {
-                Vibrator.Vibrate(250);
                 StartCoroutine(WaitAndExplode());
             }
 
