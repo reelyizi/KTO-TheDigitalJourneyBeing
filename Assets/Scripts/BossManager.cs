@@ -20,7 +20,7 @@ public class BossManager : MonoBehaviour
     public float colorChangingSpeed = 10f;
     public float bossMovementSpeed = 10f;
     private Vector3 headStartPos, leftHandStartPos, rightHandStartPos;
-    private bool isBossDead, leftHandDestroyed, rightHandDestroyed;
+    private bool isBossDead, leftHandDestroyed, rightHandDestroyed,handsDestroyed;
     [SerializeField] private List<Transform> cloneBubbleHoles;
 
     #region Properties
@@ -73,6 +73,11 @@ public class BossManager : MonoBehaviour
         leftHandStartPos = bossLeftHand.transform.position;
         rightHandStartPos = bossRightHand.transform.position;
         cloneBubbleHoles = new List<Transform>(bubbleHoles);
+        handsDestroyed=false;
+        //Screen Shake And Vibration
+        Vibrator.Vibrate(250);
+        Shake.start=true;
+        //
         SetSpawnRate(1.5f);
     }
 
@@ -89,7 +94,7 @@ public class BossManager : MonoBehaviour
             {
                 if (timer >= spawnRate[i])
                 {
-                    // döngüden sonra tüm indexlere removeat uygulanabilir
+                    // dï¿½ngï¿½den sonra tï¿½m indexlere removeat uygulanabilir
                     
                     GameObject obj = Instantiate(bossBubble, cloneBubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
                     obj.GetComponent<SpriteRenderer>().sprite = bossBubbleSprites[Random.Range(0, bossBubbleSprites.Count)];
@@ -131,8 +136,16 @@ public class BossManager : MonoBehaviour
 
     private void CheckHealthStatus()
     {
+        if(bossLeftHandHealth==0 && bossRightHandHealth==0 && !handsDestroyed)
+        {
+            //Hands destroyed and give feedback
+            handsDestroyed=true;
+            GameManager._instance.ExplodeGrenade();
+        }
         if (bossLeftHandHealth == 0 && bossLeftHand.GetComponent<BoxCollider2D>().enabled)
         {
+            //Left Hand Destroyed And Vibrate FeedBack
+            Vibrator.Vibrate(250);
             bossLeftHand.GetComponent<BoxCollider2D>().enabled = false;
             //leftHandDestroyed = true;
             bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
@@ -140,6 +153,8 @@ public class BossManager : MonoBehaviour
         }
         if (bossRightHandHealth == 0 && bossRightHand.GetComponent<BoxCollider2D>().enabled)
         {
+            //Left Hand Destroyed And Vibrate FeedBack
+            Vibrator.Vibrate(250);
             bossRightHand.GetComponent<BoxCollider2D>().enabled = false;
             //rightHandDestroyed = true;
             bossRightHand.GetComponent<Animator>().SetTrigger("Back");

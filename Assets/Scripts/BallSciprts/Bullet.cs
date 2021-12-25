@@ -56,6 +56,8 @@ public class Bullet : MonoBehaviour
         else if (other.gameObject.name == "Boss Head")
         {
             Destroy(this.gameObject);
+            //Vibration HeadShot
+            Vibrator.Vibrate(250);
             other.transform.parent.GetComponent<BossManager>().BossHeadHealth = damage;
         }
     }
