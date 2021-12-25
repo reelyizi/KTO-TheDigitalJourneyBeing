@@ -9,6 +9,7 @@ public class PlayerChildTrigger : MonoBehaviour
 
     public GameObject energyShield;
     public GameObject laserWeapon;
+    public GameManager gameManager;
 
     public float invinsibleDuration = 3f;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,7 +17,7 @@ public class PlayerChildTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy)
         {
             PlayerMovement playerMovement = transform.parent.GetComponent<PlayerMovement>();
-            if(playerMovement.invinsible <= 0)
+            if (playerMovement.invinsible <= 0)
             {
                 if (!playerMovement.armor)
                 {
@@ -25,9 +26,16 @@ public class PlayerChildTrigger : MonoBehaviour
                     if (GameManager.score > GameManager.highScore)
                     {
                         PlayerPrefs.SetInt("HighScore", GameManager.score);
-                        playFabManager.SendLeaderboard(GameManager.score);
+                        if (gameManager.gameNetworkStatus == GameManager.GameNetworkStatus.online)
+                        {
+                            playFabManager.SendLeaderboard(GameManager.score);
+                        }
                     }
-                    playFabManager.GetLeaderBoardAroundPlayer();
+                    if (gameManager.gameNetworkStatus == GameManager.GameNetworkStatus.online)
+                    {
+                        playFabManager.GetLeaderBoardAroundPlayer();
+                    }
+
                     holder.SetActive(false);
                     group.SetActive(true);
                     GameManager._instance.enabled = false;
@@ -37,7 +45,7 @@ public class PlayerChildTrigger : MonoBehaviour
                     playerMovement.armor = false;
                     collision.gameObject.GetComponent<Bubble>().DestroyBubble();
                 }
-            }  
+            }
         }
         else
         {
@@ -51,7 +59,7 @@ public class PlayerChildTrigger : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameManager._instance.ExplodeGrenade();
-            
+
         }
         else if (collision.name == "Armor")
         {

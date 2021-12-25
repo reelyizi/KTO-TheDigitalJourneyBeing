@@ -15,16 +15,22 @@ public class MenuPlayFabManager : MonoBehaviour
     public TextMeshProUGUI welcomeText;
     public static string currentName;
     public static string playFabUserID;
+    public static bool networkTestFinished=false;
     public GameObject nameWindow, uiWindow, startButton, leaderboardPanel;
     void Awake()
     {
         nameWindow.SetActive(false);
         uiWindow.SetActive(false);
-        Login();
-
     }
+
     void Update()
     {
+        if(networkTestFinished)
+        {
+            networkTestFinished=false;
+            Login();
+        }
+
         if (nameInputText.text == "")
         {
             startButton.GetComponent<Button>().interactable = false;

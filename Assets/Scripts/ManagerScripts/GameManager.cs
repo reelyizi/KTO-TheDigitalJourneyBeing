@@ -6,6 +6,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameSceneStatus { menu, gameplay };
+    public enum GameNetworkStatus { online, offline };
+    public GameSceneStatus gameSceneStatus;
+    public GameNetworkStatus gameNetworkStatus;
     public static GameManager _instance;
     private void Awake()
     {
@@ -40,64 +44,81 @@ public class GameManager : MonoBehaviour
     public int spawnChest;
     [HideInInspector] public bool bossDead;
     public GameObject chest;
+    
     void Start()
     {
-        highScore = PlayerPrefs.GetInt("HighScore", 0);
-        group.SetActive(false);
-        startTime = Time.time;
-        timer = Random.Range(minSpawnRate, maxSpawnRate);
+        Time.timeScale=1;
+        if(InternetAvailabilityTest.gameOffline)
+        {
+            gameNetworkStatus=GameNetworkStatus.offline;
+        }
+        else
+        {
+            gameNetworkStatus=GameNetworkStatus.online;
+        }
+        if (gameSceneStatus == GameSceneStatus.gameplay)
+        {
+            highScore = PlayerPrefs.GetInt("HighScore", 0);
+            group.SetActive(false);
+            startTime = Time.time;
+            timer = Random.Range(minSpawnRate, maxSpawnRate);
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (gameSceneStatus == GameSceneStatus.gameplay)
         {
-            score += 50000;
-        }
-        if (!isGameStart)
-        {
-            //Time.timeScale=0f;
-            startTime = Time.time;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            timerControl = Time.time - startTime;
-            //levelTime = (int)Time.time / 60;
-            text.text = ((int)timerControl).ToString();
-            scoreText.text = score.ToString();
-            if (totalBubble.transform.childCount == 0)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                for (int i = 0; i < 4; i++)
+                score += 50000;
+            }
+            if (!isGameStart)
+            {
+                //Time.timeScale=0f;
+                startTime = Time.time;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                timerControl = Time.time - startTime;
+                //levelTime = (int)Time.time / 60;
+                text.text = ((int)timerControl).ToString();
+                scoreText.text = score.ToString();
+                if (totalBubble.transform.childCount == 0)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        SpawnBubble();
+                    }
+                }
+                timer -= Time.deltaTime;
+                if (timer <= 0)
                 {
                     SpawnBubble();
                 }
-            }
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                SpawnBubble();
-            }
-            if (bossDead)
-            {
-                for (int i = 0; i < spawnChest; i++)
+                if (bossDead)
                 {
-                    StartCoroutine(ChestSpawner());
+                    for (int i = 0; i < spawnChest; i++)
+                    {
+                        StartCoroutine(ChestSpawner());
+                    }
+                    bossDead = false;
                 }
-                bossDead = false;
+                BossCheck();
             }
-            BossCheck();
+            if (itemCooldownTimer > 0)
+            {
+                itemCooldownTimer -= Time.deltaTime;
+            }
         }
-        if (itemCooldownTimer > 0)
-        {
-            itemCooldownTimer -= Time.deltaTime;
-        }        
     }
     IEnumerator ChestSpawner()
     {
         yield return new WaitForSeconds(Random.Range(0f, 1f)); // araliginda rastgele bir ondalikli sayi kadar bekler semih
-        //  Random.Range(1f, 3f) olan kýsým ekliyeceði fazladan yükselik
+        //  Random.Range(1f, 3f) olan kï¿½sï¿½m ekliyeceï¿½i fazladan yï¿½kselik
         GameObject obj = Instantiate(chest, new Vector2(Random.Range(A.position.x, B.position.x), (A.position.y + Random.Range(1f, 3f))), Quaternion.identity, null);
         obj.name = "Chest";
     }
@@ -113,13 +134,13 @@ public class GameManager : MonoBehaviour
     public void ExplodeGrenade()
     {
         List<GameObject> bubbles = new List<GameObject>();
-        if(GameObject.Find("Bubble").transform.childCount > 0)
+        if (GameObject.Find("Bubble").transform.childCount > 0)
         {
             for (int i = 0; i < GameObject.Find("Bubble").transform.childCount; i++)
             {
                 bubbles.Add(GameObject.Find("Bubble").transform.GetChild(i).gameObject);
             }
-        }        
+        }
         Vibrator.Vibrate(250);
         foreach (GameObject bubble in bubbles)
         {
