@@ -211,7 +211,7 @@ public class BossManager : MonoBehaviour
     public void SetScore(int score, Transform limbPos)
     {
         GameManager.score += score;
-        GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(new Vector3(Random.Range(limbPos.position.x-10,limbPos.position.x+10),Random.Range(limbPos.position.y-10,limbPos.position.y+10),limbPos.position.z)), Quaternion.identity, GameObject.Find("Holder").transform);
+        GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(new Vector3(Random.Range(limbPos.position.x-4,limbPos.position.x+4),Random.Range(limbPos.position.y-4,limbPos.position.y+4),limbPos.position.z)), Quaternion.identity, GameObject.Find("Holder").transform);
         obj.GetComponent<BubbleScoreText>().SetText(score);
     }
 }
