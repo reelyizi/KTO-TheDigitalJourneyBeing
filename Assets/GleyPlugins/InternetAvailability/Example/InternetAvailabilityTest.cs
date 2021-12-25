@@ -8,7 +8,8 @@ public class InternetAvailabilityTest : MonoBehaviour
 {
     //make public references for text field
     public TextMeshProUGUI result,loading;
-    public Button checkConnection,goOffline;
+    public Button checkConnection,goOffline,leaderboardButton;
+    public GameObject uiWindow;
     public static bool gameOffline=true;
     //create public method for button
     void Start()
@@ -63,6 +64,10 @@ public class InternetAvailabilityTest : MonoBehaviour
         //GameObject.Find("GameManager").GetComponent<GameManager>().gameNetworkStatus=GameManager.GameNetworkStatus.offline;
         MenuPlayFabManager.networkTestFinished=false;
         gameOffline=true;
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        uiWindow.SetActive(true);
+        leaderboardButton.interactable=false;
+        
+        this.gameObject.SetActive(false);
     }
 }
