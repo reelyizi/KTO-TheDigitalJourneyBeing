@@ -47,18 +47,12 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossLeftHandHealth = damage;
-            Color32 temp=other.transform.parent.GetComponent<SpriteRenderer>().color;
-            other.transform.parent.GetComponent<SpriteRenderer>().color=other.transform.parent.GetComponent<BossManager>().redColor;
-            StartCoroutine(ChangeColorDefault(temp,other));
             other.transform.parent.GetComponent<BossManager>().SetScore(25,other.transform.parent.GetComponent<BossManager>().bossLeftHand.transform);
         }
         else if (other.gameObject.name == "Boss Right Hand")
         {
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossRightHandHealth = damage;
-            Color32 temp=other.transform.parent.GetComponent<SpriteRenderer>().color;
-            other.transform.parent.GetComponent<SpriteRenderer>().color=other.transform.parent.GetComponent<BossManager>().redColor;
-            StartCoroutine(ChangeColorDefault(temp,other));
             other.transform.parent.GetComponent<BossManager>().SetScore(25,other.transform.parent.GetComponent<BossManager>().bossRightHand.transform);
         }
         else if (other.gameObject.name == "Boss Head")
@@ -67,10 +61,5 @@ public class Bullet : MonoBehaviour
             //Vibration HeadShot
             other.transform.parent.GetComponent<BossManager>().BossHeadHealth = damage;
         }
-    }
-    IEnumerator ChangeColorDefault(Color32 temp,Collider2D gameObject)
-    {
-        yield return new WaitForSeconds(0.1f);
-        gameObject.transform.parent.GetComponent<SpriteRenderer>().color=temp;
     }
 }
