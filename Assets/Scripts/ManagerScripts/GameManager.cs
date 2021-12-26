@@ -133,6 +133,8 @@ public class GameManager : MonoBehaviour
 
     public void ExplodeGrenade()
     {
+        Vibrator.Vibrate(250);
+        Shake.start=true;
         List<GameObject> bubbles = new List<GameObject>();
         if (GameObject.Find("Bubble").transform.childCount > 0)
         {
@@ -141,7 +143,7 @@ public class GameManager : MonoBehaviour
                 bubbles.Add(GameObject.Find("Bubble").transform.GetChild(i).gameObject);
             }
         }
-        Vibrator.Vibrate(250);
+        
         foreach (GameObject bubble in bubbles)
         {
             bubble.GetComponent<Bubble>().DestroyBubble();

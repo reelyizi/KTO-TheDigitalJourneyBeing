@@ -186,7 +186,7 @@ public class BossManager : MonoBehaviour
     }
     IEnumerator WaitAndExplode()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.15f);
         GameManager._instance.ExplodeGrenade();
     }
 
