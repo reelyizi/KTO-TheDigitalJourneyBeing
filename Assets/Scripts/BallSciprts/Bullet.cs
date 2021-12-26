@@ -47,13 +47,13 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossLeftHandHealth = damage;
-            other.transform.parent.GetComponent<BossManager>().SetScore(25,other.transform.parent.GetComponent<BossManager>().bossLeftHand.transform);
+            other.transform.parent.GetComponent<BossManager>().SetScore(50,other.transform.parent.GetComponent<BossManager>().bossLeftHand.transform);
         }
         else if (other.gameObject.name == "Boss Right Hand")
         {
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossRightHandHealth = damage;
-            other.transform.parent.GetComponent<BossManager>().SetScore(25,other.transform.parent.GetComponent<BossManager>().bossRightHand.transform);
+            other.transform.parent.GetComponent<BossManager>().SetScore(50,other.transform.parent.GetComponent<BossManager>().bossRightHand.transform);
         }
         else if (other.gameObject.name == "Boss Head")
         {
