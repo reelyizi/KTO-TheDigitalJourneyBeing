@@ -94,11 +94,10 @@ public class BossManager : MonoBehaviour
             for (int i = 0; i < spawnRate.Count; i++)
             {
                 if (timer >= spawnRate[i])
-                {
-                    // d�ng�den sonra t�m indexlere removeat uygulanabilir
-                    
+                {                    
                     GameObject obj = Instantiate(bossBubble, cloneBubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
                     obj.GetComponent<SpriteRenderer>().sprite = bossBubbleSprites[Random.Range(0, bossBubbleSprites.Count)];
+                    obj.GetComponent<Bubble>().startDirection = cloneBubbleHoles[i].GetComponent<BubbleDirection>().bubbleStartDirection;
                     obj.GetComponent<Bubble>().applyForce = true;
                     //spawnRate[i] = Random.Range(minBubbleSpawnRate, maxBubbleSpawnRate);
                     spawnRate.RemoveAt(i);
