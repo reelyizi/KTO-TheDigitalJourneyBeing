@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 562973279339441283}
   - component: {fileID: 900273630717394794}
   - component: {fileID: 6949475372857258993}
+  - component: {fileID: -3073498096096916240}
   m_Layer: 6
   m_Name: Grenade
   m_TagString: Untagged
@@ -133,3 +134,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3073498096096916240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072940552072602380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a612a1b11cab5428c7d10769363d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDuration: 6
