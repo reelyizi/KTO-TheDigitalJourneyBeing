@@ -22,6 +22,7 @@ public class BossManager : MonoBehaviour
     private Vector3 headStartPos, leftHandStartPos, rightHandStartPos;
     private bool isBossDead, leftHandDestroyed, rightHandDestroyed,handsDestroyed;
     [SerializeField] private List<Transform> cloneBubbleHoles;
+    [SerializeField] public Color32 redColor;
 
     #region Properties
 
