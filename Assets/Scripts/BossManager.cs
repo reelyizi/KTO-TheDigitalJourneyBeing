@@ -137,16 +137,16 @@ public class BossManager : MonoBehaviour
 
     private void CheckHealthStatus()
     {
-        if(bossLeftHandHealth==0 && bossRightHandHealth==0 && !handsDestroyed)
+        /*if(bossLeftHandHealth==0 && bossRightHandHealth==0 && !handsDestroyed)
         {
             //Hands destroyed and give feedback
             handsDestroyed=true;
             GameManager._instance.ExplodeGrenade();
-        }
+        }*/
         if (bossLeftHandHealth == 0 && bossLeftHand.GetComponent<BoxCollider2D>().enabled)
         {
             //Left Hand Destroyed And Vibrate FeedBack
-            Vibrator.Vibrate(250);
+            GameManager._instance.ExplodeGrenade();
             bossLeftHand.GetComponent<BoxCollider2D>().enabled = false;
             //leftHandDestroyed = true;
             bossLeftHand.GetComponent<Animator>().SetTrigger("Back");
@@ -155,7 +155,7 @@ public class BossManager : MonoBehaviour
         if (bossRightHandHealth == 0 && bossRightHand.GetComponent<BoxCollider2D>().enabled)
         {
             //Left Hand Destroyed And Vibrate FeedBack
-            Vibrator.Vibrate(250);
+            GameManager._instance.ExplodeGrenade();
             bossRightHand.GetComponent<BoxCollider2D>().enabled = false;
             //rightHandDestroyed = true;
             bossRightHand.GetComponent<Animator>().SetTrigger("Back");
