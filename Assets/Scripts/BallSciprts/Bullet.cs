@@ -56,6 +56,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             other.transform.parent.GetComponent<BossManager>().BossRightHandHealth = damage;
+            Color32 temp=other.transform.parent.GetComponent<SpriteRenderer>().color;
+            other.transform.parent.GetComponent<SpriteRenderer>().color=other.transform.parent.GetComponent<BossManager>().redColor;
+            StartCoroutine(ChangeColorDefault(temp,other));
             other.transform.parent.GetComponent<BossManager>().SetScore(25,other.transform.parent.GetComponent<BossManager>().bossRightHand.transform);
         }
         else if (other.gameObject.name == "Boss Head")
