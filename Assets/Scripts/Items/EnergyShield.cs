@@ -7,7 +7,7 @@ public class EnergyShield : MonoBehaviour
 {
     public GameObject enemyTimer;
     [HideInInspector] public float timer;
-    [HideInInspector] public float duration;
+    public float duration;
     void Update()
     {
         enemyTimer.GetComponent<TextMeshProUGUI>().text = ((Mathf.Round(timer * 100)) / 100.0).ToString();

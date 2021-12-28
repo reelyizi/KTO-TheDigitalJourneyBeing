@@ -21,12 +21,12 @@ public class ItemDuration : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
         timeHolder += Time.deltaTime;
+        Debug.Log(timeHolder);
         if (itemDuration - timeHolder < 3 && !speedStoper)
         { speedMultiplier *= 2.5f; speedStoper = !speedStoper; }
         if (!alphaFlag)
         {
             spriteRenderer.color = Color.Lerp(spriteRenderer.color, new Color(255, 255, 255, 1 - ((timeElapsed / itemDuration) * speedMultiplier)), 1 + ((timeHolder / itemDuration) * speedMultiplier));
-            Debug.Log(spriteRenderer.color.a);
             if (spriteRenderer.color.a <= 0)
             { alphaFlag = !alphaFlag; timeElapsed = 0; }
         }
