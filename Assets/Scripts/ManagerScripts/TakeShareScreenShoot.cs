@@ -45,6 +45,10 @@ public class TakeShareScreenShoot : MonoBehaviour
         imageHolder1.sprite=mySprite;
         isTaked=true;
     }
+    void Taked()
+    {
+        isTaked=true;
+    }
 
     public void Share()
     {

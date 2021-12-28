@@ -12,21 +12,26 @@ public class PlayerChildTrigger : MonoBehaviour
     public GameObject laserWeapon;
     public GameManager gameManager;
     public TakeShareScreenShoot takeShareScreenShoot;
+    public bool checkEnded=false;
+    void Start()
+    {
+        checkEnded=false;
+    }
 
     public float invinsibleDuration = 3f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy)
+        if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy && !checkEnded)
         {
-            takeShareScreenShoot.ScreenShot();
+            
             PlayerMovement playerMovement = transform.parent.GetComponent<PlayerMovement>();
             if (playerMovement.invinsible <= 0)
             {
                 if (!playerMovement.armor)
                 {
-
+                    checkEnded=true;
                     AudioManager.instance.AudioPlay("Dead");
-
+                    takeShareScreenShoot.ScreenShot();
                     if (GameManager.score > GameManager.highScore)
                     {
                         PlayerPrefs.SetInt("HighScore", GameManager.score);

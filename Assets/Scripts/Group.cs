@@ -16,6 +16,7 @@ public class Group : MonoBehaviour
     public void RestartGame()
     {
         GameManager.score = 0;
+        GameObject.FindObjectOfType<TakeShareScreenShoot>().isTaked=false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
