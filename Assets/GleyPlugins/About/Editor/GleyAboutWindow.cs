@@ -42,17 +42,7 @@
         new AssetStorePackage(GleyAssets.DeliveryVehiclesPack,"Delivery Vehicles Pack","VehiclesIcon.png","Delivery Vehicles Pack contains 3 low poly, textured vehicles: Scooter, Three Wheeler, Minivan", "https://assetstore.unity.com/packages/3d/vehicles/land/delivery-vehicles-pack-55528?aid=1011l8QY4")
     };
 
-        GleyAssets[] packagesInsideMobileTools = {
-            GleyAssets.Ads,
-            GleyAssets.EasyIAP,
-            GleyAssets.Notifications,
-            GleyAssets.GameServices,
-            GleyAssets.RateGame,
-            GleyAssets.CrossPromo,
-            GleyAssets.AllPlatformsSave,
-            GleyAssets.Localization,
-            GleyAssets.DailyRewards
-        };
+        GleyAssets[] packagesInsideMobileTools = { GleyAssets.Ads, GleyAssets.EasyIAP, GleyAssets.Notifications, GleyAssets.GameServices, GleyAssets.RateGame, GleyAssets.CrossPromo, GleyAssets.AllPlatformsSave };
 
         [MenuItem("Window/Gley/About Gley", false, 0)]
         private static void Init()

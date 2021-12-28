@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerChildTrigger : MonoBehaviour
 {
@@ -10,19 +11,22 @@ public class PlayerChildTrigger : MonoBehaviour
     public GameObject energyShield;
     public GameObject laserWeapon;
     public GameManager gameManager;
+    public TakeShareScreenShoot takeShareScreenShoot;
 
     public float invinsibleDuration = 3f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy)
         {
+            takeShareScreenShoot.ScreenShot();
             PlayerMovement playerMovement = transform.parent.GetComponent<PlayerMovement>();
             if (playerMovement.invinsible <= 0)
             {
                 if (!playerMovement.armor)
                 {
+
                     AudioManager.instance.AudioPlay("Dead");
-                    Time.timeScale = 0f;
+
                     if (GameManager.score > GameManager.highScore)
                     {
                         PlayerPrefs.SetInt("HighScore", GameManager.score);
@@ -36,9 +40,6 @@ public class PlayerChildTrigger : MonoBehaviour
                         playFabManager.GetLeaderBoardAroundPlayer();
                     }
 
-                    holder.SetActive(false);
-                    group.SetActive(true);
-                    GameManager._instance.enabled = false;
                 }
                 else
                 {
@@ -50,6 +51,17 @@ public class PlayerChildTrigger : MonoBehaviour
         else
         {
             CheckItems(collision);
+        }
+    }
+    void Update()
+    {
+        if (takeShareScreenShoot.isTaked)
+        {
+            Time.timeScale = 0f;
+            holder.SetActive(false);
+            group.SetActive(true);
+            GameManager._instance.enabled = false;
+
         }
     }
 

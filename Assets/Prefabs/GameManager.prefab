@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5807141676420893031}
   - component: {fileID: 5807141676420893030}
   - component: {fileID: 2096271392}
+  - component: {fileID: 5770922671788496447}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669165e78053b744c84b7aa26578a725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSceneStatus: 1
+  gameNetworkStatus: 0
   levelTime: 1
   text: {fileID: 0}
   scoreText: {fileID: 0}
+  scoreTextGameobject: {fileID: 2910866459196863517, guid: e01fd32a7a012fd498a6c2d88814bb23, type: 3}
   totalBubble: {fileID: 0}
   group: {fileID: 0}
   maxSpawnRate: 4
@@ -60,14 +64,24 @@ MonoBehaviour:
   itemCooldownTimer: 3
   items:
   - {fileID: 8072940552072602380, guid: 80f9b2c74f93c00408278441fc80b3c4, type: 3}
-  - {fileID: 8072940552072602380, guid: b585efb311cdb7743a15ef4361b128ce, type: 3}
+  - {fileID: 8072940552072602380, guid: 80f9b2c74f93c00408278441fc80b3c4, type: 3}
+  - {fileID: 8072940552072602380, guid: 80f9b2c74f93c00408278441fc80b3c4, type: 3}
+  - {fileID: 8072940552072602380, guid: 80f9b2c74f93c00408278441fc80b3c4, type: 3}
+  - {fileID: 8072940552072602380, guid: 1fd65d1d23c8d8f43ae39f0677437545, type: 3}
+  - {fileID: 8072940552072602380, guid: 1fd65d1d23c8d8f43ae39f0677437545, type: 3}
   - {fileID: 8072940552072602380, guid: 1fd65d1d23c8d8f43ae39f0677437545, type: 3}
   - {fileID: 8072940552072602380, guid: 6d54c2ceaf78ebe4888f20b88f6d3f4b, type: 3}
+  - {fileID: 8072940552072602380, guid: 6d54c2ceaf78ebe4888f20b88f6d3f4b, type: 3}
+  - {fileID: 8072940552072602380, guid: 6d54c2ceaf78ebe4888f20b88f6d3f4b, type: 3}
+  - {fileID: 8072940552072602380, guid: b585efb311cdb7743a15ef4361b128ce, type: 3}
   - {fileID: 8072940552072602380, guid: 2d5a2a549fcbf7c4bb223dcf62177a4d, type: 3}
   - {fileID: 8072940552072602380, guid: 90d8ee33be790344ca80929549974279, type: 3}
   boss: {fileID: 1215273684118809456, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
   bossCounter: 0
   isBossActive: 0
+  spawnChest: 25
+  bossDead: 0
+  chest: {fileID: 8072940552072602380, guid: 90d8ee33be790344ca80929549974279, type: 3}
 --- !u!114 &2096271392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,3 +102,16 @@ MonoBehaviour:
   blue:
     serializedVersion: 2
     rgba: 4281606177
+--- !u!114 &5770922671788496447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5807141676420893029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cedc6bf52482b49a4feabb7881ec8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageHolder1: {fileID: 0}

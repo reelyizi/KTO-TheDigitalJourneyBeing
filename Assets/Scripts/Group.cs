@@ -13,12 +13,9 @@ public class Group : MonoBehaviour
         scoreValueText.text = GameManager.score.ToString();
         timerValueText.text = ((int)GameManager.timerControl).ToString();
     }
-    private void Update()
+    public void RestartGame()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameManager.score = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        GameManager.score = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
