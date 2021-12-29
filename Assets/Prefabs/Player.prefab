@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTimer: {fileID: 6049074227879700247}
   timer: 0
-  duration: 3
+  duration: 4
 --- !u!95 &6541514410731979117
 Animator:
   serializedVersion: 4
@@ -1184,7 +1184,8 @@ MonoBehaviour:
   laserWeapon: {fileID: 673581670}
   gameManager: {fileID: 0}
   takeShareScreenShoot: {fileID: 0}
-  invinsibleDuration: 3
+  checkEnded: 0
+  invinsibleDuration: 4
 --- !u!1 &8698685491033693221
 GameObject:
   m_ObjectHideFlags: 0

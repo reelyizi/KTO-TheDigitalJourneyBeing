@@ -481,17 +481,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2096271391}
     - target: {fileID: 356929956626173756, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: imageholder
-      value: 
-      objectReference: {fileID: 927266370}
-    - target: {fileID: 356929956626173756, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: playFabManager
       value: 
       objectReference: {fileID: 2096271392}
-    - target: {fileID: 356929956626173756, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
-      propertyPath: takeScreenShot
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 356929956626173756, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
       propertyPath: takeShareScreenShoot
       value: 
