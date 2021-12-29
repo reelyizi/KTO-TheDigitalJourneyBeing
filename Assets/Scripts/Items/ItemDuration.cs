@@ -6,6 +6,7 @@ public class ItemDuration : MonoBehaviour
 {
     [SerializeField] private float itemDuration;
     [SerializeField] private float speedMultiplier = 1f;
+    [SerializeField] private float startBlink = 3f;
     private float timeElapsed = 0;
     private float timeHolder = 0;
     private bool alphaFlag;
@@ -22,15 +23,15 @@ public class ItemDuration : MonoBehaviour
         timeElapsed += Time.deltaTime;
         timeHolder += Time.deltaTime;
         //Debug.Log(timeHolder);
-        if (itemDuration - timeHolder < 3 && !speedStoper)
+        if (itemDuration - timeHolder < startBlink && !speedStoper)
         { speedMultiplier *= 2.5f; speedStoper = !speedStoper; }
-        if (!alphaFlag)
+        if (!alphaFlag && itemDuration - timeHolder < startBlink)
         {
             spriteRenderer.color = Color.Lerp(spriteRenderer.color, new Color(255, 255, 255, 1 - ((timeElapsed / itemDuration) * speedMultiplier)), 1 + ((timeHolder / itemDuration) * speedMultiplier));
             if (spriteRenderer.color.a <= 0)
             { alphaFlag = !alphaFlag; timeElapsed = 0; }
         }
-        else
+        else if(alphaFlag && itemDuration - timeHolder < startBlink)
         {
             spriteRenderer.color = Color.Lerp(spriteRenderer.color, new Color(255, 255, 255, ((timeElapsed / itemDuration) * speedMultiplier)), 1 + ((timeHolder / itemDuration) * speedMultiplier));
             if (spriteRenderer.color.a >= 1)

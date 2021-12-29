@@ -31,7 +31,7 @@ public class BossManager : MonoBehaviour
         get { return bossHeadHealth; }
         set
         {
-            bossHead.GetComponent<SpriteRenderer>().material.color = Color.red;
+            bossHead.GetComponent<SpriteRenderer>().color = Color.red;
             bossHeadHealth -= value;
             if (bossHeadHealth <= 0)
             {
@@ -44,7 +44,7 @@ public class BossManager : MonoBehaviour
         get { return bossLeftHandHealth; }
         set
         {
-            bossLeftHand.GetComponent<SpriteRenderer>().material.color = Color.red;
+            bossLeftHand.GetComponent<SpriteRenderer>().color = Color.red;
             bossLeftHandHealth -= value;
             if (bossLeftHandHealth <= 0)
             {
@@ -57,7 +57,7 @@ public class BossManager : MonoBehaviour
         get { return bossRightHandHealth; }
         set
         {
-            bossRightHand.GetComponent<SpriteRenderer>().material.color = Color.red;
+            bossRightHand.GetComponent<SpriteRenderer>().color = Color.red;
             bossRightHandHealth -= value;
             if (bossRightHandHealth <= 0)
             {
@@ -88,7 +88,6 @@ public class BossManager : MonoBehaviour
         ColorStatus();
         //MoveBoss();
         timer += Time.deltaTime;
-        Debug.Log(!cloneBubbleHoles.Any());
         if (!isBossDead)
         {
             for (int i = 0; i < spawnRate.Count; i++)
@@ -186,38 +185,54 @@ public class BossManager : MonoBehaviour
     IEnumerator WaitAndExplode()
     {
         yield return new WaitForSeconds(0.15f);
-        Debug.Log("Patlama");
         GameManager._instance.ExplodeGrenade();
     }
     public bool changeColor;
     private void ColorStatus()
     {
-        if (changeColor)
+        if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("test");
+            //bossHead.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.red);
             //if (bossHead.GetComponent<SpriteRenderer>().material.color == Color.white)
             //    bossHead.GetComponent<SpriteRenderer>().material.color = Color.red;
-            
+
             //if (bossHead.GetComponent<SpriteRenderer>().material.color == Color.white)
             //{
             //    changeColor = !changeColor;
             //}
         }
-        if (bossHead.GetComponent<SpriteRenderer>().material.color != Color.white)
+        if (bossHead.GetComponent<SpriteRenderer>().color != Color.white)
         {
             //bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
-            bossHead.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
+            //bossHead.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
+            Color currentColor = bossHead.GetComponent<SpriteRenderer>().color;
+            currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
+                (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
+                (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
+            bossHead.GetComponent<SpriteRenderer>().color = currentColor;
         }
 
-        if (bossLeftHand.GetComponent<SpriteRenderer>().material.color != Color.white)
+        if (bossLeftHand.GetComponent<SpriteRenderer>().color != Color.white)
         {
             //bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
-            bossLeftHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
+            //bossLeftHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
+            Color currentColor = bossLeftHand.GetComponent<SpriteRenderer>().color;
+            currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
+                (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
+                (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
+            bossLeftHand.GetComponent<SpriteRenderer>().color = currentColor;
         }
 
-        if (bossRightHand.GetComponent<SpriteRenderer>().material.color != Color.white)
+        if (bossRightHand.GetComponent<SpriteRenderer>().color != Color.white)
         {
             //bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
-            bossRightHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
+            //bossRightHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
+            Color currentColor = bossRightHand.GetComponent<SpriteRenderer>().color;
+            currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
+                (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
+                (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 255 ? 255 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
+            bossRightHand.GetComponent<SpriteRenderer>().color = currentColor;
         }
 
     }
