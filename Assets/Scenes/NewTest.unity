@@ -2559,54 +2559,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossHeadSprite.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossHeadSprite.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: b20e4b49863dde24ca92c7850743bdf7, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossHeadSprite.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8a0caef9ce67933429f1d5b2e15003e4, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossHeadSprite.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 9dc3984b5cf1e324f9ff902e40d9bd54, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossLeftHandSprite.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossRightHandSprite.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossLeftHandSprite.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: aa74fcb106146f344a94054e5c92a810, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossLeftHandSprite.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 3ccc49c755efdcc42a89af5129328c77, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossLeftHandSprite.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: b0d566ba42803d5469d8ab990e4b2b0d, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossRightHandSprite.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: acee80dbdbfa8dd4ca9bd1cbefda64a6, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossRightHandSprite.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 557f5fed37bdea449ae1fffd2027de53, type: 3}
-    - target: {fileID: 317169254167771244, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
-      propertyPath: bossRightHandSprite.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: f58359e9424279f479cb9685972c336e, type: 3}
     - target: {fileID: 1215273684118809456, guid: 552976f06b1134f47b72769ac85603c4, type: 3}
       propertyPath: m_Name
       value: Boss
