@@ -170,10 +170,8 @@ public class GameManager : MonoBehaviour
     {
         int chance = Random.Range(0, 100);
         bool canSpawn = chance <= percentile;
-        Debug.Log("chance = " + chance + " percentile = " + percentile);
         if (canSpawn && itemCooldownTimer <= 0)
         {
-            Debug.Log("A");
             SpawnItem(Random.Range(0, items.Count), bubblePos);
             itemCooldownTimer = 3f;
         }

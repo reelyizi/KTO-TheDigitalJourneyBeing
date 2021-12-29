@@ -13,6 +13,9 @@ public class BossManager : MonoBehaviour
     private List<float> spawnRate;
     private float timer = 0;
     [SerializeField] private float bossHeadHealth, bossLeftHandHealth, bossRightHandHealth;
+    [SerializeField] private List<Sprite> bossHeadSprite, bossLeftHandSprite, bossRightHandSprite;
+    private int bossHeadHealthCounter = 3, bossLeftHandHealthCounter = 3, bossRightHandHealthCounter=3;
+    private float saveBossHeadHealth, saveBossLeftHandHealth, saveBossRightHandHealth;
 
     [SerializeField] private GameObject scoreText;
     [SerializeField] private int bossHeadScore, bossHandScore;
@@ -20,9 +23,8 @@ public class BossManager : MonoBehaviour
     public float colorChangingSpeed = 10f;
     public float bossMovementSpeed = 10f;
     private Vector3 headStartPos, leftHandStartPos, rightHandStartPos;
-    private bool isBossDead, leftHandDestroyed, rightHandDestroyed,handsDestroyed;
-    [SerializeField] private List<Transform> cloneBubbleHoles;
-    [SerializeField] private Material defaultMaterial, redMaterial;
+    private bool isBossDead;
+    private List<Transform> cloneBubbleHoles;
 
     #region Properties
 
@@ -70,14 +72,18 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
+        saveBossHeadHealth = BossHeadHealth;
+        saveBossRightHandHealth = BossRightHandHealth;
+        saveBossLeftHandHealth = BossLeftHandHealth;
+
         headStartPos = bossHead.transform.position;
         leftHandStartPos = bossLeftHand.transform.position;
         rightHandStartPos = bossRightHand.transform.position;
         cloneBubbleHoles = new List<Transform>(bubbleHoles);
-        handsDestroyed=false;
+        //handsDestroyed=false;
         //Screen Shake And Vibration
         Vibrator.Vibrate(250);
-        Shake.start=true;
+        Shake.start = true;
         //
         SetSpawnRate(1.5f);
     }
@@ -93,7 +99,7 @@ public class BossManager : MonoBehaviour
             for (int i = 0; i < spawnRate.Count; i++)
             {
                 if (timer >= spawnRate[i])
-                {                    
+                {
                     GameObject obj = Instantiate(bossBubble, cloneBubbleHoles[i].position, Quaternion.identity, GameObject.Find("Bubble").transform);
                     obj.GetComponent<SpriteRenderer>().sprite = bossBubbleSprites[Random.Range(0, bossBubbleSprites.Count)];
                     obj.GetComponent<Bubble>().startDirection = cloneBubbleHoles[i].GetComponent<BubbleDirection>().bubbleStartDirection;
@@ -116,8 +122,8 @@ public class BossManager : MonoBehaviour
     {
         if (!isBossDead)
         {
-            bossHead.transform.position = Vector3.Lerp(bossHead.transform.position, Vector3.up * (Camera.main.pixelHeight / 100 - (bossHead.GetComponent<BoxCollider2D>().bounds.size.y* 2)), bossMovementSpeed * Time.deltaTime);
-            bossRightHand.transform.position = Vector3.Lerp(bossRightHand.transform.position, Vector3.right * (Camera.main.pixelWidth / 100 - (bossRightHand.GetComponent<BoxCollider2D>().bounds.size.x* 2)), bossMovementSpeed * Time.deltaTime);
+            bossHead.transform.position = Vector3.Lerp(bossHead.transform.position, Vector3.up * (Camera.main.pixelHeight / 100 - (bossHead.GetComponent<BoxCollider2D>().bounds.size.y * 2)), bossMovementSpeed * Time.deltaTime);
+            bossRightHand.transform.position = Vector3.Lerp(bossRightHand.transform.position, Vector3.right * (Camera.main.pixelWidth / 100 - (bossRightHand.GetComponent<BoxCollider2D>().bounds.size.x * 2)), bossMovementSpeed * Time.deltaTime);
             bossLeftHand.transform.position = Vector3.Lerp(bossLeftHand.transform.position, Vector3.right * (0 - (bossLeftHand.GetComponent<BoxCollider2D>().bounds.size.x / 2)), bossMovementSpeed * Time.deltaTime);
         }
         else
@@ -127,10 +133,10 @@ public class BossManager : MonoBehaviour
             bossLeftHand.transform.position = Vector3.Lerp(bossLeftHand.transform.position, leftHandStartPos, bossMovementSpeed * Time.deltaTime);
         }
 
-        if (leftHandDestroyed)
-            bossLeftHand.transform.position = Vector3.Lerp(bossLeftHand.transform.position, leftHandStartPos, bossMovementSpeed * Time.deltaTime);
-        if (rightHandDestroyed)
-            bossRightHand.transform.position = Vector3.Lerp(bossRightHand.transform.position, rightHandStartPos, bossMovementSpeed * Time.deltaTime);
+        //if (leftHandDestroyed)
+        //    bossLeftHand.transform.position = Vector3.Lerp(bossLeftHand.transform.position, leftHandStartPos, bossMovementSpeed * Time.deltaTime);
+        //if (rightHandDestroyed)
+        //    bossRightHand.transform.position = Vector3.Lerp(bossRightHand.transform.position, rightHandStartPos, bossMovementSpeed * Time.deltaTime);
     }
 
     private void CheckHealthStatus()
@@ -141,6 +147,8 @@ public class BossManager : MonoBehaviour
             handsDestroyed=true;
             GameManager._instance.ExplodeGrenade();
         }*/
+        CheckWoundedStatus();
+
         if (bossLeftHandHealth == 0 && bossLeftHand.GetComponent<BoxCollider2D>().enabled)
         {
             //Left Hand Destroyed And Vibrate FeedBack
@@ -182,12 +190,41 @@ public class BossManager : MonoBehaviour
             Destroy(gameObject, 2f);
         }
     }
+
+    private void CheckWoundedStatus()
+    {
+        float _bossHeadHealthCounter = bossHeadHealthCounter;
+        float _bossRightHandHealthCounter = bossRightHandHealthCounter;
+        float _bossLeftHandHealthCounter = bossLeftHandHealthCounter;
+
+        Debug.Log(saveBossHeadHealth * (_bossHeadHealthCounter / 4));
+       
+        if (BossHeadHealth < saveBossHeadHealth * (_bossHeadHealthCounter / 4) && saveBossHeadHealth > 1)
+        {
+            saveBossHeadHealth = BossHeadHealth;
+            bossHead.GetComponent<SpriteRenderer>().sprite = bossHeadSprite[--bossHeadHealthCounter];
+        }
+            
+        if (BossLeftHandHealth < saveBossLeftHandHealth * (_bossRightHandHealthCounter / 4)  && saveBossLeftHandHealth > 1)
+        {
+            saveBossLeftHandHealth = BossLeftHandHealth;
+            bossLeftHand.GetComponent<SpriteRenderer>().sprite = bossLeftHandSprite[--bossLeftHandHealthCounter];
+        }
+            
+        if (BossRightHandHealth < saveBossRightHandHealth * (_bossLeftHandHealthCounter / 4) && BossRightHandHealth > 1)
+        {
+            saveBossRightHandHealth = BossRightHandHealth;
+            bossRightHand.GetComponent<SpriteRenderer>().sprite = bossRightHandSprite[--bossRightHandHealthCounter];
+        }
+            
+    }
+
     IEnumerator WaitAndExplode()
     {
         yield return new WaitForSeconds(1f);
         GameManager._instance.ExplodeGrenade();
     }
-    public bool changeColor;
+
     private void ColorStatus()
     {
         if (Input.GetMouseButtonDown(0))
@@ -204,36 +241,36 @@ public class BossManager : MonoBehaviour
         }
         if (bossHead.GetComponent<SpriteRenderer>().material.color != Color.white)
         {
-            //bossHead.GetComponent<SpriteRenderer>().color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossHead.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
             //bossHead.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossHead.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
-            Color currentColor = bossHead.GetComponent<SpriteRenderer>().material.color;
-            currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
-                (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
-                (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
-            Debug.Log(bossHead.GetComponent<SpriteRenderer>().material.color);
-            bossHead.GetComponent<SpriteRenderer>().material.color = currentColor;
+            //Color currentColor = bossHead.GetComponent<SpriteRenderer>().material.color;
+            //currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
+            //    (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
+            //    (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
+            //Debug.Log(bossHead.GetComponent<SpriteRenderer>().material.color);
+            //bossHead.GetComponent<SpriteRenderer>().material.color = currentColor;
         }
 
         if (bossLeftHand.GetComponent<SpriteRenderer>().material.color != Color.white)
         {
-            //bossLeftHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossLeftHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
             //bossLeftHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossLeftHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
-            Color currentColor = bossLeftHand.GetComponent<SpriteRenderer>().material.color;
-            currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
-                (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
-                (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
-            bossLeftHand.GetComponent<SpriteRenderer>().material.color = currentColor;
+            //Color currentColor = bossLeftHand.GetComponent<SpriteRenderer>().material.color;
+            //currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
+            //    (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
+            //    (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
+            //bossLeftHand.GetComponent<SpriteRenderer>().material.color = currentColor;
         }
 
         if (bossRightHand.GetComponent<SpriteRenderer>().material.color != Color.white)
         {
-            //bossRightHand.GetComponent<SpriteRenderer>().color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * colorChangingSpeed);
+            bossRightHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
             //bossRightHand.GetComponent<SpriteRenderer>().material.color = Color.Lerp(bossRightHand.GetComponent<SpriteRenderer>().material.color, Color.white, Time.deltaTime * colorChangingSpeed);
-            Color currentColor = bossRightHand.GetComponent<SpriteRenderer>().material.color;
-            currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
-                (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
-                (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
-            bossRightHand.GetComponent<SpriteRenderer>().material.color = currentColor;
+            //Color currentColor = bossRightHand.GetComponent<SpriteRenderer>().material.color;
+            //currentColor = new Color((currentColor.r + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.r + (Time.deltaTime * colorChangingSpeed)),
+            //    (currentColor.g + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.g + (Time.deltaTime * colorChangingSpeed)),
+            //    (currentColor.b + (Time.deltaTime * colorChangingSpeed) > 1 ? 1 : currentColor.b + (Time.deltaTime * colorChangingSpeed)));
+            //bossRightHand.GetComponent<SpriteRenderer>().material.color = currentColor;
         }
 
     }
@@ -250,7 +287,7 @@ public class BossManager : MonoBehaviour
     public void SetScore(int score, Transform limbPos)
     {
         GameManager.score += score;
-        GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(new Vector3(Random.Range(limbPos.position.x-3,limbPos.position.x+3),Random.Range(limbPos.position.y-2,limbPos.position.y+2),limbPos.position.z)), Quaternion.identity, GameObject.Find("Holder").transform);
+        GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(new Vector3(Random.Range(limbPos.position.x - 3, limbPos.position.x + 3), Random.Range(limbPos.position.y - 2, limbPos.position.y + 2), limbPos.position.z)), Quaternion.identity, GameObject.Find("Holder").transform);
         obj.GetComponent<BubbleScoreText>().SetText(score);
     }
 }
