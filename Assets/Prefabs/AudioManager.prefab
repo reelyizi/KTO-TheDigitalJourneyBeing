@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6072766, y: -0.549768, z: -2.445127}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,10 +44,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbc6e369fa39f045bc3d5196b87c14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  MSCsounds:
   - name: LevelTheme
-    clip: {fileID: 0}
-    volume: 0.25
+    clip: {fileID: 8300000, guid: 9181fc7719a80a94bbc9b34c94ee1870, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  SFXsounds:
+  - name: Hit
+    clip: {fileID: 8300000, guid: 0ceddaf20767a954ebf04559126027a1, type: 3}
+    volume: 0.6
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Final
+    clip: {fileID: 8300000, guid: 3bb81cb52a416814a86f86d9c84bf225, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Fire
+    clip: {fileID: 8300000, guid: 758b09072aaba6a40bc4a6ee48a17883, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dead
+    clip: {fileID: 8300000, guid: 3bb81cb52a416814a86f86d9c84bf225, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laser
+    clip: {fileID: 8300000, guid: 3bb81cb52a416814a86f86d9c84bf225, type: 3}
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
