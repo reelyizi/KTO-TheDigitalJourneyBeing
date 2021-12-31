@@ -5,9 +5,9 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private Transform zoneA, zoneB;
     private Vector3 offset;
     [SerializeField] private float smoothness = 1f;
-    [SerializeField] private float deadZone = 5f;
     void Start()
     {
         offset = transform.position - target.position;
@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x) > deadZone) || (Mathf.Abs(target.position.x) - Mathf.Abs(transform.position.x) > deadZone))
+        if ((transform.position.x > zoneA.position.x && transform.position.x < zoneB.position.x)|| (target.position.x > zoneA.position.x && target.position.x < zoneB.position.x))
         {
             transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * smoothness);
         }
