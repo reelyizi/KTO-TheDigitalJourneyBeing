@@ -1181,7 +1181,13 @@ MonoBehaviour:
   holder: {fileID: 0}
   playFabManager: {fileID: 0}
   energyShield: {fileID: 633137287}
+  uipanel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   laserWeapon: {fileID: 673581670}
+  scorePanel: {fileID: 0}
+  finalScoreText: {fileID: 0}
   gameManager: {fileID: 0}
   takeShareScreenShoot: {fileID: 0}
   checkEnded: 0

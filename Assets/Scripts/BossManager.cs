@@ -82,7 +82,7 @@ public class BossManager : MonoBehaviour
         cloneBubbleHoles = new List<Transform>(bubbleHoles);
         //handsDestroyed=false;
         //Screen Shake And Vibration
-        Vibrator.Vibrate(250);
+        Vibrator.Vibrate(1000);
         Shake.start = true;
         //
         SetSpawnRate(1.5f);
@@ -171,6 +171,7 @@ public class BossManager : MonoBehaviour
         {
             isBossDead = true;
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
+            Vibrator.Vibrate(1000);
             //SetScore(bossHeadScore, bossHead.transform);
 
             bossHead.GetComponent<Animator>().SetTrigger("Back");

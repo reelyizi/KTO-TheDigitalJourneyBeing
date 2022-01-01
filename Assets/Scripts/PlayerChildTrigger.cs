@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerChildTrigger : MonoBehaviour
 {
@@ -9,13 +10,19 @@ public class PlayerChildTrigger : MonoBehaviour
     public PlayFabManager playFabManager;
 
     public GameObject energyShield;
-    public GameObject laserWeapon;
+    public GameObject[] uipanel;
+    public GameObject laserWeapon,scorePanel;
+    public TextMeshProUGUI finalScoreText;
     public GameManager gameManager;
     public TakeShareScreenShoot takeShareScreenShoot;
-    public bool checkEnded=false;
+    public bool checkEnded = false;
     void Start()
     {
-        checkEnded=false;
+        foreach (GameObject obj in uipanel)
+        {
+            obj.SetActive(true);
+        }
+        checkEnded = false;
     }
 
     public float invinsibleDuration = 3f;
@@ -23,15 +30,33 @@ public class PlayerChildTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bubble") && !energyShield.activeInHierarchy && !checkEnded)
         {
-            
+
             PlayerMovement playerMovement = transform.parent.GetComponent<PlayerMovement>();
             if (playerMovement.invinsible <= 0)
             {
                 if (!playerMovement.armor)
                 {
-                    checkEnded=true;
+                    //death
+                    checkEnded = true;
                     AudioManager.instance.AudioPlay("Dead");
-                    takeShareScreenShoot.ScreenShot();
+                    //Ui paneli kapat
+                    finalScoreText.text=GameManager.score.ToString();
+                    scorePanel.SetActive(true);
+                    foreach (GameObject obj in uipanel)
+                    {
+                        obj.SetActive(false);
+                    }
+                    //mermileri patlat.
+                    GameObject[] bullets=GameObject.FindGameObjectsWithTag("Bullet");
+                    foreach(GameObject bullet in bullets)
+                    {
+                        Destroy(bullet);
+                    }
+                    //Vibrator.Vibrate(100);
+                    //text animasyonunu cikar
+                    
+                    //ss'i animasyonun bitisine kadar beklet
+                    StartCoroutine(WaitAnimToss());
                     if (GameManager.score > GameManager.highScore)
                     {
                         PlayerPrefs.SetInt("HighScore", GameManager.score);
@@ -62,6 +87,7 @@ public class PlayerChildTrigger : MonoBehaviour
     {
         if (takeShareScreenShoot.isTaked)
         {
+            scorePanel.SetActive(false);
             Time.timeScale = 0f;
             holder.SetActive(false);
             group.SetActive(true);
@@ -69,7 +95,12 @@ public class PlayerChildTrigger : MonoBehaviour
 
         }
     }
-
+    IEnumerator WaitAnimToss()
+    {
+        yield return new WaitForSeconds(0.5f);
+        takeShareScreenShoot.ScreenShot();
+        
+    }
     private void CheckItems(Collider2D collision)
     {
         if (collision.name == "Grenade")
