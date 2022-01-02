@@ -11,7 +11,7 @@ public class PlayerChildTrigger : MonoBehaviour
 
     public GameObject energyShield;
     public GameObject[] uipanel;
-    public GameObject laserWeapon,scorePanel;
+    public GameObject laserWeapon, scorePanel;
     public TextMeshProUGUI finalScoreText;
     public GameManager gameManager;
     public TakeShareScreenShoot takeShareScreenShoot;
@@ -40,23 +40,21 @@ public class PlayerChildTrigger : MonoBehaviour
                     checkEnded = true;
                     AudioManager.instance.AudioPlay("Dead");
                     //Ui paneli kapat
-                    finalScoreText.text=GameManager.score.ToString();
+                    finalScoreText.text = GameManager.score.ToString();
                     scorePanel.SetActive(true);
                     foreach (GameObject obj in uipanel)
                     {
                         obj.SetActive(false);
                     }
                     //mermileri patlat.
-                    GameObject[] bullets=GameObject.FindGameObjectsWithTag("Bullet");
-                    foreach(GameObject bullet in bullets)
+                    GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+                    foreach (GameObject bullet in bullets)
                     {
                         Destroy(bullet);
                     }
                     //Vibrator.Vibrate(100);
-                    //text animasyonunu cikar
-                    
                     //ss'i animasyonun bitisine kadar beklet
-                    StartCoroutine(WaitAnimToss());
+                    takeShareScreenShoot.ScreenShot();
                     if (GameManager.score > GameManager.highScore)
                     {
                         PlayerPrefs.SetInt("HighScore", GameManager.score);
@@ -94,12 +92,6 @@ public class PlayerChildTrigger : MonoBehaviour
             GameManager._instance.enabled = false;
 
         }
-    }
-    IEnumerator WaitAnimToss()
-    {
-        yield return new WaitForSeconds(0.5f);
-        takeShareScreenShoot.ScreenShot();
-        
     }
     private void CheckItems(Collider2D collision)
     {
