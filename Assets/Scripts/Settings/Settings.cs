@@ -5,27 +5,42 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-    public FillBar[] fillBars;
+    public GameObject generalVolume, sfxVolume, mscVolume;
     void Start()
     {
-        foreach (FillBar item in fillBars)
-        {
-            Debug.Log(item.baseVolume.GetComponent<RectTransform>().rect.width);
-            Debug.Log(item.area.GetComponent<RectTransform>().sizeDelta);
-            Debug.Log(item.area.GetComponent<RectTransform>().anchorMax);
-            Debug.Log(item.area.GetComponent<RectTransform>().offsetMax);
-            Debug.Log(item.area.GetComponent<RectTransform>().offsetMin);
-            
-        }
+        if (!PlayerPrefs.HasKey("GeneralVolume"))
+            PlayerPrefs.SetFloat("GeneralVolume", generalVolume.GetComponent<Slider>().value);
+        else
+            generalVolume.GetComponent<Slider>().value = PlayerPrefs.GetFloat("GeneralVolume");
+        if (!PlayerPrefs.HasKey("SFXVolume"))
+            PlayerPrefs.SetFloat("SFXVolume", sfxVolume.GetComponent<Slider>().value);
+        else
+            sfxVolume.GetComponent<Slider>().value = PlayerPrefs.GetFloat("SFXVolume");
+        if (!PlayerPrefs.HasKey("MSCVolume"))
+            PlayerPrefs.SetFloat("MSCVolume", mscVolume.GetComponent<Slider>().value);
+        else
+            mscVolume.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MSCVolume");
+
+        GeneralVolumeListener();
+        SFXVolumeListener();
+        MSCVolumeListener();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GeneralVolumeListener()
     {
-        foreach (FillBar item in fillBars)
-        {
-            Debug.Log(item.area.GetComponent<RectTransform>().anchoredPosition);
-            item.knob.position = new Vector3(item.baseVolume.GetComponent<Image>().fillAmount > 0.5f ? (item.baseVolume.GetComponent<RectTransform>().rect.width / 2) * item.baseVolume.GetComponent<Image>().fillAmount : (-item.baseVolume.GetComponent<RectTransform>().rect.width / 2) * item.baseVolume.GetComponent<Image>().fillAmount, 0, 0) + item.baseVolume.transform.position;
-        }
+        Debug.Log("General");
+        PlayerPrefs.SetFloat("GeneralVolume", generalVolume.GetComponent<Slider>().value);
+    }
+
+    public void SFXVolumeListener()
+    {
+        Debug.Log("sfx");
+        PlayerPrefs.SetFloat("SFXVolume", sfxVolume.GetComponent<Slider>().value);
+    }
+
+    public void MSCVolumeListener()
+    {
+        Debug.Log("msc");
+        PlayerPrefs.SetFloat("MSCVolume", mscVolume.GetComponent<Slider>().value);
     }
 }

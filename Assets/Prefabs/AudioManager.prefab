@@ -48,6 +48,7 @@ MonoBehaviour:
   - name: LevelTheme
     clip: {fileID: 8300000, guid: 9181fc7719a80a94bbc9b34c94ee1870, type: 3}
     volume: 0.5
+    defaultVolume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -55,30 +56,35 @@ MonoBehaviour:
   - name: Hit
     clip: {fileID: 8300000, guid: 0ceddaf20767a954ebf04559126027a1, type: 3}
     volume: 0.6
+    defaultVolume: 0.6
     pitch: 3
     loop: 0
     source: {fileID: 0}
   - name: Final
     clip: {fileID: 8300000, guid: 3bb81cb52a416814a86f86d9c84bf225, type: 3}
     volume: 0.7
+    defaultVolume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Fire
     clip: {fileID: 8300000, guid: 758b09072aaba6a40bc4a6ee48a17883, type: 3}
     volume: 0.7
+    defaultVolume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Dead
     clip: {fileID: 8300000, guid: 3bb81cb52a416814a86f86d9c84bf225, type: 3}
     volume: 0.7
+    defaultVolume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Laser
     clip: {fileID: 8300000, guid: 3bb81cb52a416814a86f86d9c84bf225, type: 3}
     volume: 0.7
+    defaultVolume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
