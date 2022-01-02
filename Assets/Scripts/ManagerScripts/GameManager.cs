@@ -195,6 +195,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadScene(int index)
     {
+        GameManager.score=0;
         SceneManager.LoadScene(index);
     }
     public void ChangeVibration(int index)
