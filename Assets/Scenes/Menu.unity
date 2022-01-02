@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3958,7 +3958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &505822006
 Transform:
   m_ObjectHideFlags: 0
@@ -16837,9 +16837,9 @@ RectTransform:
   m_Father: {fileID: 1234603526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -61.928463}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1125.7343, y: 123.856926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113288974
@@ -16862,15 +16862,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ahmet Salih \xC7a\u011Fatay   Ali Sevgi   Ataberk Yard\u0131mc\u0131 Berke
-    Akbay   Beyza Sena Erko\xE7   Burhan \u015Eahin Dilara Tarkan   Do\u011Fukan
-    Ceylan   Duhan Durmaz \nEbrar Meydan   Enez \xC7a\u011Fatay   Fatmanur Y\u0131ld\u0131z
-    \nFerhat \xC7a\u011Fr\u0131 \xC7etinkaya   G\xF6khan Ko\xE7   \u0130lhan Nizam\n\u0130sa
-    Do\u011Fmu\u015F   Kenan Akta\u015Fin\nK\xFCbra Kuvan   K\u0131van\xE7 Y\xFCcel  
-    Melih \xD6zt\xFCrk\nMert Demirkoparan   Mert G\xFCrban   Mete Kar \nMintiha Tarkan  
-    Muhammed \xC7ivi\nMuhammet Cihan Ayaz   Re\u015Fat Toydemir Sevda Tarkan\nS\xFCleyman
-    Emre H\xFCry\u0131lmaz   Tuna Pamir\nVeysel Tarkan   Zehra Eryolda\u015F   \xD6zge
-    \xC7ak\u0131r\n\xDCmit Yatarkalkmaz   \u015Eule Altuncu"
+  m_text: "Ahmet Salih \xC7a\u011Fatay Ali Sevgi Ataberk Yard\u0131mc\u0131 Berke
+    Akbay Beyza Sena Erko\xE7 Burhan \u015Eahin Devran K\u0131l\u0131\xE7 Dilara
+    Tarkan Do\u011Fukan Ceylan Duhan Durmaz Ebrar Meydan Ebuzer F\u0131rat  Enes
+    \xC7ak\u0131r Enez \xC7a\u011Fatay Esra K\xFCbra Elden Fatmanur Y\u0131ld\u0131z
+    Ferhat \xC7a\u011Fr\u0131 \xC7etinkaya  G\xF6khan Ko\xE7 Hasan Erdem \u0130lhan
+    Nizam \u0130sa Do\u011Fmu\u015F Kenan Akta\u015Fin K\xFCbra Kuvan K\u0131van\xE7
+    Y\xFCcel Melih \xD6zt\xFCrk  Mert Demirkoparan  Mert G\xFCrban Mete Kar Mintiha
+    Tarkan Muhammed \xC7ivi Muhammet Cihan Ayaz Mustafa T\xFCrk Nur \xD6zg\xFCrl\xFCk 
+    Resul Ay Re\u015Fat Toydemir Sevda Tarkan S\xFCleyman Emre H\xFCry\u0131lmaz
+    Tuna Pamir Veysel Tarkan Zehra Eryolda\u015F Ziya \xD6nder \xD6zge \xC7ak\u0131r 
+    \xDCmit Yatarkalkmaz \u015Eule Altuncu"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
   m_sharedMaterial: {fileID: 441919118156014723, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
