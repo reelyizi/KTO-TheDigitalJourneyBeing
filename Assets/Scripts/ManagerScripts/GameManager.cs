@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -44,17 +45,18 @@ public class GameManager : MonoBehaviour
     public int spawnChest;
     [HideInInspector] public bool bossDead;
     public GameObject chest;
-    
+    public Sprite effect;
+    SettingsManager settingsManager;
     void Start()
     {
-        Time.timeScale=1;
-        if(InternetAvailabilityTest.gameOffline)
+        Time.timeScale = 1;
+        if (InternetAvailabilityTest.gameOffline)
         {
-            gameNetworkStatus=GameNetworkStatus.offline;
+            gameNetworkStatus = GameNetworkStatus.offline;
         }
         else
         {
-            gameNetworkStatus=GameNetworkStatus.online;
+            gameNetworkStatus = GameNetworkStatus.online;
         }
         if (gameSceneStatus == GameSceneStatus.gameplay)
         {
@@ -134,7 +136,7 @@ public class GameManager : MonoBehaviour
     public void ExplodeGrenade()
     {
         Vibrator.Vibrate(250);
-        Shake.start=true;
+        Shake.start = true;
         List<GameObject> bubbles = new List<GameObject>();
         if (GameObject.Find("Bubble").transform.childCount > 0)
         {
@@ -143,7 +145,7 @@ public class GameManager : MonoBehaviour
                 bubbles.Add(GameObject.Find("Bubble").transform.GetChild(i).gameObject);
             }
         }
-        
+
         foreach (GameObject bubble in bubbles)
         {
             bubble.GetComponent<Bubble>().DestroyBubble();
@@ -182,4 +184,9 @@ public class GameManager : MonoBehaviour
         GameObject obj = Instantiate(items[itemNumber], bubblePos, Quaternion.identity);
         obj.name = items[itemNumber].name;
     }
+    public void ChangeQualitySettings(int index)
+    {
+        QualitySettings.SetQualityLevel(index);
+    }
+    
 }
