@@ -12,6 +12,7 @@ TagManager:
   - Bubble
   - Container
   - Laser
+  - GameManager
   layers:
   - Default
   - TransparentFX

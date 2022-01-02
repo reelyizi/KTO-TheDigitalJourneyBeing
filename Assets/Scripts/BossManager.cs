@@ -14,11 +14,12 @@ public class BossManager : MonoBehaviour
     private float timer = 0;
     [SerializeField] private float bossHeadHealth, bossLeftHandHealth, bossRightHandHealth;
     [SerializeField] private List<Sprite> bossHeadSprite, bossLeftHandSprite, bossRightHandSprite;
-    private int bossHeadHealthCounter = 3, bossLeftHandHealthCounter = 3, bossRightHandHealthCounter=3;
+    private int bossHeadHealthCounter = 3, bossLeftHandHealthCounter = 3, bossRightHandHealthCounter = 3;
     private float saveBossHeadHealth, saveBossLeftHandHealth, saveBossRightHandHealth;
 
     [SerializeField] private GameObject scoreText;
     [SerializeField] private int bossHeadScore, bossHandScore;
+    GameManager gameManager;
 
     public float colorChangingSpeed = 10f;
     public float bossMovementSpeed = 10f;
@@ -72,6 +73,7 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
+        gameManager=GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         saveBossHeadHealth = BossHeadHealth;
         saveBossRightHandHealth = BossRightHandHealth;
         saveBossLeftHandHealth = BossLeftHandHealth;
@@ -82,7 +84,10 @@ public class BossManager : MonoBehaviour
         cloneBubbleHoles = new List<Transform>(bubbleHoles);
         //handsDestroyed=false;
         //Screen Shake And Vibration
-        Vibrator.Vibrate(1000);
+        if (gameManager.gameVibrationStatus == GameManager.GameVibrationStatus.on)
+        {
+            Vibrator.Vibrate(1000);
+        }
         Shake.start = true;
         //
         SetSpawnRate(1.5f);
@@ -171,7 +176,6 @@ public class BossManager : MonoBehaviour
         {
             isBossDead = true;
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
-            Vibrator.Vibrate(1000);
             //SetScore(bossHeadScore, bossHead.transform);
 
             bossHead.GetComponent<Animator>().SetTrigger("Back");
@@ -197,25 +201,25 @@ public class BossManager : MonoBehaviour
         float _bossHeadHealthCounter = bossHeadHealthCounter;
         float _bossRightHandHealthCounter = bossRightHandHealthCounter;
         float _bossLeftHandHealthCounter = bossLeftHandHealthCounter;
-       
+
         if (BossHeadHealth < saveBossHeadHealth * (_bossHeadHealthCounter / 4) && saveBossHeadHealth > 1)
         {
             saveBossHeadHealth = BossHeadHealth;
             bossHead.GetComponent<SpriteRenderer>().sprite = bossHeadSprite[--bossHeadHealthCounter];
         }
-            
-        if (BossLeftHandHealth < saveBossLeftHandHealth * (_bossRightHandHealthCounter / 4)  && saveBossLeftHandHealth > 1)
+
+        if (BossLeftHandHealth < saveBossLeftHandHealth * (_bossRightHandHealthCounter / 4) && saveBossLeftHandHealth > 1)
         {
             saveBossLeftHandHealth = BossLeftHandHealth;
             bossLeftHand.GetComponent<SpriteRenderer>().sprite = bossLeftHandSprite[--bossLeftHandHealthCounter];
         }
-            
+
         if (BossRightHandHealth < saveBossRightHandHealth * (_bossLeftHandHealthCounter / 4) && BossRightHandHealth > 1)
         {
             saveBossRightHandHealth = BossRightHandHealth;
             bossRightHand.GetComponent<SpriteRenderer>().sprite = bossRightHandSprite[--bossRightHandHealthCounter];
         }
-            
+
     }
 
     IEnumerator WaitAndExplode()

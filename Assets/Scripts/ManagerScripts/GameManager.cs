@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public enum GameSceneStatus { menu, gameplay };
     public enum GameNetworkStatus { online, offline };
+    public enum GameVibrationStatus {on,off};
     public GameSceneStatus gameSceneStatus;
     public GameNetworkStatus gameNetworkStatus;
+    public GameVibrationStatus gameVibrationStatus;
     public static GameManager _instance;
     private void Awake()
     {
@@ -135,7 +137,10 @@ public class GameManager : MonoBehaviour
 
     public void ExplodeGrenade()
     {
-        Vibrator.Vibrate(250);
+        if(gameVibrationStatus==GameVibrationStatus.on)
+        {
+            Vibrator.Vibrate(250);
+        }
         Shake.start = true;
         List<GameObject> bubbles = new List<GameObject>();
         if (GameObject.Find("Bubble").transform.childCount > 0)
@@ -187,6 +192,21 @@ public class GameManager : MonoBehaviour
     public void ChangeQualitySettings(int index)
     {
         QualitySettings.SetQualityLevel(index);
+    }
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+    public void ChangeVibration(int index)
+    {
+        if(index==0)
+        {
+            gameVibrationStatus=GameVibrationStatus.on;
+        }
+        else
+        {
+            gameVibrationStatus=GameVibrationStatus.off;
+        }
     }
     
 }
