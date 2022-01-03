@@ -466,6 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103566156}
   - component: {fileID: 103566157}
+  - component: {fileID: 103566158}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -515,6 +516,43 @@ MonoBehaviour:
   uiWindow: {fileID: 552203829}
   startButton: {fileID: 139553108}
   leaderboardPanel: {fileID: 23483326}
+--- !u!114 &103566158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103566155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669165e78053b744c84b7aa26578a725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSceneStatus: 0
+  gameNetworkStatus: 0
+  gameVibrationStatus: 0
+  levelTime: 3.4028235e+38
+  text: {fileID: 0}
+  scoreText: {fileID: 0}
+  scoreTextGameobject: {fileID: 0}
+  totalBubble: {fileID: 0}
+  group: {fileID: 0}
+  maxSpawnRate: 0
+  minSpawnRate: 0
+  A: {fileID: 0}
+  B: {fileID: 0}
+  bigBubble: {fileID: 0}
+  timer: 0
+  timescale: 0
+  itemCooldownTimer: 3
+  items: []
+  boss: {fileID: 0}
+  bossCounter: 0
+  isBossActive: 0
+  spawnChest: 0
+  bossDead: 0
+  chest: {fileID: 0}
+  lights: []
 --- !u!1 &125700060
 GameObject:
   m_ObjectHideFlags: 0
@@ -16011,7 +16049,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 103566158}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ChangeVibration
         m_Mode: 3

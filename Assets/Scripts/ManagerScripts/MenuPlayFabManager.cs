@@ -255,10 +255,6 @@ public class MenuPlayFabManager : MonoBehaviour
             mscLoop = !mscLoop;
             AudioManager.instance.StartMusic();
         }
-        if (obj.name == "VibrationOn")
-            GameManager._instance.gameVibrationStatus = GameManager.GameVibrationStatus.on;
-        else if(obj.name == "VibrationOff")
-            GameManager._instance.gameVibrationStatus = GameManager.GameVibrationStatus.off;
 
         obj.SetActive(true);
     }
