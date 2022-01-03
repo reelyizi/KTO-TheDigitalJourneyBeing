@@ -24,7 +24,7 @@ public class BossManager : MonoBehaviour
     public float colorChangingSpeed = 10f;
     public float bossMovementSpeed = 10f;
     private Vector3 headStartPos, leftHandStartPos, rightHandStartPos;
-    private bool isBossDead;
+    [SerializeField] private bool isBossDead;
     private List<Transform> cloneBubbleHoles;
 
     #region Properties
@@ -75,6 +75,8 @@ public class BossManager : MonoBehaviour
     {
         gameManager=GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         saveBossHeadHealth = BossHeadHealth;
+        Debug.Log(saveBossHeadHealth);
+        Debug.Log(BossHeadHealth);
         saveBossRightHandHealth = BossRightHandHealth;
         saveBossLeftHandHealth = BossLeftHandHealth;
 
@@ -101,6 +103,7 @@ public class BossManager : MonoBehaviour
         timer += Time.deltaTime;
         if (!isBossDead)
         {
+            Debug.Log("spawn");
             for (int i = 0; i < spawnRate.Count; i++)
             {
                 if (timer >= spawnRate[i])
@@ -204,18 +207,21 @@ public class BossManager : MonoBehaviour
 
         if (BossHeadHealth < saveBossHeadHealth * (_bossHeadHealthCounter / 4) && saveBossHeadHealth > 1)
         {
+            Debug.Log("Head");
             saveBossHeadHealth = BossHeadHealth;
             bossHead.GetComponent<SpriteRenderer>().sprite = bossHeadSprite[--bossHeadHealthCounter];
         }
 
         if (BossLeftHandHealth < saveBossLeftHandHealth * (_bossRightHandHealthCounter / 4) && saveBossLeftHandHealth > 1)
         {
+            Debug.Log("left");
             saveBossLeftHandHealth = BossLeftHandHealth;
             bossLeftHand.GetComponent<SpriteRenderer>().sprite = bossLeftHandSprite[--bossLeftHandHealthCounter];
         }
 
         if (BossRightHandHealth < saveBossRightHandHealth * (_bossLeftHandHealthCounter / 4) && BossRightHandHealth > 1)
         {
+            Debug.Log("right");
             saveBossRightHandHealth = BossRightHandHealth;
             bossRightHand.GetComponent<SpriteRenderer>().sprite = bossRightHandSprite[--bossRightHandHealthCounter];
         }

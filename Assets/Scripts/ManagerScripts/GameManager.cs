@@ -14,11 +14,19 @@ public class GameManager : MonoBehaviour
     public GameNetworkStatus gameNetworkStatus;
     public GameVibrationStatus gameVibrationStatus;
     public static GameManager _instance;
+    
     private void Awake()
     {
         if (_instance == null)
         {
             _instance = this;
+        }
+        if (PlayerPrefs.GetString("Lights") == "OFF")
+        {
+            foreach (GameObject item in lights)
+            {
+                item.SetActive(false);
+            }
         }
     }
     public static int score = 0;
@@ -47,8 +55,7 @@ public class GameManager : MonoBehaviour
     public int spawnChest;
     [HideInInspector] public bool bossDead;
     public GameObject chest;
-    public Sprite effect;
-    SettingsManager settingsManager;
+    [SerializeField] private List<GameObject> lights;
     void Start()
     {
         Time.timeScale = 1;
@@ -68,9 +75,10 @@ public class GameManager : MonoBehaviour
             timer = Random.Range(minSpawnRate, maxSpawnRate);
 
         }
+
+        AudioManager.instance.StartMusic();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameSceneStatus == GameSceneStatus.gameplay)

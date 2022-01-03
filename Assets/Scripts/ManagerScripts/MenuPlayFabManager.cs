@@ -17,6 +17,9 @@ public class MenuPlayFabManager : MonoBehaviour
     public static string playFabUserID;
     public static bool networkTestFinished=false;
     public GameObject nameWindow, uiWindow, startButton, leaderboardPanel;
+
+    private bool mscLoop;
+    private float timer = 0;
     void Awake()
     {
         nameWindow.SetActive(false);
@@ -39,7 +42,18 @@ public class MenuPlayFabManager : MonoBehaviour
         {
             startButton.GetComponent<Button>().interactable = true;
         }
+
+        if (mscLoop)
+        {
+            timer += Time.deltaTime;
+            if(timer >= 0.3f)
+            {
+                timer = 0;
+                AudioManager.instance.AudioPlay("Fire");
+            }
+        }
     }
+
     void Login()
     {
         var request = new LoginWithCustomIDRequest
@@ -236,10 +250,25 @@ public class MenuPlayFabManager : MonoBehaviour
     }
     public void GameObjectActivate(GameObject obj)
     {
+        if(obj.name == "Settings")
+        {
+            mscLoop = !mscLoop;
+            AudioManager.instance.StartMusic();
+        }
+        if (obj.name == "VibrationOn")
+            GameManager._instance.gameVibrationStatus = GameManager.GameVibrationStatus.on;
+        else
+            GameManager._instance.gameVibrationStatus = GameManager.GameVibrationStatus.off;
+
         obj.SetActive(true);
     }
     public void GameObjectDeActivate(GameObject obj)
     {
+        if (obj.name == "Settings")
+        {
+            mscLoop = !mscLoop;
+            AudioManager.instance.AudioStop("LevelTheme");
+        }
         obj.SetActive(false);
     }
 

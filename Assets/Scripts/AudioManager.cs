@@ -46,7 +46,36 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetMSCVolume()
+    {
+        AudioSource[] audioSource = GetComponents<AudioSource>();
+
+        foreach (Sound sound in MSCsounds)
+        {
+            for (int i = 0; i < audioSource.Length; i++)
+            {
+                Debug.Log(audioSource[i].clip.name);
+                if (audioSource[i].clip.name == sound.clip.name)
+                    audioSource[i].volume = (sound.defaultVolume * PlayerPrefs.GetFloat("GeneralVolume") * PlayerPrefs.GetFloat("MSCVolume"));
+            }
+        }
+    }
+
+    public void SetSFXVolume()
+    {
+        AudioSource[] audioSource = GetComponents<AudioSource>();
+        foreach (Sound sound in SFXsounds)
+        {
+            for (int i = 0; i < audioSource.Length; i++)
+            {
+                Debug.Log(audioSource[i].clip.name);
+                if (audioSource[i].clip.name == sound.clip.name)
+                    audioSource[i].volume = (sound.defaultVolume * PlayerPrefs.GetFloat("GeneralVolume") * PlayerPrefs.GetFloat("SFXVolume"));
+            }
+        }
+    }
+
+    public void StartMusic()
     {
         AudioManager.instance.AudioPlay("LevelTheme");
     }
