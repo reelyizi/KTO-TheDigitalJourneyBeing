@@ -257,7 +257,7 @@ public class MenuPlayFabManager : MonoBehaviour
         }
         if (obj.name == "VibrationOn")
             GameManager._instance.gameVibrationStatus = GameManager.GameVibrationStatus.on;
-        else
+        else if(obj.name == "VibrationOff")
             GameManager._instance.gameVibrationStatus = GameManager.GameVibrationStatus.off;
 
         obj.SetActive(true);

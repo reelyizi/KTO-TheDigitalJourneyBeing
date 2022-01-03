@@ -73,6 +73,7 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("start?");
         gameManager=GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         saveBossHeadHealth = BossHeadHealth;
         Debug.Log(saveBossHeadHealth);
@@ -205,21 +206,22 @@ public class BossManager : MonoBehaviour
         float _bossRightHandHealthCounter = bossRightHandHealthCounter;
         float _bossLeftHandHealthCounter = bossLeftHandHealthCounter;
 
-        if (BossHeadHealth < saveBossHeadHealth * (_bossHeadHealthCounter / 4) && saveBossHeadHealth > 1)
+        Debug.Log(saveBossHeadHealth * (_bossHeadHealthCounter / 3.5f));
+        if (BossHeadHealth < saveBossHeadHealth * (_bossHeadHealthCounter / 3.5f) && saveBossHeadHealth > 1)
         {
-            saveBossHeadHealth = BossHeadHealth;
+            //saveBossHeadHealth = BossHeadHealth;
             bossHead.GetComponent<SpriteRenderer>().sprite = bossHeadSprite[--bossHeadHealthCounter];
         }
 
-        if (BossLeftHandHealth < saveBossLeftHandHealth * (_bossRightHandHealthCounter / 4) && saveBossLeftHandHealth > 1)
+        if (BossLeftHandHealth < saveBossLeftHandHealth * (_bossLeftHandHealthCounter / 3.5f) && saveBossLeftHandHealth > 1)
         {
-            saveBossLeftHandHealth = BossLeftHandHealth;
+            //saveBossLeftHandHealth = BossLeftHandHealth;
             bossLeftHand.GetComponent<SpriteRenderer>().sprite = bossLeftHandSprite[--bossLeftHandHealthCounter];
         }
 
-        if (BossRightHandHealth < saveBossRightHandHealth * (_bossLeftHandHealthCounter / 4) && BossRightHandHealth > 1)
+        if (BossRightHandHealth < saveBossRightHandHealth * (_bossRightHandHealthCounter / 3.5f) && BossRightHandHealth > 1)
         {
-            saveBossRightHandHealth = BossRightHandHealth;
+            //saveBossRightHandHealth = BossRightHandHealth;
             bossRightHand.GetComponent<SpriteRenderer>().sprite = bossRightHandSprite[--bossRightHandHealthCounter];
         }
 
