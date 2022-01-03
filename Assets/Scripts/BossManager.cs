@@ -207,21 +207,18 @@ public class BossManager : MonoBehaviour
 
         if (BossHeadHealth < saveBossHeadHealth * (_bossHeadHealthCounter / 4) && saveBossHeadHealth > 1)
         {
-            Debug.Log("Head");
             saveBossHeadHealth = BossHeadHealth;
             bossHead.GetComponent<SpriteRenderer>().sprite = bossHeadSprite[--bossHeadHealthCounter];
         }
 
         if (BossLeftHandHealth < saveBossLeftHandHealth * (_bossRightHandHealthCounter / 4) && saveBossLeftHandHealth > 1)
         {
-            Debug.Log("left");
             saveBossLeftHandHealth = BossLeftHandHealth;
             bossLeftHand.GetComponent<SpriteRenderer>().sprite = bossLeftHandSprite[--bossLeftHandHealthCounter];
         }
 
         if (BossRightHandHealth < saveBossRightHandHealth * (_bossLeftHandHealthCounter / 4) && BossRightHandHealth > 1)
         {
-            Debug.Log("right");
             saveBossRightHandHealth = BossRightHandHealth;
             bossRightHand.GetComponent<SpriteRenderer>().sprite = bossRightHandSprite[--bossRightHandHealthCounter];
         }
