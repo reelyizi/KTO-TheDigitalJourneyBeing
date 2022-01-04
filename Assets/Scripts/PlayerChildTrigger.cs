@@ -55,7 +55,7 @@ public class PlayerChildTrigger : MonoBehaviour
                     //Vibrator.Vibrate(100);
                     //ss'i animasyonun bitisine kadar beklet
                     takeShareScreenShoot.ScreenShot();
-                    if (GameManager.score > GameManager.highScore)
+                    if (GameManager.score >= GameManager.highScore)
                     {
                         PlayerPrefs.SetInt("HighScore", GameManager.score);
                         if (gameManager.gameNetworkStatus == GameManager.GameNetworkStatus.online)
