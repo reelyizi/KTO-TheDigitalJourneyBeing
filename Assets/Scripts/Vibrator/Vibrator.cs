@@ -23,7 +23,9 @@ public static class Vibrator
         }
         else
         {
+#if UNITY_ANDROID && !UNITY_EDITOR          
             Handheld.Vibrate();
+#endif
         }
     }
     public static void Cancel()
