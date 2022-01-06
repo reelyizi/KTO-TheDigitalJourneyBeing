@@ -18,6 +18,7 @@ public class PlayerChildTrigger : MonoBehaviour
     public bool checkEnded = false;
     void Start()
     {
+
         foreach (GameObject obj in uipanel)
         {
             obj.SetActive(true);
@@ -38,6 +39,11 @@ public class PlayerChildTrigger : MonoBehaviour
                 {
                     //death
                     checkEnded = true;
+                    Debug.LogWarning(GameManager.score+" "+PlayerPrefs.GetInt("HighScore"));
+                    if(GameManager.score>=PlayerPrefs.GetInt("HighScore"))
+                    {
+                        PlayerPrefs.SetInt("HighScore", GameManager.score);
+                    }
                     AudioManager.instance.AudioPlay("Dead");
                     //Ui paneli kapat
                     finalScoreText.text = GameManager.score.ToString();
@@ -55,16 +61,9 @@ public class PlayerChildTrigger : MonoBehaviour
                     //Vibrator.Vibrate(100);
                     //ss'i animasyonun bitisine kadar beklet
                     takeShareScreenShoot.ScreenShot();
-                    if (GameManager.score >= GameManager.highScore)
-                    {
-                        PlayerPrefs.SetInt("HighScore", GameManager.score);
-                        if (gameManager.gameNetworkStatus == GameManager.GameNetworkStatus.online)
-                        {
-                            playFabManager.SendLeaderboard(GameManager.score);
-                        }
-                    }
                     if (gameManager.gameNetworkStatus == GameManager.GameNetworkStatus.online)
                     {
+                        playFabManager.SendLeaderboard(PlayerPrefs.GetInt("HighScore"));
                         playFabManager.GetLeaderBoardAroundPlayer();
                     }
 
@@ -86,7 +85,7 @@ public class PlayerChildTrigger : MonoBehaviour
         if (takeShareScreenShoot.isTaked)
         {
             scorePanel.SetActive(false);
-            Time.timeScale = 0f;
+            Time.timeScale = 1f;
             holder.SetActive(false);
             group.SetActive(true);
             GameManager._instance.enabled = false;

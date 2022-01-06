@@ -10,7 +10,7 @@ public class Group : MonoBehaviour
     private void OnEnable()
     {
         GameObject.FindGameObjectWithTag("Player").SetActive(false);
-        scoreValueText.text = GameManager.score.ToString();
+        //scoreValueText.text = GameManager.score.ToString();
         timerValueText.text = ((int)GameManager.timerControl).ToString();
     }
     public void RestartGame()

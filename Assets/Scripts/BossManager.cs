@@ -285,4 +285,5 @@ public class BossManager : MonoBehaviour
         GameObject obj = Instantiate(scoreText, Camera.main.WorldToScreenPoint(new Vector3(Random.Range(limbPos.position.x - 3, limbPos.position.x + 3), Random.Range(limbPos.position.y - 2, limbPos.position.y + 2), limbPos.position.z)), Quaternion.identity, GameObject.Find("Holder").transform);
         obj.GetComponent<BubbleScoreText>().SetText(score);
     }
+
 }

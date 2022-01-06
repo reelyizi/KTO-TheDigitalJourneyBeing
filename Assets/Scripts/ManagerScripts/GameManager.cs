@@ -145,10 +145,12 @@ public class GameManager : MonoBehaviour
 
     public void ExplodeGrenade()
     {
+#if !UNITY_EDITOR
         if(gameVibrationStatus==GameVibrationStatus.on)
         {
             Vibrator.Vibrate(250);
         }
+#endif
         Shake.start = true;
         List<GameObject> bubbles = new List<GameObject>();
         if (GameObject.Find("Bubble").transform.childCount > 0)
@@ -217,5 +219,4 @@ public class GameManager : MonoBehaviour
             gameVibrationStatus=GameVibrationStatus.off;
         }
     }
-    
 }
