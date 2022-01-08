@@ -15317,6 +15317,162 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b822e28ea14474847bb6aebad624ca77, type: 3}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[0].name
+      value: LevelTheme01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 01bc6bb052420df43a93af9ca368da48, type: 3}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[1].name
+      value: LevelTheme02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07ea690cb39ec354ba460e072503cd4a, type: 3}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[2].name
+      value: LevelTheme03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2beea27fac498524980a3c83cc143e25, type: 3}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[3].name
+      value: LevelTheme04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b8de795a66328574a85a08faed345ac4, type: 3}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[4].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[4].name
+      value: Boss_Music_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 89e797583e5df9749a6352201b78ab52, type: 3}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[5].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[5].name
+      value: Boss_Music_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d05acaf9b1b7e304dada16f2b3fbb078, type: 3}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[6].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[6].name
+      value: Main_Menu_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[3].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[4].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[5].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[6].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[1].defaultVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[2].defaultVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[3].defaultVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[4].defaultVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[5].defaultVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683864198392249978, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
+      propertyPath: MSCsounds.Array.data[6].defaultVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7683864198392249979, guid: f1221811d88e3f040889173ae8d6e423, type: 3}
       propertyPath: m_Name
       value: AudioManager
