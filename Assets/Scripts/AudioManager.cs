@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] SFXsounds;
 
     public static AudioManager instance;
+    [HideInInspector] public string currentMSC;
+    private string preMsc;
 
     private void Awake()
     {
@@ -75,8 +78,42 @@ public class AudioManager : MonoBehaviour
 
     public void StartMusic()
     {
-        AudioManager.instance.AudioPlay("LevelTheme");
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+            AudioPlay("Main_Menu_01");
+        else
+        {
+            //currentMSC = "LevelTheme0" + UnityEngine.Random.Range(0, 4);
+            //Debug.Log(currentMSC);
+            AudioPlay(RandomLevelMusic());
+        }           
     }
+
+    /// <summary>
+    /// It will not return same music played before
+    /// </summary>
+    /// <returns></returns>
+    public string RandomLevelMusic()
+    {
+        //Debug.Log(preMsc);
+        string msc = "LevelTheme0" + UnityEngine.Random.Range(0, 4);
+        //Debug.Log(msc);
+        Debug.Log(currentMSC);
+        
+        //preMsc = msc;
+        if (currentMSC == msc)
+        {
+            Debug.Log("res");
+            RandomLevelMusic();
+        }            
+        else
+        {
+            currentMSC = ""+msc;
+            //Debug.Log(currentMSC);
+        }
+        //Debug.Log(preMsc);
+        return currentMSC;
+    }
+
     public void AudioPlay(string name)
     {
         if(Array.Exists(SFXsounds, element => element.name == name))

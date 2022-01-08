@@ -147,7 +147,7 @@ public class PlayFabManager : MonoBehaviour
                     texts[0].color = yellow;
                     texts[1].color = yellow;
                     texts[2].color = yellow;
-                    Debug.Log((item.Position + 1) + " " + item.DisplayName + " " + item.StatValue);
+                    //Debug.Log((item.Position + 1) + " " + item.DisplayName + " " + item.StatValue);
                 }
                 else
                 {
@@ -157,7 +157,7 @@ public class PlayFabManager : MonoBehaviour
                     texts[0].color = blue;
                     texts[1].color = blue;
                     texts[2].color = blue;
-                    Debug.Log((item.Position + 1) + " " + item.PlayFabId + " " + item.StatValue);
+                    //Debug.Log((item.Position + 1) + " " + item.PlayFabId + " " + item.StatValue);
                 }
 
             }

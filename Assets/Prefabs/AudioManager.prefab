@@ -45,10 +45,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MSCsounds:
-  - name: LevelTheme
-    clip: {fileID: 8300000, guid: 9181fc7719a80a94bbc9b34c94ee1870, type: 3}
-    volume: 0.5
-    defaultVolume: 0.5
+  - name: LevelTheme00
+    clip: {fileID: 8300000, guid: b822e28ea14474847bb6aebad624ca77, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: LevelTheme01
+    clip: {fileID: 8300000, guid: 01bc6bb052420df43a93af9ca368da48, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: LevelTheme02
+    clip: {fileID: 8300000, guid: 07ea690cb39ec354ba460e072503cd4a, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: LevelTheme03
+    clip: {fileID: 8300000, guid: 2beea27fac498524980a3c83cc143e25, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Boss_Music_00
+    clip: {fileID: 8300000, guid: b8de795a66328574a85a08faed345ac4, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Boss_Music_01
+    clip: {fileID: 8300000, guid: 89e797583e5df9749a6352201b78ab52, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Main_Menu_01
+    clip: {fileID: 8300000, guid: d05acaf9b1b7e304dada16f2b3fbb078, type: 3}
+    volume: 1
+    defaultVolume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -81,10 +123,67 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Laser
-    clip: {fileID: 8300000, guid: 3bb81cb52a416814a86f86d9c84bf225, type: 3}
+  - name: Monster_Roar_00
+    clip: {fileID: 8300000, guid: 8767c93d2330eef4c8e9f70fc8be5c11, type: 3}
     volume: 0.7
     defaultVolume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Monster_Roar_01
+    clip: {fileID: 8300000, guid: 66000f7138880594fa2ab21e29285a6e, type: 3}
+    volume: 0.7
+    defaultVolume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Monster_Roar_02
+    clip: {fileID: 8300000, guid: 5e40fd839d60ed144ab9cafab75fdb0f, type: 3}
+    volume: 0.7
+    defaultVolume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Monster_Roar_03
+    clip: {fileID: 8300000, guid: e51f80558b4b8fe4d8d005ec00f058ed, type: 3}
+    volume: 0.7
+    defaultVolume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Monster_Roar_04
+    clip: {fileID: 8300000, guid: 3eb1712ab5a438d4088bbba30e65bb6c, type: 3}
+    volume: 0.7
+    defaultVolume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Monster_Roar_05
+    clip: {fileID: 8300000, guid: eee51d87fe851f44da5c3115d0be1dcf, type: 3}
+    volume: 0.7
+    defaultVolume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Chest_Pickup
+    clip: {fileID: 8300000, guid: 2d83d35a9e87f524f8875220f85bbb6d, type: 3}
+    volume: 0.7
+    defaultVolume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Electric_Shield
+    clip: {fileID: 8300000, guid: aaf4a1d6ea84e8747a4f5e96a79c4c6c, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laser
+    clip: {fileID: 8300000, guid: bb81c260759c5aa44816817cf8c46521, type: 3}
+    volume: 1
+    defaultVolume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  currentMSC: 

@@ -24,6 +24,7 @@ public class EnergyShield : MonoBehaviour
 
     private void OnDisable()
     {
+        AudioManager.instance.AudioStop("Electric_Shield");
         enemyTimer.GetComponent<TextMeshProUGUI>().text = "0";
         enemyTimer.SetActive(false);
     }

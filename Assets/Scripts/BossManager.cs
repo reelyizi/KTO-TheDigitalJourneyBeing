@@ -26,6 +26,7 @@ public class BossManager : MonoBehaviour
     private Vector3 headStartPos, leftHandStartPos, rightHandStartPos;
     [SerializeField] private bool isBossDead;
     private List<Transform> cloneBubbleHoles;
+    private string currentBossMSC;
 
     #region Properties
 
@@ -74,6 +75,9 @@ public class BossManager : MonoBehaviour
     void Start()
     {
         //Boss entering msc
+        AudioManager.instance.AudioStop(AudioManager.instance.currentMSC);
+        currentBossMSC = "Boss_Music_0" + Random.Range(0, 2);
+        AudioManager.instance.AudioPlay(currentBossMSC);
 
         gameManager=GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         saveBossHeadHealth = BossHeadHealth;
@@ -103,7 +107,6 @@ public class BossManager : MonoBehaviour
         timer += Time.deltaTime;
         if (!isBossDead)
         {
-            Debug.Log("spawn");
             for (int i = 0; i < spawnRate.Count; i++)
             {
                 if (timer >= spawnRate[i])
@@ -159,6 +162,8 @@ public class BossManager : MonoBehaviour
 
         if (bossLeftHandHealth == 0 && bossLeftHand.GetComponent<BoxCollider2D>().enabled)
         {
+            AudioManager.instance.AudioPlay("Monster_Roar_0" + Random.Range(0, 6));
+
             //Left Hand Destroyed And Vibrate FeedBack
             GameManager._instance.ExplodeGrenade();
             bossLeftHand.GetComponent<BoxCollider2D>().enabled = false;
@@ -178,6 +183,9 @@ public class BossManager : MonoBehaviour
         if (bossHeadHealth == 0 && bossHead.GetComponent<BoxCollider2D>().enabled)
         {
             //Boss dead msc
+            AudioManager.instance.AudioStop(currentBossMSC);           
+            AudioManager.instance.AudioPlay(AudioManager.instance.RandomLevelMusic());
+
 
             isBossDead = true;
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
@@ -207,7 +215,6 @@ public class BossManager : MonoBehaviour
         float _bossRightHandHealthCounter = bossRightHandHealthCounter;
         float _bossLeftHandHealthCounter = bossLeftHandHealthCounter;
 
-        Debug.Log(saveBossHeadHealth * (_bossHeadHealthCounter / 3.5f));
         if (BossHeadHealth < saveBossHeadHealth * (_bossHeadHealthCounter / 3.5f) && saveBossHeadHealth > 1)
         {
             bossHead.GetComponent<SpriteRenderer>().sprite = bossHeadSprite[--bossHeadHealthCounter];
@@ -222,7 +229,6 @@ public class BossManager : MonoBehaviour
         {
             bossRightHand.GetComponent<SpriteRenderer>().sprite = bossRightHandSprite[--bossRightHandHealthCounter];
         }
-
     }
 
     IEnumerator WaitAndExplode()

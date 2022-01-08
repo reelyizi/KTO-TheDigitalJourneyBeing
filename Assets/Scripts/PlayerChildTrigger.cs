@@ -112,6 +112,7 @@ public class PlayerChildTrigger : MonoBehaviour
         }
         else if (collision.name == "Energy Shield")
         {
+            AudioManager.instance.AudioPlay("Electric_Shield");
             Destroy(collision.gameObject);
             if (energyShield.activeInHierarchy)
                 energyShield.GetComponent<EnergyShield>().timer = energyShield.GetComponent<EnergyShield>().duration;
@@ -124,6 +125,7 @@ public class PlayerChildTrigger : MonoBehaviour
         }
         else if (collision.name == "Chest")
         {
+            AudioManager.instance.AudioPlay("Chest_Pickup");            
             Destroy(collision.gameObject);
             GameManager._instance.SetScoreText(1000, collision.transform);
         }
