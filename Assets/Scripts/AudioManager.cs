@@ -54,7 +54,6 @@ public class AudioManager : MonoBehaviour
         {
             for (int i = 0; i < audioSource.Length; i++)
             {
-                Debug.Log(audioSource[i].clip.name);
                 if (audioSource[i].clip.name == sound.clip.name)
                     audioSource[i].volume = (sound.defaultVolume * PlayerPrefs.GetFloat("GeneralVolume") * PlayerPrefs.GetFloat("MSCVolume"));
             }
@@ -68,7 +67,6 @@ public class AudioManager : MonoBehaviour
         {
             for (int i = 0; i < audioSource.Length; i++)
             {
-                Debug.Log(audioSource[i].clip.name);
                 if (audioSource[i].clip.name == sound.clip.name)
                     audioSource[i].volume = (sound.defaultVolume * PlayerPrefs.GetFloat("GeneralVolume") * PlayerPrefs.GetFloat("SFXVolume"));
             }
