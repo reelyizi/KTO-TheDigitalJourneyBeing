@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 8059860037856169754}
   - component: {fileID: 11921828072761859}
   - component: {fileID: 75326937}
+  - component: {fileID: 301870420}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Laser
@@ -393,6 +394,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &301870420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772349966827116721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2736e28fcbe594888fa914d63e11f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1969632302764331190
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1009,7 @@ GameObject:
   - component: {fileID: 5637961916867435464}
   - component: {fileID: 5439676411089060314}
   - component: {fileID: 748928413}
+  - component: {fileID: 301870421}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Laser
@@ -1116,6 +1130,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &301870421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087426998603384132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2736e28fcbe594888fa914d63e11f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6848577966226570806
 GameObject:
   m_ObjectHideFlags: 0
