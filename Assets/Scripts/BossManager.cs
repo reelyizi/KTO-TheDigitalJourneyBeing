@@ -189,7 +189,8 @@ public class BossManager : MonoBehaviour
         if (bossHeadHealth == 0 && bossHead.GetComponent<BoxCollider2D>().enabled)
         {
             //Boss dead msc
-            AudioManager.instance.AudioStop(currentBossMSC);           
+            AudioManager.instance.AudioStop(currentBossMSC);
+            AudioManager.instance.AudioPlay("Monster_Roar_0" + Random.Range(0, 6));
             AudioManager.instance.AudioPlay(AudioManager.instance.RandomLevelMusic());
 
 
