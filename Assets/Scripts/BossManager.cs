@@ -75,6 +75,10 @@ public class BossManager : MonoBehaviour
     void Start()
     {
         //Boss entering msc
+        for (int i = 0; i < 4; i++)
+        {
+            AudioManager.instance.AudioStop("LevelTheme0"+i);
+        }
         AudioManager.instance.AudioStop(AudioManager.instance.currentMSC);
         currentBossMSC = "Boss_Music_0" + Random.Range(0, 2);
         AudioManager.instance.AudioPlay(currentBossMSC);
@@ -173,6 +177,8 @@ public class BossManager : MonoBehaviour
         }
         if (bossRightHandHealth == 0 && bossRightHand.GetComponent<BoxCollider2D>().enabled)
         {
+            AudioManager.instance.AudioPlay("Monster_Roar_0" + Random.Range(0, 6));
+
             //Left Hand Destroyed And Vibrate FeedBack
             GameManager._instance.ExplodeGrenade();
             bossRightHand.GetComponent<BoxCollider2D>().enabled = false;

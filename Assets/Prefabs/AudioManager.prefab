@@ -177,7 +177,7 @@ MonoBehaviour:
     volume: 1
     defaultVolume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: Laser
     clip: {fileID: 8300000, guid: bb81c260759c5aa44816817cf8c46521, type: 3}

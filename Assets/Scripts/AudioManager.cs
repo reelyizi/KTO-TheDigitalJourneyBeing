@@ -98,6 +98,7 @@ public class AudioManager : MonoBehaviour
         string msc = "LevelTheme0" + UnityEngine.Random.Range(0, 4);
         //Debug.Log(msc);
         Debug.Log(currentMSC);
+        Debug.Log(preMsc);
         
         //preMsc = msc;
         if (currentMSC == msc)
@@ -107,7 +108,8 @@ public class AudioManager : MonoBehaviour
         }            
         else
         {
-            currentMSC = ""+msc;
+            currentMSC = msc.ToString();
+            preMsc = msc.ToString();
             //Debug.Log(currentMSC);
         }
         //Debug.Log(preMsc);
@@ -124,8 +126,8 @@ public class AudioManager : MonoBehaviour
     public void AudioStop(string name)
     {
         if (Array.Exists(SFXsounds, element => element.name == name))
-            Array.Find(SFXsounds, sound => sound.name == name).source.Play();
+            Array.Find(SFXsounds, sound => sound.name == name).source.Stop();
         if (Array.Exists(MSCsounds, element => element.name == name))
-            Array.Find(MSCsounds, sound => sound.name == name).source.Play();
+            Array.Find(MSCsounds, sound => sound.name == name).source.Stop();
     }
 }
