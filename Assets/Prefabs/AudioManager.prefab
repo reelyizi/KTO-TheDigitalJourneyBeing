@@ -166,9 +166,9 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Chest_Pickup
-    clip: {fileID: 8300000, guid: 2d83d35a9e87f524f8875220f85bbb6d, type: 3}
-    volume: 0.7
-    defaultVolume: 0.7
+    clip: {fileID: 8300000, guid: 6e63449e80e187e47b8768e6c8d4ef35, type: 3}
+    volume: 1
+    defaultVolume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
