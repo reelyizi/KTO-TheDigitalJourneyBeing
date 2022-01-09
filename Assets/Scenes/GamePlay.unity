@@ -560,6 +560,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6848577966226570806, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226453a6be735ac48949c6aa01b0d589, type: 3}
 --- !u!4 &301870417 stripped
@@ -2226,7 +2230,7 @@ GameObject:
   - component: {fileID: 1137073251}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Ground
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

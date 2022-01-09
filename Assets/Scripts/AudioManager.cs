@@ -97,13 +97,13 @@ public class AudioManager : MonoBehaviour
         //Debug.Log(preMsc);
         string msc = "LevelTheme0" + UnityEngine.Random.Range(0, 4);
         //Debug.Log(msc);
-        Debug.Log(currentMSC);
-        Debug.Log(preMsc);
+        //Debug.Log(currentMSC);
+        //Debug.Log(preMsc);
         
         //preMsc = msc;
         if (currentMSC == msc)
         {
-            Debug.Log("res");
+            //Debug.Log("res");
             RandomLevelMusic();
         }            
         else
