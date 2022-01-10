@@ -74,9 +74,7 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
-        SetSpawnRate(1.5f);
         //Boss entering msc
-
         for (int i = 0; i < 4; i++)
         {
             AudioManager.instance.AudioStop("LevelTheme0"+i);
@@ -100,7 +98,9 @@ public class BossManager : MonoBehaviour
         {
             Vibrator.Vibrate(1000);
         }
-        Shake.start = true;        
+        Shake.start = true;
+        //
+        SetSpawnRate(1.5f);
     }
 
     void Update()
