@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 0
     width: 1920
@@ -56,6 +57,10 @@ MonoBehaviour:
 =======
     x: 753
     y: 0
+=======
+    x: 753
+    y: 0
+>>>>>>> parent of eddc380 (fix)
     width: 731
     height: 523
   m_MinSize: {x: 202, y: 221}
@@ -95,6 +100,9 @@ MonoBehaviour:
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
   controlID: 110
+<<<<<<< HEAD
+>>>>>>> parent of eddc380 (fix)
+=======
 >>>>>>> parent of eddc380 (fix)
 --- !u!114 &4
 MonoBehaviour:
@@ -112,6 +120,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 0
     y: 977
     width: 1920
@@ -119,6 +128,8 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
 =======
+=======
+>>>>>>> parent of eddc380 (fix)
     x: 1484
     y: 0
     width: 436
@@ -188,6 +199,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 0
     width: 1484
     height: 947
@@ -196,6 +208,8 @@ MonoBehaviour:
   vertical: 1
   controlID: 456
 =======
+=======
+>>>>>>> parent of eddc380 (fix)
     y: 523
     width: 1484
     height: 424
@@ -305,6 +319,7 @@ MonoBehaviour:
     x: 753
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 731
     height: 525
   m_MinSize: {x: 200, y: 200}
@@ -315,12 +330,17 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 0
 =======
+=======
+>>>>>>> parent of eddc380 (fix)
     width: 1484
     height: 947
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
   controlID: 124
+<<<<<<< HEAD
+>>>>>>> parent of eddc380 (fix)
+=======
 >>>>>>> parent of eddc380 (fix)
 --- !u!114 &11
 MonoBehaviour:
@@ -358,6 +378,9 @@ MonoBehaviour:
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
   controlID: 116
+<<<<<<< HEAD
+>>>>>>> parent of eddc380 (fix)
+=======
 >>>>>>> parent of eddc380 (fix)
 --- !u!114 &12
 MonoBehaviour:
@@ -375,6 +398,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1484
     y: 0
     width: 436
@@ -387,6 +411,10 @@ MonoBehaviour:
 =======
     x: 301
     y: 0
+=======
+    x: 301
+    y: 0
+>>>>>>> parent of eddc380 (fix)
     width: 452
     height: 523
   m_MinSize: {x: 202, y: 221}
@@ -395,6 +423,9 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 17}
   - {fileID: 13}
+<<<<<<< HEAD
+>>>>>>> parent of eddc380 (fix)
+=======
 >>>>>>> parent of eddc380 (fix)
   m_Selected: 0
   m_LastSelected: 1
@@ -484,9 +515,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 598
     width: 1483
     height: 401
+=======
+    y: 596
+    width: 1483
+    height: 403
+>>>>>>> parent of eddc380 (fix)
 =======
     y: 596
     width: 1483
@@ -522,15 +559,21 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
 <<<<<<< HEAD
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 5c710000
     m_LastClickedID: 29020
     m_ExpandedIDs: 000000003c7100003e7100004071000000ca9a3b
 =======
+=======
+>>>>>>> parent of eddc380 (fix)
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: 2a710000
     m_LastClickedID: 28970
     m_ExpandedIDs: 0000000026710000287100002a7100002c71000000ca9a3b
+<<<<<<< HEAD
+>>>>>>> parent of eddc380 (fix)
+=======
 >>>>>>> parent of eddc380 (fix)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -560,7 +603,11 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 000000003c7100003e71000040710000
+=======
+    m_ExpandedIDs: 0000000026710000287100002a7100002c710000
+>>>>>>> parent of eddc380 (fix)
 =======
     m_ExpandedIDs: 0000000026710000287100002a7100002c710000
 >>>>>>> parent of eddc380 (fix)
@@ -687,7 +734,11 @@ MonoBehaviour:
     y: 73
     width: 300
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 504
+=======
+    height: 502
+>>>>>>> parent of eddc380 (fix)
 =======
     height: 502
 >>>>>>> parent of eddc380 (fix)
@@ -701,7 +752,11 @@ MonoBehaviour:
       m_SelectedIDs: 
       m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_ExpandedIDs: cccdffff76f9ffff20fbffff
+=======
+      m_ExpandedIDs: 92f1ffffe2f1ffff66f4ffffe8f4ffff20fbffff
+>>>>>>> parent of eddc380 (fix)
 =======
       m_ExpandedIDs: 92f1ffffe2f1ffff66f4ffffe8f4ffff20fbffff
 >>>>>>> parent of eddc380 (fix)
@@ -729,7 +784,11 @@ MonoBehaviour:
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &15
+=======
+--- !u!114 &17
+>>>>>>> parent of eddc380 (fix)
 =======
 --- !u!114 &17
 >>>>>>> parent of eddc380 (fix)
@@ -756,7 +815,11 @@ MonoBehaviour:
     y: 73
     width: 450
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 504
+=======
+    height: 502
+>>>>>>> parent of eddc380 (fix)
 =======
     height: 502
 >>>>>>> parent of eddc380 (fix)
@@ -995,9 +1058,15 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 337.30127, y: 208.63637, z: 0}
     speed: 2
     m_Value: {x: 337.30127, y: 208.63637, z: 0}
+=======
+    m_Target: {x: -1.657098, y: 3.5981038, z: 0.018864937}
+    speed: 2
+    m_Value: {x: -1.657098, y: 3.5981038, z: 0.018864937}
+>>>>>>> parent of eddc380 (fix)
 =======
     m_Target: {x: -1.657098, y: 3.5981038, z: 0.018864937}
     speed: 2
@@ -1054,9 +1123,15 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 575.9822
     speed: 2
     m_Value: 575.9822
+=======
+    m_Target: 15.453736
+    speed: 2
+    m_Value: 15.453736
+>>>>>>> parent of eddc380 (fix)
 =======
     m_Target: 15.453736
     speed: 2
@@ -1087,7 +1162,11 @@ MonoBehaviour:
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &16
+=======
+--- !u!114 &18
+>>>>>>> parent of eddc380 (fix)
 =======
 --- !u!114 &18
 >>>>>>> parent of eddc380 (fix)
@@ -1120,11 +1199,15 @@ MonoBehaviour:
     y: 596
     width: 1483
     height: 403
+<<<<<<< HEAD
+>>>>>>> parent of eddc380 (fix)
+=======
 >>>>>>> parent of eddc380 (fix)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_ViewTransforms:
     m_KeySerializationHelper:
@@ -1166,6 +1249,9 @@ MonoBehaviour:
 =======
 --- !u!114 &19
 >>>>>>> parent of eddc380 (fix)
+=======
+--- !u!114 &19
+>>>>>>> parent of eddc380 (fix)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1189,7 +1275,11 @@ MonoBehaviour:
     y: 73
     width: 729
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 504
+=======
+    height: 502
+>>>>>>> parent of eddc380 (fix)
 =======
     height: 502
 >>>>>>> parent of eddc380 (fix)
@@ -1243,9 +1333,15 @@ MonoBehaviour:
       y: 21
       width: 729
 <<<<<<< HEAD
+<<<<<<< HEAD
       height: 483
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 364.5, y: 241.5}
+=======
+      height: 481
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 364.5, y: 240.5}
+>>>>>>> parent of eddc380 (fix)
 =======
       height: 481
     m_Scale: {x: 1, y: 1}
@@ -1259,12 +1355,21 @@ MonoBehaviour:
       serializedVersion: 2
       x: -364.5
 <<<<<<< HEAD
+<<<<<<< HEAD
       y: -241.5
       width: 729
       height: 483
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 729, y: 504}
+=======
+      y: -240.5
+      width: 729
+      height: 481
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 729, y: 502}
+>>>>>>> parent of eddc380 (fix)
 =======
       y: -240.5
       width: 729
