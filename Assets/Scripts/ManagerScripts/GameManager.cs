@@ -59,21 +59,26 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> lights;
     void Start()
     {
+        //Check tutorial
         if(PlayerPrefs.GetInt("tutorial",0)==0)
         {
             tutorialPanel.SetActive(true);
             PlayerPrefs.SetInt("tutorial",1);
             StartCoroutine(TutorialDeactive());
         }
-        Time.timeScale = 1;
-        if (InternetAvailabilityTest.gameOffline)
-        {
-            gameNetworkStatus = GameNetworkStatus.offline;
-        }
         else
         {
-            gameNetworkStatus = GameNetworkStatus.online;
+            tutorialPanel.SetActive(false);
         }
+        //End check
+        Time.timeScale = 1;
+        //Internet Connection Test
+        if (InternetAvailabilityTest.gameOffline)
+            gameNetworkStatus = GameNetworkStatus.offline;
+        else
+            gameNetworkStatus = GameNetworkStatus.online;
+        //End Internet Test
+
         if (gameSceneStatus == GameSceneStatus.gameplay)
         {
             highScore = PlayerPrefs.GetInt("HighScore", 0);
