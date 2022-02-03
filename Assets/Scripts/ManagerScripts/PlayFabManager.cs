@@ -25,7 +25,6 @@ public class PlayFabManager : MonoBehaviour
     public void SendLeaderboard(int score)
     {
         //int score=int.Parse(scoreText.text);
-        Debug.LogWarning("Update Gelen Score:"+score);
         var request = new UpdatePlayerStatisticsRequest
         {
             Statistics = new List<StatisticUpdate>{

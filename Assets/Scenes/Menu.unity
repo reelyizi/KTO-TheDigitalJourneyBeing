@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708985, g: 0.37837005, b: 0.3572253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -410,7 +410,6 @@ MonoBehaviour:
     rgba: 4289721825
   nameInput: {fileID: 1602406114}
   nameInputText: {fileID: 455732749}
-  welcomeText: {fileID: 0}
   nameWindow: {fileID: 456334802}
   uiWindow: {fileID: 552203829}
   startButton: {fileID: 139553108}
@@ -484,12 +483,12 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 173715089}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.46139583, y: 0.3363138}
-  m_AnchorMax: {x: 0.46139583, y: 0.3363138}
-  m_AnchoredPosition: {x: 74.12, y: 179}
-  m_SizeDelta: {x: 1046, y: 752}
+  m_AnchorMin: {x: 0.5793734, y: 0.263}
+  m_AnchorMax: {x: 0.92200005, y: 0.7621945}
+  m_AnchoredPosition: {x: -513, y: 123}
+  m_SizeDelta: {x: 349, y: 245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &139553110
 MonoBehaviour:
@@ -616,6 +615,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1016671108}
   - {fileID: 139553109}
   - {fileID: 1602406110}
   m_Father: {fileID: 456334803}
@@ -1417,7 +1417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.43311936, y: 0.22933425}
   m_AnchorMax: {x: 0.5728243, y: 0.2682666}
-  m_AnchoredPosition: {x: -6, y: -20.5}
+  m_AnchoredPosition: {x: -6, y: -20.49997}
   m_SizeDelta: {x: -26.682007, y: 24.614014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343631754
@@ -2838,7 +2838,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 119.85
+  m_fontSize: 120
   m_fontSizeBase: 116.91
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4792,6 +4792,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003100673}
   m_CullTransparentMesh: 1
+--- !u!1 &1016671107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016671108}
+  - component: {fileID: 1016671110}
+  - component: {fileID: 1016671109}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1016671108
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016671107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 173715089}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.32750934, y: 0.4754285}
+  m_AnchorMax: {x: 0.6724907, y: 0.89900005}
+  m_AnchoredPosition: {x: 0, y: 1.4109955}
+  m_SizeDelta: {x: -2, y: -14.820999}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1016671109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016671107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.14509805, g: 0.03529412, b: 0.098039225, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 566357c56996d8243a94b15eb09c9d4f, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.28
+--- !u!222 &1016671110
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016671107}
+  m_CullTransparentMesh: 1
 --- !u!1 &1032156865
 GameObject:
   m_ObjectHideFlags: 0
@@ -5747,7 +5823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 116.51311, y: -200.46707}
+  m_AnchoredPosition: {x: 116.51318, y: -200.46729}
   m_SizeDelta: {x: 1172.4858, y: 842.934}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1366440842
@@ -6414,12 +6490,12 @@ RectTransform:
   - {fileID: 455732748}
   - {fileID: 485044720}
   m_Father: {fileID: 173715089}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3061875, y: 0.437}
-  m_AnchorMax: {x: 0.69500005, y: 0.5556296}
-  m_AnchoredPosition: {x: -1, y: 336}
-  m_SizeDelta: {x: -6, y: 2}
+  m_AnchorMin: {x: 0.3, y: 0.7621945}
+  m_AnchorMax: {x: 0.698, y: 0.89900005}
+  m_AnchoredPosition: {x: 2.5, y: -50}
+  m_SizeDelta: {x: -25, y: -17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602406112
 MonoBehaviour:
@@ -7725,7 +7801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1832002976
 Transform:
   m_ObjectHideFlags: 0
@@ -8606,19 +8682,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "KTO Karatay University    \u0130T\xDC OTG\nAhmet Salih \xC7a\u011Fatay  
-    Ali Sevgi   Ataberk Yard\u0131mc\u0131\nAta Deniz Oktay  Berke Akbay   Beyza
-    Sena Erko\xE7\nBurhan \u015Eahin  Devran K\u0131l\u0131\xE7   Dilara Tarkan  
-    Do\u011Fukan Ceylan\nDuhan Durmaz   Ebrar Meydan   Ebuzer F\u0131rat    Enes
-    \xC7ak\u0131r\nEnez \xC7a\u011Fatay   Esra K\xFCbra Elden   Fatmanur Y\u0131ld\u0131z\nFerhat
+  m_text: "KTO Karatay University   Oyunla Gelecek    \u0130T\xDC OTG\nAhmet Salih
+    \xC7a\u011Fatay   Ali Sevgi   Ataberk Yard\u0131mc\u0131\nAta Deniz Oktay  Berke
+    Akbay   Beyza Sena Erko\xE7\nBurhan \u015Eahin  Devran K\u0131l\u0131\xE7   Dilara
+    Tarkan   Do\u011Fukan Ceylan\nDuhan Durmaz   Ebrar Meydan   Ebuzer F\u0131rat   
+    Enes \xC7ak\u0131r\nEnez \xC7a\u011Fatay   Esra K\xFCbra Elden   Fatmanur Y\u0131ld\u0131z\nFerhat
     \xC7a\u011Fr\u0131 \xC7etinkaya    G\xF6khan Ko\xE7   Hasan Basri Erdem\n\u0130lhan
     Nizam   \u0130sa Do\u011Fmu\u015F   Kenan Akta\u015Fin   K\xFCbra Kuvan\nK\u0131van\xE7
     Y\xFCcel   Melih \xD6zt\xFCrk   Mert Demirkoparan\nMert G\xFCrban   Mete Kar  
     Mintiha Tarkan   Muhammed \xC7ivi\nMuhammet Cihan Ayaz   Mustafa T\xFCrk   Nur
-    \xD6zg\xFCrl\xFCk\nResul Ay   Re\u015Fat Toydemir   R\xFCmeysa K\xF6se   Sevda
-    Tarkan\nS\xFCleyman Emre H\xFCry\u0131lmaz   Tuna Pamir   Veysel Tarkan   Zehra
-    Eryolda\u015F   Ziya \xD6nder   \xD6zge \xC7ak\u0131r\n\xDCmit Yatarkalkmaz  
-    \u015Eule Altuncu"
+    \xD6zg\xFCrl\xFCk\nOkan \xD6zbay   Resul Ay   Re\u015Fat Toydemir   R\xFCmeysa
+    K\xF6se   \nSevda Tarkan   S\xFCleyman Emre H\xFCry\u0131lmaz   Tuna Pamir  
+    \nVeysel Tarkan   Zehra Eryolda\u015F   Ziya \xD6nder   \xD6zge \xC7ak\u0131r\n\xDCmit
+    Yatarkalkmaz   \u015Eule Altuncu"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
   m_sharedMaterial: {fileID: 441919118156014723, guid: 392ebca32486fc148b74e17b3d9408dd, type: 2}
@@ -8645,10 +8721,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
+  m_fontSize: 34.75
   m_fontSizeBase: 38
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 120
   m_fontStyle: 0
@@ -8681,7 +8757,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -167.349, y: 0, z: -158.98993, w: 0}
+  m_margin: {x: -167.349, y: -249.61885, z: -158.98993, w: -252.33212}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -1217,6 +1217,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   takeShareScreenShoot: {fileID: 0}
   checkEnded: 0
+  loadingLeaderboardText: {fileID: 0}
   invinsibleDuration: 4
 --- !u!1 &8698685491033693221
 GameObject:

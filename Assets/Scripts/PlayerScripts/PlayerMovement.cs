@@ -71,24 +71,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if(Input.GetTouch(i).position.x>ScreenWidth/2)
             {
-                //move right and shoot
-                /*if(canWalk)
-                {
-                    MoveCharachter(1,mobilemoveSpeed);
-                }*/
-                //canWalk=false;
                 if(canShoot)
                 StartCoroutine(Shoot_());
 
-            }/*
-            if(Input.GetTouch(i).position.x<ScreenWidth/2)
-            {
-                //move left
-                if(canWalk)
-                {
-                    MoveCharachter(-1,mobilemoveSpeed);
-                }
-            }*/
+            }
             ++i;
         }
         if(Input.touchCount==0)
@@ -96,21 +82,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isWalk",false);
             isWalk=false;
         }
-        /*if(Input.touchCount>=2)
-        {
-            canWalk=false;
-            if(canShoot)
-                StartCoroutine(Shoot_());
-        }*/
-
-
         if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(1))
         { 
 
             canWalk=false;
             if(canShoot)
                 StartCoroutine(Shoot_());
-            //StartCoroutine(Shoot());
         }
 
         if(canWalk)
@@ -135,9 +112,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isShoot",true);
         canWalk=false;
         canShoot=false;
-        //Vector2 temp=transform.position;
-        //temp.y+=1;
-        //mekanik instantiate vs 
+        
         Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);
         yield return new WaitForSeconds(0.05f);
         Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);

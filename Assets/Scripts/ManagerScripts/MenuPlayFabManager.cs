@@ -12,7 +12,6 @@ public class MenuPlayFabManager : MonoBehaviour
     public Color32 yellow, blue;
     public InputField nameInput;
     public Text nameInputText;
-    public TextMeshProUGUI welcomeText;
     public static string currentName;
     public static string playFabUserID;
     public static bool networkTestFinished=false;
@@ -85,7 +84,6 @@ public class MenuPlayFabManager : MonoBehaviour
         else
         {
             currentName = name;
-            welcomeText.text = "Welcome " + currentName;
             nameWindow.SetActive(false);
             uiWindow.SetActive(true);
             GameManager.isGameStart = true;
@@ -101,7 +99,6 @@ public class MenuPlayFabManager : MonoBehaviour
         };
         PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
         currentName = nameInputText.text;
-        welcomeText.text = "Welcome " + currentName;
         nameWindow.SetActive(false);
         uiWindow.SetActive(true);
         GameManager.isGameStart = true;

@@ -16,6 +16,7 @@ public class PlayerChildTrigger : MonoBehaviour
     public GameManager gameManager;
     public TakeShareScreenShoot takeShareScreenShoot;
     public bool checkEnded = false;
+    public TextMeshProUGUI loadingLeaderboardText;
     void Start()
     {
 
@@ -39,8 +40,7 @@ public class PlayerChildTrigger : MonoBehaviour
                 {
                     //death
                     checkEnded = true;
-                    Debug.LogWarning(GameManager.score+" "+PlayerPrefs.GetInt("HighScore"));
-                    if(GameManager.score>=PlayerPrefs.GetInt("HighScore"))
+                    if (GameManager.score >= PlayerPrefs.GetInt("HighScore"))
                     {
                         PlayerPrefs.SetInt("HighScore", GameManager.score);
                     }
@@ -64,9 +64,19 @@ public class PlayerChildTrigger : MonoBehaviour
                     if (gameManager.gameNetworkStatus == GameManager.GameNetworkStatus.online)
                     {
                         playFabManager.SendLeaderboard(PlayerPrefs.GetInt("HighScore"));
-                        playFabManager.GetLeaderBoardAroundPlayer();
-                    }
+                        Invoke("GetLeaderBoardStats", 2);
 
+                        for (int i = 10; i > 0; i--)
+                        {
+                            string text = "Leaderboard\nLoading ";
+                            loadingLeaderboardText.text = text;
+                            for (int j = 0; j < 3; j++)
+                            {
+                                text += ".";
+                                StartCoroutine(TextAnim(text));
+                            }
+                        }
+                    }
                 }
                 else
                 {
@@ -79,6 +89,16 @@ public class PlayerChildTrigger : MonoBehaviour
         {
             CheckItems(collision);
         }
+    }
+    IEnumerator TextAnim(string text)
+    {
+        yield return new WaitForSeconds(0.2f);
+        loadingLeaderboardText.text = text;
+    }
+    void GetLeaderBoardStats()
+    {
+        loadingLeaderboardText.gameObject.SetActive(false);
+        playFabManager.GetLeaderBoardAroundPlayer();
     }
     void Update()
     {
@@ -125,7 +145,7 @@ public class PlayerChildTrigger : MonoBehaviour
         }
         else if (collision.name == "Chest")
         {
-            AudioManager.instance.AudioPlay("Chest_Pickup");            
+            AudioManager.instance.AudioPlay("Chest_Pickup");
             Destroy(collision.gameObject);
             GameManager._instance.SetScoreText(1000, collision.transform);
         }

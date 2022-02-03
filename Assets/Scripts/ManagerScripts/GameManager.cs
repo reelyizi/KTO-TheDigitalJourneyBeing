@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float timer;
     public static bool isGameStart = false;
     public static int highScore;
-    public float timescale;
+    public float timescale,tutorialUITime=10f;
 
     public float itemCooldownTimer = 3f;
     private float CDtimer = 0f;
@@ -54,10 +54,17 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isBossActive;
     public int spawnChest;
     [HideInInspector] public bool bossDead;
-    public GameObject chest;
+    public GameObject chest,tutorialPanel;
+
     [SerializeField] private List<GameObject> lights;
     void Start()
     {
+        if(PlayerPrefs.GetInt("tutorial",0)==0)
+        {
+            tutorialPanel.SetActive(true);
+            PlayerPrefs.SetInt("tutorial",1);
+            StartCoroutine(TutorialDeactive());
+        }
         Time.timeScale = 1;
         if (InternetAvailabilityTest.gameOffline)
         {
@@ -75,7 +82,6 @@ public class GameManager : MonoBehaviour
             timer = Random.Range(minSpawnRate, maxSpawnRate);
 
         }
-
         AudioManager.instance.StartMusic();
     }
 
@@ -126,6 +132,11 @@ public class GameManager : MonoBehaviour
                 itemCooldownTimer -= Time.deltaTime;
             }
         }
+    }
+    IEnumerator TutorialDeactive()
+    {
+        yield return new WaitForSeconds(tutorialUITime);
+        tutorialPanel.SetActive(false);
     }
     IEnumerator ChestSpawner()
     {
