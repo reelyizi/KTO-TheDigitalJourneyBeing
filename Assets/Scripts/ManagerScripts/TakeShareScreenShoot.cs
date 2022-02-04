@@ -18,12 +18,6 @@ public class TakeShareScreenShoot : MonoBehaviour
         isTaked=false;
         ShowPictureHolder(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void ShowPictureHolder(bool visible)
     {
         imageHolder1.gameObject.SetActive(visible);

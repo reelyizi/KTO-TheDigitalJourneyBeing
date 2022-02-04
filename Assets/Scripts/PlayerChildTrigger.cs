@@ -68,7 +68,7 @@ public class PlayerChildTrigger : MonoBehaviour
 
                         for (int i = 10; i > 0; i--)
                         {
-                            string text = "Leaderboard\nLoading ";
+                            string text = "Leaderboard\nLoading ... ";
                             loadingLeaderboardText.text = text;
                             for (int j = 0; j < 3; j++)
                             {
@@ -76,6 +76,10 @@ public class PlayerChildTrigger : MonoBehaviour
                                 StartCoroutine(TextAnim(text));
                             }
                         }
+                    }
+                    else
+                    {
+                        loadingLeaderboardText.text = "Leaderboard only works\n in online mode.";
                     }
                 }
                 else

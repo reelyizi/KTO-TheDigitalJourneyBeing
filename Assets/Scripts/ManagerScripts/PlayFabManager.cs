@@ -14,6 +14,10 @@ public class PlayFabManager : MonoBehaviour
     public Color32 yellow, blue;
     void Start()
     {
+        if(InternetAvailabilityTest.gameOffline)
+        {
+            this.enabled=false;
+        }
         currentName = MenuPlayFabManager.currentName;
         playFabuserID = MenuPlayFabManager.playFabUserID;
     }

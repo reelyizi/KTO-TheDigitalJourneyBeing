@@ -64,10 +64,10 @@ public class InternetAvailabilityTest : MonoBehaviour
         //GameObject.Find("GameManager").GetComponent<GameManager>().gameNetworkStatus=GameManager.GameNetworkStatus.offline;
         MenuPlayFabManager.networkTestFinished=false;
         gameOffline=true;
+        GameManager.isGameStart = true;
         //SceneManager.LoadScene(1);
         uiWindow.SetActive(true);
         leaderboardButton.interactable=false;
-        
         this.gameObject.SetActive(false);
     }
 }
