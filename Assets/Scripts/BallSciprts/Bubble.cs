@@ -11,7 +11,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private float limitSpeedY;
     [SerializeField] private float startForce;
 
-    [SerializeField] private GameObject bubble = null;
+    [SerializeField] public GameObject bubble = null;
 
     [SerializeField] public Vector2 startDirection = Vector2.one;
     [SerializeField] private float angle;

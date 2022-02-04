@@ -442,6 +442,7 @@ MonoBehaviour:
   bigBubble: {fileID: 0}
   timer: 0
   timescale: 0
+  tutorialUITime: 10
   itemCooldownTimer: 3
   items: []
   boss: {fileID: 0}
@@ -449,7 +450,13 @@ MonoBehaviour:
   isBossActive: 0
   spawnChest: 0
   bossDead: 0
+  isShootFortutorial: 0
+  isWalkForTutorial: 0
+  firstSpawnBubble: 1
   chest: {fileID: 0}
+  tutorialPanel: {fileID: 0}
+  shootImage: {fileID: 0}
+  walkImage: {fileID: 0}
   lights: []
 --- !u!1 &139553108
 GameObject:
@@ -7801,7 +7808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1832002976
 Transform:
   m_ObjectHideFlags: 0

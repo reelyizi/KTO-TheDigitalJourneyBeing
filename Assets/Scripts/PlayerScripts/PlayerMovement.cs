@@ -7,11 +7,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameObject invisibleTimer;
     public Transform baseWeaponMuzzle;
-    public float moveSpeed=10,mobilemoveSpeed=150;
+    public float moveSpeed = 10, mobilemoveSpeed = 150;
     private Rigidbody2D rb;
     public GameObject bullet;
     private float ScreenWidth;
-    private bool canWalk,isWalk=false;
+    private bool canWalk, isWalk = false;
     private bool canShoot;
     Animator animator;
 
@@ -22,15 +22,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float alpha = 1;
     void Start()
     {
-        animator=GetComponent<Animator>();
-        canWalk=true;canShoot=true;
-        ScreenWidth=Screen.width;
-        rb=GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        canWalk = true; canShoot = true;
+        ScreenWidth = Screen.width;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if(invinsible > 0)
+        if (invinsible > 0)
         {
             invinsible -= Time.deltaTime;
             invisibleTimer.SetActive(true);
@@ -66,60 +66,64 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        int i=0;
-        while(i<Input.touchCount)
+        int i = 0;
+        while (i < Input.touchCount)
         {
-            if(Input.GetTouch(i).position.x>ScreenWidth/2)
+            if (Input.GetTouch(i).position.x > ScreenWidth / 2)
             {
-                if(canShoot)
-                StartCoroutine(Shoot_());
+                if (canShoot)
+                {
+                    StartCoroutine(Shoot_());
+                }
+
 
             }
             ++i;
         }
-        if(Input.touchCount==0)
+        if (Input.touchCount == 0)
         {
-            animator.SetBool("isWalk",false);
-            isWalk=false;
+            animator.SetBool("isWalk", false);
+            isWalk = false;
         }
-        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(1))
-        { 
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(1))
+        {
 
-            canWalk=false;
-            if(canShoot)
+            canWalk = false;
+            if (canShoot)
                 StartCoroutine(Shoot_());
         }
 
-        if(canWalk)
+
+        MoveCharachter(Input.GetAxis("Horizontal"), moveSpeed);
+        if (!Input.anyKey)
         {
-            MoveCharachter(Input.GetAxis("Horizontal"),moveSpeed);
-        }
-        if(!Input.anyKey)
-        {
-            animator.SetBool("isWalk",false);
-            isWalk=false;
+            animator.SetBool("isWalk", false);
+            isWalk = false;
         }
     }
-    public void MoveCharachter(float input,float speed)
+    public void MoveCharachter(float input, float speed)
     {
-        isWalk=true;
-        animator.SetBool("isWalk",true);
-        transform.position+=new Vector3(input*speed*Time.deltaTime,0,0);
+        if (input != 0)
+            GameManager._instance.isWalkForTutorial = true;
+        isWalk = true;
+        animator.SetBool("isWalk", true);
+        transform.position += new Vector3(input * speed * Time.deltaTime, 0, 0);
     }
     IEnumerator Shoot_()
     {
+        GameManager._instance.isShootFortutorial = true;
         AudioManager.instance.AudioPlay("Fire");
-        animator.SetBool("isShoot",true);
-        canWalk=false;
-        canShoot=false;
-        
+        animator.SetBool("isShoot", true);
+        canWalk = false;
+        canShoot = false;
+
         Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);
         yield return new WaitForSeconds(0.05f);
         Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);
         yield return new WaitForSeconds(0.05f);
         Instantiate(bullet, baseWeaponMuzzle.position, Quaternion.identity);
-        canShoot=true;
-        canWalk=true;
-        animator.SetBool("isShoot",false); 
+        canShoot = true;
+        canWalk = true;
+        animator.SetBool("isShoot", false);
     }
 }

@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public enum GameSceneStatus { menu, gameplay };
     public enum GameNetworkStatus { online, offline };
-    public enum GameVibrationStatus {on,off};
+    public enum GameVibrationStatus { on, off };
     public GameSceneStatus gameSceneStatus;
     public GameNetworkStatus gameNetworkStatus;
     public GameVibrationStatus gameVibrationStatus;
     public static GameManager _instance;
-    
+
     private void Awake()
     {
         if (_instance == null)
@@ -28,13 +28,14 @@ public class GameManager : MonoBehaviour
                 item.SetActive(false);
             }
         }
+
     }
     public static int score = 0;
     public static float timerControl = 0;
     public float levelTime = float.MaxValue;
     private float startTime;
     public TextMeshProUGUI text, scoreText;
-    public GameObject scoreTextGameobject;
+    public GameObject scoreTextGameobject,smallestBubble,smallBubble;
     public GameObject totalBubble, group;
     [Range(1, 999)] public float maxSpawnRate;
     [Range(1, 999)] public float minSpawnRate;
@@ -44,33 +45,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] float timer;
     public static bool isGameStart = false;
     public static int highScore;
-    public float timescale,tutorialUITime=10f;
+    public float timescale, tutorialUITime = 10f;
 
     public float itemCooldownTimer = 3f;
     private float CDtimer = 0f;
     [SerializeField] List<GameObject> items;
     public GameObject boss;
-    [HideInInspector] public int bossCounter = 0;
+    [HideInInspector] public int bossCounter = 0,bubbleSpawnerCounter;
     [HideInInspector] public bool isBossActive;
     public int spawnChest;
-    [HideInInspector] public bool bossDead;
-    public GameObject chest,tutorialPanel;
+    [HideInInspector] public bool bossDead, isShootFortutorial = false, isWalkForTutorial = false;
+    public GameObject chest, tutorialPanel, shootImage, walkImage;
 
     [SerializeField] private List<GameObject> lights;
     void Start()
     {
-        //Check tutorial
-        if(PlayerPrefs.GetInt("tutorial",0)==0)
-        {
-            tutorialPanel.SetActive(true);
-            PlayerPrefs.SetInt("tutorial",1);
-            StartCoroutine(TutorialDeactive());
-        }
-        else
-        {
-            tutorialPanel.SetActive(false);
-        }
-        //End check
+
         Time.timeScale = 1;
         //Internet Connection Test
         if (InternetAvailabilityTest.gameOffline)
@@ -81,11 +71,22 @@ public class GameManager : MonoBehaviour
 
         if (gameSceneStatus == GameSceneStatus.gameplay)
         {
+            //Check tutorial
+            if (PlayerPrefs.GetInt("tutorial", 0) == 0)
+            {
+                tutorialPanel.SetActive(true);
+            }
+            else
+            {
+                tutorialPanel.SetActive(false);
+            }
+            //End check
             highScore = PlayerPrefs.GetInt("HighScore", 0);
             group.SetActive(false);
             startTime = Time.time;
             timer = Random.Range(minSpawnRate, maxSpawnRate);
-
+            bubbleSpawnerCounter=0;
+            smallBubble.GetComponent<Bubble>().bubble=null;
         }
         AudioManager.instance.StartMusic();
     }
@@ -97,6 +98,19 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 score += 50000;
+            }
+            if (isShootFortutorial)
+            {
+                shootImage.SetActive(false);
+            }
+            if (isWalkForTutorial)
+            {
+                walkImage.SetActive(false);
+            }
+            if (isShootFortutorial && isWalkForTutorial)
+            {
+                PlayerPrefs.SetInt("tutorial", 1);
+                tutorialPanel.SetActive(false);
             }
             if (!isGameStart)
             {
@@ -112,7 +126,9 @@ public class GameManager : MonoBehaviour
                 scoreText.text = score.ToString();
                 if (totalBubble.transform.childCount == 0)
                 {
-                    for (int i = 0; i < 4; i++)
+                    if(bubbleSpawnerCounter<4)
+                        bubbleSpawnerCounter++;
+                    for (int i = 0; i < bubbleSpawnerCounter; i++)
                     {
                         SpawnBubble();
                     }
@@ -138,11 +154,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    IEnumerator TutorialDeactive()
-    {
-        yield return new WaitForSeconds(tutorialUITime);
-        tutorialPanel.SetActive(false);
-    }
     IEnumerator ChestSpawner()
     {
         yield return new WaitForSeconds(Random.Range(0f, 1f)); // araliginda rastgele bir ondalikli sayi kadar bekler semih
@@ -155,6 +166,8 @@ public class GameManager : MonoBehaviour
         if (score >= 50000 + (bossCounter * 200000) && !isBossActive)
         {
             isBossActive = true;
+            //activate smallest
+            smallBubble.GetComponent<Bubble>().bubble=smallestBubble;
             Instantiate(boss, Vector3.zero, Quaternion.identity);
         }
     }
@@ -221,18 +234,18 @@ public class GameManager : MonoBehaviour
     }
     public void LoadScene(int index)
     {
-        GameManager.score=0;
+        GameManager.score = 0;
         SceneManager.LoadScene(index);
     }
     public void ChangeVibration(int index)
     {
-        if(index==0)
+        if (index == 0)
         {
-            gameVibrationStatus=GameVibrationStatus.on;
+            gameVibrationStatus = GameVibrationStatus.on;
         }
         else
         {
-            gameVibrationStatus=GameVibrationStatus.off;
+            gameVibrationStatus = GameVibrationStatus.off;
         }
     }
 }
