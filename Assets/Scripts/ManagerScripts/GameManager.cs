@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
             group.SetActive(false);
             startTime = Time.time;
             timer = Random.Range(minSpawnRate, maxSpawnRate);
-            bubbleSpawnerCounter=0;
+            bubbleSpawnerCounter=1;
             smallBubble.GetComponent<Bubble>().bubble=null;
         }
         AudioManager.instance.StartMusic();
