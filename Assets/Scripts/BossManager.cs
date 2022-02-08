@@ -10,7 +10,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] private GameObject bossBubble;
     [SerializeField] private List<Sprite> bossBubbleSprites;
     [Range(1, 30)] [SerializeField] float minBubbleSpawnRate, maxBubbleSpawnRate;
-    private List<float> spawnRate;
+    [SerializeField]private List<float> spawnRate;
     private float timer = 0;
     [SerializeField] private float bossHeadHealth, bossLeftHandHealth, bossRightHandHealth;
     [SerializeField] private List<Sprite> bossHeadSprite, bossLeftHandSprite, bossRightHandSprite;
@@ -94,11 +94,13 @@ public class BossManager : MonoBehaviour
         cloneBubbleHoles = new List<Transform>(bubbleHoles);
         //handsDestroyed=false;
         //Screen Shake And Vibration
+        #if UNITY_ANDROID
         if (gameManager.gameVibrationStatus == GameManager.GameVibrationStatus.on)
         {
-            Vibrator.Vibrate(1000);
+            //Vibrator.Vibrate(1000);
         }
-        Shake.start = true;
+        //Shake.start = true;
+        #endif
         //
         SetSpawnRate(1.5f);
     }
@@ -277,6 +279,7 @@ public class BossManager : MonoBehaviour
     private void SetSpawnRate(float additionalTime)
     {
         spawnRate = new List<float>();
+        Debug.Log(("Test"));
         for (int i = 0; i < bubbleHoles.Count; i++)
         {
             spawnRate.Add(Random.Range(minBubbleSpawnRate, maxBubbleSpawnRate) + additionalTime);
