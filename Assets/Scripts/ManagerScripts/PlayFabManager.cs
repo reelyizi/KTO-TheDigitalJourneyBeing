@@ -23,7 +23,13 @@ public class PlayFabManager : MonoBehaviour
     }
     void OnError(PlayFabError error)
     {
+        
         Debug.Log("Error while logging in/creating account!");
+        Debug.Log(error.GenerateErrorReport());
+    }
+    void OnLeaderBoardGetError(PlayFabError error)
+    {
+        GetLeaderBoardAroundPlayer();
         Debug.Log(error.GenerateErrorReport());
     }
     public void SendLeaderboard(int score)
@@ -52,7 +58,7 @@ public class PlayFabManager : MonoBehaviour
             StatisticName = "Score",
             MaxResultsCount = 10
         };
-        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnLeaderBoardGet, OnError);
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnLeaderBoardGet, OnLeaderBoardGetError);
     }
     void OnLeaderBoardGet(GetLeaderboardAroundPlayerResult result)
     {

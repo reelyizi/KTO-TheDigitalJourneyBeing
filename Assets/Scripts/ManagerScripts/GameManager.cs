@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
         if (gameSceneStatus == GameSceneStatus.gameplay)
         {
             //Check tutorial
-            PlayerPrefs.SetInt("tutorial",0);
             if (PlayerPrefs.GetInt("tutorial", 0) == 0)
             {
                 tutorialPanel.SetActive(true);
