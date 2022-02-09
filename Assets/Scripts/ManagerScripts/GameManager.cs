@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         if (gameSceneStatus == GameSceneStatus.gameplay)
         {
             //Check tutorial
+            PlayerPrefs.SetInt("tutorial",0);
             if (PlayerPrefs.GetInt("tutorial", 0) == 0)
             {
                 tutorialPanel.SetActive(true);
@@ -167,7 +168,6 @@ public class GameManager : MonoBehaviour
         {
             isBossActive = true;
             //activate smallest
-            smallBubble.GetComponent<Bubble>().bubble=smallestBubble;
             Instantiate(boss, Vector3.zero, Quaternion.identity);
         }
     }

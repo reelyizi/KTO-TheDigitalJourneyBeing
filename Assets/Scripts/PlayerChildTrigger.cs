@@ -64,18 +64,8 @@ public class PlayerChildTrigger : MonoBehaviour
                     if (gameManager.gameNetworkStatus == GameManager.GameNetworkStatus.online)
                     {
                         playFabManager.SendLeaderboard(PlayerPrefs.GetInt("HighScore"));
-                        Invoke("GetLeaderBoardStats", 2);
-
-                        for (int i = 10; i > 0; i--)
-                        {
-                            string text = "Leaderboard\nLoading ... ";
-                            loadingLeaderboardText.text = text;
-                            for (int j = 0; j < 3; j++)
-                            {
-                                text += ".";
-                                StartCoroutine(TextAnim(text));
-                            }
-                        }
+                        Invoke("GetLeaderBoardStats", 3);
+                        loadingLeaderboardText.text="Leaderboard \nLoading...";
                     }
                     else
                     {
@@ -94,11 +84,7 @@ public class PlayerChildTrigger : MonoBehaviour
             CheckItems(collision);
         }
     }
-    IEnumerator TextAnim(string text)
-    {
-        yield return new WaitForSeconds(0.2f);
-        loadingLeaderboardText.text = text;
-    }
+
     void GetLeaderBoardStats()
     {
         loadingLeaderboardText.gameObject.SetActive(false);

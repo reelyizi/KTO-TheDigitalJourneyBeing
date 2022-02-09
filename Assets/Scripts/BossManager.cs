@@ -198,6 +198,7 @@ public class BossManager : MonoBehaviour
 
             isBossDead = true;
             bossHead.GetComponent<BoxCollider2D>().enabled = false;
+            GameManager._instance.smallBubble.GetComponent<Bubble>().bubble=GameManager._instance.smallestBubble;
             //SetScore(bossHeadScore, bossHead.transform);
 
             bossHead.GetComponent<Animator>().SetTrigger("Back");
